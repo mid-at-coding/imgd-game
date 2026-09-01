@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwv46cohex4bf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vvm8"]
+bg_color = Color(0.9372549, 0.7372549, 0.5882353, 1)
+
+[node name="ui_button" type="Button"]
+custom_minimum_size = Vector2(0, 100)
+offset_left = -901.0
+offset_top = 217.0
+offset_right = -546.0
+offset_bottom = 317.0
+theme_override_colors/font_color = Color(0.45490196, 0.20784314, 0.023529412, 1)
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxFlat_0vvm8")
+text = "START"
