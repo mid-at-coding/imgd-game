@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://w7tvk11qinir"]
 
-[ext_resource type="Texture2D" uid="uid://n48y6dlw286e" path="res://Main_Menu_Ghostown.png" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://n48y6dlw286e" path="res://assets/Main_Menu_Ghostown.png" id="1_06t4h"]
 [ext_resource type="PackedScene" uid="uid://bwv46cohex4bf" path="res://scenes/ui_button.tscn" id="2_7vrkn"]
 [ext_resource type="Script" uid="uid://c32j14wlno7w6" path="res://scripts/main_menu.gd" id="2_fu7sn"]
 

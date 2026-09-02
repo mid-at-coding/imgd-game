@@ -1,7 +1,6 @@
 extends Control
 
 @onready var logo: TextureRect = $Logo
-@onready var music: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready() -> void:
 	# Make the logo invisible to start

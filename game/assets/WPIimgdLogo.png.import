@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gq54g57rv5ki"
-path="res://.godot/imported/WPIimgdLogo.png-e90363f331d32049f346428ad62d1a85.ctex"
+path="res://.godot/imported/WPIimgdLogo.png-67af2ccd1c337df0e38e6f300057c669.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/WPIimgdLogo.png"
-dest_files=["res://.godot/imported/WPIimgdLogo.png-e90363f331d32049f346428ad62d1a85.ctex"]
+source_file="res://assets/WPIimgdLogo.png"
+dest_files=["res://.godot/imported/WPIimgdLogo.png-67af2ccd1c337df0e38e6f300057c669.ctex"]
 
 [params]
 

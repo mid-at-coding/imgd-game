@@ -21,4 +21,4 @@ func _on_button_change_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/changelog.tscn")
 
 func _on_button_credits_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")
