@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://diduejeu0dsjv"]
+
+[ext_resource type="AudioStream" uid="uid://bmfifqcogbyfq" path="res://scenes/MainTheme.mp3" id="1_qn7xl"]
+
+[node name="BgmPlayer" type="AudioStreamPlayer" unique_id=953939657]
+stream = ExtResource("1_qn7xl")
+autoplay = true
