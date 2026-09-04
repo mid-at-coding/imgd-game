@@ -59,7 +59,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxEmpty_44psg")
 text = "Art - Roselyn Lai
-Music - Jonah Parness
+Music - AJ Otero, Jonah Parness
 Programming - Emelia Aleksanyan"
 
 [node name="ui_button" parent="." unique_id=1101285918 instance=ExtResource("2_2fbfq")]

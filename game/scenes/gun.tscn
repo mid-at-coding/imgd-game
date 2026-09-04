@@ -30,7 +30,7 @@ position = Vector2(35, -11)
 gizmo_extents = 30.6
 
 [node name="Timer" type="Timer" parent="." unique_id=633816227]
-wait_time = 0.353
-autostart = true
+wait_time = 0.236
+one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
