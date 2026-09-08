@@ -19,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.14044744, 0.14044744, 0.14044744, 1)
+color = Color(0.0627451, 0.2509804, 0.36862746, 1)
 
 [node name="Logo" type="TextureRect" parent="." unique_id=1905862724]
 layout_mode = 1
