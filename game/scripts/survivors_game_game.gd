@@ -1,5 +1,12 @@
+# This script is responsible for spawning mobs periodically and ending the game
+# on player death
+# Parameters: None
+# Tree:
+# [survivors_game_game] : Node2D
+# |_ ... : Path2D
+# |  |_ %PathFollow2D : Path2D
+# |_ %GameOver : CanvasLayer
 extends Node2D
-
 
 func spawn_mob1():
 	%PathFollow2D.progress_ratio = randf()

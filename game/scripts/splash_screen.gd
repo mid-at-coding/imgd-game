@@ -1,7 +1,14 @@
+# This script is responsible for showing the initial splash screen and loading
+# the main menu
+# Parameters: None
+# Tree:
+# [splash_screen]
+# |_ Logo : TextureRect
 extends Control
 
 @onready var logo: TextureRect = $Logo
 
+# Fade in, fade out, and go to main menu
 func _ready() -> void:
 	# Make the logo invisible to start
 	logo.modulate.a = 0.0
@@ -11,7 +18,6 @@ func _ready() -> void:
 	tween.tween_property(logo, "modulate:a", 1.0, 1.0) # Fade in
 	tween.tween_interval(2.0)                          # Hold visible
 	tween.tween_property(logo, "modulate:a", 0.0, 1.0) # Fade out
-	tween.tween_callback(_go_to_menu)
-
-func _go_to_menu() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	tween.tween_callback(
+		func (): get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	)
