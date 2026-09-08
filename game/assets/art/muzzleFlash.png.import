@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gq54g57rv5ki"
-path="res://.godot/imported/WPIimgdLogo.png-67af2ccd1c337df0e38e6f300057c669.ctex"
+uid="uid://brgpjilf7s2ul"
+path="res://.godot/imported/muzzleFlash.png-dab427869ab7cbcc821fbc45a0731521.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/WPIimgdLogo.png"
-dest_files=["res://.godot/imported/WPIimgdLogo.png-67af2ccd1c337df0e38e6f300057c669.ctex"]
+source_file="res://assets/art/muzzleFlash.png"
+dest_files=["res://.godot/imported/muzzleFlash.png-dab427869ab7cbcc821fbc45a0731521.ctex"]
 
 [params]
 

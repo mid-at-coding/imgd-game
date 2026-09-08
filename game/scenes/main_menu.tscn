@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://w7tvk11qinir"]
 
-[ext_resource type="Texture2D" uid="uid://n48y6dlw286e" path="res://assets/Main_Menu_Ghostown.png" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://n48y6dlw286e" path="res://assets/art/mainSplash.png" id="1_06t4h"]
 [ext_resource type="PackedScene" uid="uid://bwv46cohex4bf" path="res://scenes/ui_button.tscn" id="2_7vrkn"]
-[ext_resource type="Script" uid="uid://c32j14wlno7w6" path="res://scripts/main_menu.gd" id="2_fu7sn"]
+[ext_resource type="Script" uid="uid://c32j14wlno7w6" path="res://scripts/main_menu_button_holder.gd" id="2_fu7sn"]
 
 [sub_resource type="FontVariation" id="FontVariation_7vrkn"]
 variation_embolden = 2.0
@@ -14,7 +14,7 @@ texture = ExtResource("1_06t4h")
 
 [node name="Camera2D" type="Camera2D" parent="Sprite2D" unique_id=1842515508]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=891584084]
+[node name="button_holder" type="VBoxContainer" parent="." unique_id=891584084]
 offset_left = -887.0
 offset_top = 126.0
 offset_right = -500.0
@@ -24,14 +24,14 @@ size_flags_vertical = 2
 theme_override_constants/separation = 30
 script = ExtResource("2_fu7sn")
 
-[node name="ButtonStart" parent="VBoxContainer" unique_id=258789693 instance=ExtResource("2_7vrkn")]
+[node name="ButtonStart" parent="button_holder" unique_id=258789693 instance=ExtResource("2_7vrkn")]
 layout_mode = 2
 
-[node name="ButtonChange" parent="VBoxContainer" unique_id=878108380 instance=ExtResource("2_7vrkn")]
+[node name="ButtonChange" parent="button_holder" unique_id=878108380 instance=ExtResource("2_7vrkn")]
 layout_mode = 2
 text = "CHANGELOG"
 
-[node name="ButtonCredits" parent="VBoxContainer" unique_id=2040083655 instance=ExtResource("2_7vrkn")]
+[node name="ButtonCredits" parent="button_holder" unique_id=2040083655 instance=ExtResource("2_7vrkn")]
 layout_mode = 2
 text = "CREDITS"
 
@@ -52,6 +52,6 @@ theme_override_fonts/font = SubResource("FontVariation_7vrkn")
 theme_override_font_sizes/font_size = 80
 text = "GHOST TOWN SHOWDOWN"
 
-[connection signal="pressed" from="VBoxContainer/ButtonStart" to="VBoxContainer" method="_on_button_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonChange" to="VBoxContainer" method="_on_button_change_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonCredits" to="VBoxContainer" method="_on_button_credits_pressed"]
+[connection signal="pressed" from="button_holder/ButtonStart" to="button_holder" method="_on_button_start_pressed"]
+[connection signal="pressed" from="button_holder/ButtonChange" to="button_holder" method="_on_button_change_pressed"]
+[connection signal="pressed" from="button_holder/ButtonCredits" to="button_holder" method="_on_button_credits_pressed"]

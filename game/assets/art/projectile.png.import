@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n48y6dlw286e"
-path="res://.godot/imported/Main_Menu_Ghostown.png-88b84c4fe2cc885038bdeabdc2bcf16e.ctex"
+uid="uid://dftkbqwsfd68r"
+path="res://.godot/imported/projectile.png-112a8e610f925d98681ba1e75d197735.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Main_Menu_Ghostown.png"
-dest_files=["res://.godot/imported/Main_Menu_Ghostown.png-88b84c4fe2cc885038bdeabdc2bcf16e.ctex"]
+source_file="res://assets/art/projectile.png"
+dest_files=["res://.godot/imported/projectile.png-112a8e610f925d98681ba1e75d197735.ctex"]
 
 [params]
 

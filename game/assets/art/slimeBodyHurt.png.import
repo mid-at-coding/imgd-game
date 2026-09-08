@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brgpjilf7s2ul"
-path="res://.godot/imported/muzzle_flash.png-752b19c1a1a60c24eac6f205d487f2ea.ctex"
+uid="uid://btbxea1f3vwot"
+path="res://.godot/imported/slimeBodyHurt.png-a6830202e10e0df884798d9bd6331184.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pistol/muzzle_flash/muzzle_flash.png"
-dest_files=["res://.godot/imported/muzzle_flash.png-752b19c1a1a60c24eac6f205d487f2ea.ctex"]
+source_file="res://assets/art/slimeBodyHurt.png"
+dest_files=["res://.godot/imported/slimeBodyHurt.png-a6830202e10e0df884798d9bd6331184.ctex"]
 
 [params]
 

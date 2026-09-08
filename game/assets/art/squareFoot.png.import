@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvs0lh814pk7h"
-path="res://.godot/imported/square_face.png-b55710e3c0c134b2a2542c863daa185a.ctex"
+uid="uid://ng8e5ot0dtpd"
+path="res://.godot/imported/squareFoot.png-739fccf8ec8762cce6ef7473b6e1eb10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/square_face.png"
-dest_files=["res://.godot/imported/square_face.png-b55710e3c0c134b2a2542c863daa185a.ctex"]
+source_file="res://assets/art/squareFoot.png"
+dest_files=["res://.godot/imported/squareFoot.png-739fccf8ec8762cce6ef7473b6e1eb10.ctex"]
 
 [params]
 

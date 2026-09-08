@@ -1,7 +1,7 @@
-[gd_scene load_steps=0 format=3 uid="uid://c2qg1nuvfnd4q"]
+[gd_scene format=3 uid="uid://c2qg1nuvfnd4q"]
 
-[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://assets/ground_shadow.png" id="1_g7t2f"]
-[ext_resource type="Texture2D" uid="uid://caqfk2xng5v5u" path="res://assets/pine_tree.png" id="2_hd1ds"]
+[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://assets/art/groundShadow.png" id="1_g7t2f"]
+[ext_resource type="Texture2D" uid="uid://caqfk2xng5v5u" path="res://assets/art/pineTree.png" id="2_hd1ds"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_im3ph"]
 radius = 22.4571

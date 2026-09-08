@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qmqpm6asge1i"
-path="res://.godot/imported/square_upper_leg.png-b96cc1b96067b068b91bcd18a8088f0d.ctex"
+uid="uid://n48y6dlw286e"
+path="res://.godot/imported/mainSplash.png-d4cf52246e8ae89ffa625dabfc6604db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/square_upper_leg.png"
-dest_files=["res://.godot/imported/square_upper_leg.png-b96cc1b96067b068b91bcd18a8088f0d.ctex"]
+source_file="res://assets/art/mainSplash.png"
+dest_files=["res://.godot/imported/mainSplash.png-d4cf52246e8ae89ffa625dabfc6604db.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cai2ijnbypqtr"
-path="res://.godot/imported/slime_hurt_eyes.png-949d99cd7b490b8ee8acbbf92d4e56a4.ctex"
+path="res://.godot/imported/slimeFaceHurt.png-6e6d34635c7e9f0a20f10fa0332fd351.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/slime_hurt_eyes.png"
-dest_files=["res://.godot/imported/slime_hurt_eyes.png-949d99cd7b490b8ee8acbbf92d4e56a4.ctex"]
+source_file="res://assets/art/slimeFaceHurt.png"
+dest_files=["res://.godot/imported/slimeFaceHurt.png-6e6d34635c7e9f0a20f10fa0332fd351.ctex"]
 
 [params]
 

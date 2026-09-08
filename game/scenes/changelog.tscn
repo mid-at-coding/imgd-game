@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://uwebodxmbdip"]
 
-[ext_resource type="Texture2D" uid="uid://n48y6dlw286e" path="res://assets/Main_Menu_Ghostown.png" id="1_h7115"]
+[ext_resource type="Texture2D" uid="uid://n48y6dlw286e" path="res://assets/art/mainSplash.png" id="1_h7115"]
 [ext_resource type="PackedScene" uid="uid://bwv46cohex4bf" path="res://scenes/ui_button.tscn" id="2_44psg"]
-[ext_resource type="Script" uid="uid://djp24b56k5as7" path="res://scripts/to_main_menu.gd" id="3_bksfl"]
+[ext_resource type="Script" uid="uid://djp24b56k5as7" path="res://scripts/changelog_to_main.gd" id="3_bksfl"]
 
 [sub_resource type="FontVariation" id="FontVariation_7vrkn"]
 variation_embolden = 2.0
@@ -61,7 +61,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_bqqt6")
 text = "Build 1:
          - Added main menu, changelog, and credits"
 
-[node name="ui_button" parent="." unique_id=1101285918 instance=ExtResource("2_44psg")]
+[node name="to_main" parent="." unique_id=1101285918 instance=ExtResource("2_44psg")]
 offset_left = -936.0
 offset_top = -516.0
 offset_right = -581.0
@@ -69,4 +69,4 @@ offset_bottom = -416.0
 text = "BACK"
 script = ExtResource("3_bksfl")
 
-[connection signal="pressed" from="ui_button" to="ui_button" method="_on_pressed"]
+[connection signal="pressed" from="to_main" to="to_main" method="_on_pressed"]

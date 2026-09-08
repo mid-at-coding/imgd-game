@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dftkbqwsfd68r"
-path="res://.godot/imported/projectile.png-e03ae856d530df914009475206433400.ctex"
+uid="uid://dvgfmy6vtvjji"
+path="res://.godot/imported/slimeBody.png-14044725e213035db2ce669b072adaf3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pistol/projectile.png"
-dest_files=["res://.godot/imported/projectile.png-e03ae856d530df914009475206433400.ctex"]
+source_file="res://assets/art/slimeBody.png"
+dest_files=["res://.godot/imported/slimeBody.png-14044725e213035db2ce669b072adaf3.ctex"]
 
 [params]
 

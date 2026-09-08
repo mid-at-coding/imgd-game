@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bnqs2l4jt3uff"]
 
-[ext_resource type="Texture2D" uid="uid://n48y6dlw286e" path="res://assets/Main_Menu_Ghostown.png" id="1_0ctdu"]
+[ext_resource type="Texture2D" uid="uid://n48y6dlw286e" path="res://assets/art/mainSplash.png" id="1_0ctdu"]
 [ext_resource type="PackedScene" uid="uid://bwv46cohex4bf" path="res://scenes/ui_button.tscn" id="2_2fbfq"]
-[ext_resource type="Script" uid="uid://djp24b56k5as7" path="res://scripts/to_main_menu.gd" id="3_8gwij"]
+[ext_resource type="Script" uid="uid://djp24b56k5as7" path="res://scripts/changelog_to_main.gd" id="3_8gwij"]
 
 [sub_resource type="FontVariation" id="FontVariation_7vrkn"]
 variation_embolden = 2.0

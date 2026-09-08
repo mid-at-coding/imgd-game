@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhapxq8y8ow57"
-path="res://.godot/imported/square_lower_leg.png-5359c0ff9b1a35a3de7feb6698ceb9a7.ctex"
+uid="uid://gq54g57rv5ki"
+path="res://.godot/imported/WPIimgdLogo.png-0dd7b11472b339e8701ff34bc1bb4953.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/square_lower_leg.png"
-dest_files=["res://.godot/imported/square_lower_leg.png-5359c0ff9b1a35a3de7feb6698ceb9a7.ctex"]
+source_file="res://assets/art/WPIimgdLogo.png"
+dest_files=["res://.godot/imported/WPIimgdLogo.png-0dd7b11472b339e8701ff34bc1bb4953.ctex"]
 
 [params]
 
