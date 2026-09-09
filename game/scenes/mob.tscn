@@ -1,16 +1,17 @@
-[gd_scene format=3 uid="uid://d2m608gyssept"]
+[gd_scene format=3 uid="uid://4a4h5aa2xyig"]
 
-[ext_resource type="Script" uid="uid://ojg88pe48jk5" path="res://scripts/mob1.gd" id="1_brruw"]
-[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://scenes/slime.tscn" id="2_454e5"]
+[ext_resource type="Script" uid="uid://bdw2ybx4tgaa" path="res://scripts/creature.gd" id="1_bsing"]
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://scenes/slime.tscn" id="2_d4cuo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ypitm"]
 radius = 67.0
 
 [node name="Mob" type="CharacterBody2D" unique_id=1758012314]
 collision_layer = 2
-script = ExtResource("1_brruw")
+script = ExtResource("1_bsing")
+target = 1
 
-[node name="Slime" parent="." unique_id=339565775 instance=ExtResource("2_454e5")]
+[node name="Sprite" parent="." unique_id=339565775 instance=ExtResource("2_d4cuo")]
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=469449182]
