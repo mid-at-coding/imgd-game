@@ -59,7 +59,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bqqt6")
 text = "Build 1:
-         - Added main menu, changelog, and credits"
+         - Added main menu, changelog, and credits
+Build 2:
+         - Added mouse aim and shooting
+         - Randomized enemy health and speed
+         - Parameterized player and enemy stats"
 
 [node name="to_main" parent="." unique_id=1101285918 instance=ExtResource("2_44psg")]
 offset_left = -936.0
