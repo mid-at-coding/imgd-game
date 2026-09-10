@@ -9,9 +9,9 @@ radius = 67.0
 [node name="Mob" type="CharacterBody2D" unique_id=1758012314]
 collision_layer = 2
 script = ExtResource("1_bsing")
-target = 1
+spriteName = "Slime"
 
-[node name="Sprite" parent="." unique_id=339565775 instance=ExtResource("2_d4cuo")]
+[node name="Slime" parent="." unique_id=339565775 instance=ExtResource("2_d4cuo")]
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=469449182]

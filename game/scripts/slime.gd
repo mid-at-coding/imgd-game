@@ -14,7 +14,7 @@ func play_walk():
 		%AnimationPlayer.play("walk")
 
 # Play hurt animation, and then go back to playing movement animation
-func play_hurt():
+func play_hurt(_health):
 	%AnimationPlayer.play("hurt")
 	%AnimationPlayer.queue("walk")
 

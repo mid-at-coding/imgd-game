@@ -4,6 +4,7 @@
 #   SPEED: How fast the bullet moves, in u/s
 #   RANGE: How far the bullet can move from where it is born before it should
 #   die
+#   DAMAGE: How much damage the bullet does
 # Tree:
 # [bullet_2d] : Area2D
 extends Area2D
@@ -11,6 +12,7 @@ extends Area2D
 var travelled_distance = 0
 @export var SPEED: int = 1000
 @export var RANGE: int = 1200
+@export var DAMAGE: int = 1
 
 # Move and die if appropriate
 func _physics_process(delta):
@@ -24,4 +26,4 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	queue_free()
 	if body.has_method("take_damage"):
-		body.take_damage()
+		body.take_damage(DAMAGE)
