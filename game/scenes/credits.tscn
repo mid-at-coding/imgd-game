@@ -60,7 +60,8 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxEmpty_44psg")
 text = "Art - Roselyn Lai
 Music - AJ Otero, Jonah Parness
-Programming - Emelia Aleksanyan"
+Programming - Emelia Aleksanyan
+SFX - Jack Casey"
 
 [node name="ui_button" parent="." unique_id=1101285918 instance=ExtResource("2_2fbfq")]
 offset_left = -936.0
