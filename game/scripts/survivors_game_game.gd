@@ -8,23 +8,17 @@
 # |_ %GameOver : CanvasLayer
 extends Node2D
 
-func spawn_mob1():
+# Creates a mob
+func spawn_mob():
 	%PathFollow2D.progress_ratio = randf()
-	var new_mob = preload("res://scenes/mob1.tscn").instantiate()
+	var new_mob = preload("res://scenes/mob.tscn").instantiate()
 	new_mob.global_position = %PathFollow2D.global_position
+	new_mob.speed = randf_range(200,300)
+	new_mob.health = randi_range(1, 5)
 	add_child(new_mob)
-
-func spawn_mob2():
-	%PathFollow2D.progress_ratio = randf()
-	var new_mob = preload("res://scenes/mob2.tscn").instantiate()
-	new_mob.global_position = %PathFollow2D.global_position
-	add_child(new_mob)
-
 
 func _on_timer_timeout():
-	spawn_mob1()
-	spawn_mob2()
-
+	spawn_mob()
 
 func _on_player_health_depleted():
 	%GameOver.show()

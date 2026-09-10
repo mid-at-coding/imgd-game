@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dsw8raqgacxsc"]
 
-[ext_resource type="Script" uid="uid://bjpua3hfywlnl" path="res://scripts/player.gd" id="1_73bic"]
+[ext_resource type="Script" uid="uid://bdw2ybx4tgaa" path="res://scripts/creature.gd" id="1_dqkch"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://scenes/happy_boo.tscn" id="2_bl5ih"]
 [ext_resource type="PackedScene" uid="uid://cphcr81upg72i" path="res://scenes/gun.tscn" id="3_bt0kc"]
 [ext_resource type="Texture2D" uid="uid://bxryxvg5elvrx" path="res://assets/art/playerTemporary.png" id="3_dqkch"]
@@ -16,7 +16,11 @@ bg_color = Color(0.623529, 0.866667, 0.317647, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=1546396198]
 motion_mode = 1
-script = ExtResource("1_73bic")
+script = ExtResource("1_dqkch")
+target = 0
+speed = 600
+maxhealth = 100.0
+spriteName = "HappyBoo"
 
 [node name="HappyBoo" parent="." unique_id=984748070 instance=ExtResource("2_bl5ih")]
 unique_name_in_owner = true
@@ -53,3 +57,5 @@ offset_bottom = -150.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_a5sny")
 value = 100.0
 show_percentage = false
+
+[connection signal="health_depleted" from="HappyBoo" to="." method="_on_happy_boo_health_depleted"]
