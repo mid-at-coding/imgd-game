@@ -1,13 +1,15 @@
 # This script plays idle and walk animations
-# Parameters: None
+# Parameters:
+#   damage_rate: How much damage to take per second per enemy
 # Tree:
 # [happy_boo] : Node2D
 # |_ %AnimationPlayer : AnimationPlayer
-# TODO: Just replace this with
-# get_node("happy_boo").get_node("%AnimationPlayer").play(...) at callsites?
+# |_ %HealthBar : ProgressBar
+# |_ %HurtBox : Area2D
 extends Node2D
 
 signal health_depleted
+@export var damage_rate = 6.0
 
 # Plays idle animation
 func play_idle():
@@ -21,12 +23,11 @@ func play_walk():
 func play_hurt(health):
 	%HealthBar.value = health
 
+# Take damage
 func _physics_process(delta: float) -> void:
-	# Taking damage
-	const DAMAGE_RATE = 6.0
 	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
 	if overlapping_mobs:
-		get_parent().take_damage(DAMAGE_RATE * overlapping_mobs.size() * delta)
+		get_parent().take_damage(damage_rate * overlapping_mobs.size() * delta)
 
 # Raise death signal
 func die():
