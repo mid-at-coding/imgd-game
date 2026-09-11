@@ -23,9 +23,9 @@ func _physics_process(delta: float) -> void:
 	# If the mouse is to the left of the gun, flip vertically
 	var mouse_pos = get_global_mouse_position()
 	if mouse_pos.x < global_position.x:
-		$WeaponPivot/Pistol.flip_v = true
+		$WeaponPivot/WeaponBasic.flip_v = true
 	else:
-		$WeaponPivot/Pistol.flip_v = false
+		$WeaponPivot/WeaponBasic.flip_v = false
 	
 	# Hold down Left Mouse Button to shoot continuously based on the Timer cooldown
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and $Timer.is_stopped():
