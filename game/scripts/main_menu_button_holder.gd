@@ -3,16 +3,16 @@
 # Parameters: None
 # Tree:
 # [main_menu_button_holder]
-# |_ button_start : Button
-# |_ button_change : Button
-# |_ button_credits : Button
+# |_ button_start : TextureButton
+# |_ button_change : TextureButton
+# |_ button_credits : TextureButton
 # TODO: Should this be responsible for fading in the main menu?
 # TODO: Paramaterize scenes and spawn buttons?
 extends VBoxContainer
 
-@onready var button_start: Button = $ButtonStart
-@onready var button_change: Button = $ButtonChange
-@onready var button_credits: Button = $ButtonCredits
+@onready var button_start: TextureButton = $ButtonStart
+@onready var button_change: TextureButton = $ButtonChange
+@onready var button_credits: TextureButton = $ButtonCredits
 
 # Fade in main menu
 func _ready() -> void:
