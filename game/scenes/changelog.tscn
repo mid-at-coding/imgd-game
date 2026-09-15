@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://n48y6dlw286e" path="res://assets/art/mainSplash.png" id="1_h7115"]
 [ext_resource type="PackedScene" uid="uid://bwv46cohex4bf" path="res://scenes/ui_button.tscn" id="2_44psg"]
 [ext_resource type="Script" uid="uid://djp24b56k5as7" path="res://scripts/changelog_to_main.gd" id="3_bksfl"]
+[ext_resource type="Texture2D" uid="uid://dg5tilw2r7avy" path="res://assets/art/backButtonWood.png" id="4_78tju"]
+[ext_resource type="Texture2D" uid="uid://bk7ap526gihk7" path="res://assets/art/backButtonHolo.png" id="5_vx4tv"]
 
 [sub_resource type="FontVariation" id="FontVariation_7vrkn"]
 variation_embolden = 2.0
@@ -66,6 +68,7 @@ Build 2:
          - Parameterized player and enemy stats"
 
 [node name="to_main" parent="." unique_id=1101285918 instance=ExtResource("2_44psg")]
+visible = false
 offset_left = -936.0
 offset_top = -516.0
 offset_right = -581.0
@@ -73,4 +76,13 @@ offset_bottom = -416.0
 text = "BACK"
 script = ExtResource("3_bksfl")
 
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1845659759]
+offset_left = -939.0
+offset_top = -513.0
+offset_right = -565.0
+offset_bottom = -422.0
+texture_normal = ExtResource("4_78tju")
+texture_hover = ExtResource("5_vx4tv")
+
 [connection signal="pressed" from="to_main" to="to_main" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton" to="to_main" method="_on_texture_button_pressed"]
