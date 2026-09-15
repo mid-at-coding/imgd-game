@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dvju3jcfcynad"]
+
+[ext_resource type="Texture2D" uid="uid://c6vvoye1b325a" path="res://assets/art/saloon.png" id="1_mu0e1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ebrl"]
+size = Vector2(161.5, 214.5)
+
+[node name="saloon" type="StaticBody2D" unique_id=1980566653]
+
+[node name="Saloon" type="Sprite2D" parent="." unique_id=1121655881]
+position = Vector2(14, -128)
+texture = ExtResource("1_mu0e1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=202185534]
+position = Vector2(1, -159)
+shape = SubResource("RectangleShape2D_5ebrl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=219251788]
+position = Vector2(-156, -114)
+shape = SubResource("RectangleShape2D_5ebrl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=233833475]
+position = Vector2(154.75, -114)
+shape = SubResource("RectangleShape2D_5ebrl")

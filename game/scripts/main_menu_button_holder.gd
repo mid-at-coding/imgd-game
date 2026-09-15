@@ -26,7 +26,7 @@ func _ready() -> void:
 
 func _on_button_start_pressed() -> void:
 	Bgm.stop() # Stops the menu track immediately
-	get_tree().change_scene_to_file("res://scenes/survivors_game.tscn")
+	get_tree().change_scene_to_file("res://scenes/level1_game.tscn")
 
 func _on_button_change_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/changelog.tscn")

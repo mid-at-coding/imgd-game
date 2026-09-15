@@ -82,6 +82,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Bgm="*uid://diduejeu0dsjv"
+NavigationManager="*uid://cuw8udljq78pb"
 
 [display]
 

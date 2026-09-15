@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bdw2ybx4tgaa" path="res://scripts/creature.gd" id="1_dqkch"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://scenes/happy_boo.tscn" id="2_bl5ih"]
 [ext_resource type="PackedScene" uid="uid://cphcr81upg72i" path="res://scenes/gun.tscn" id="3_bt0kc"]
-[ext_resource type="Texture2D" uid="uid://bxryxvg5elvrx" path="res://assets/art/playerTemporary.png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://crr1lphft7tx8" path="res://assets/art/playerStand.png" id="3_qlg0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csncd"]
@@ -30,11 +29,6 @@ visible = false
 [node name="PlayerStand" type="Sprite2D" parent="." unique_id=1719410270]
 position = Vector2(-2, -54)
 texture = ExtResource("3_qlg0r")
-
-[node name="PlayerTemporary" type="Sprite2D" parent="." unique_id=1638612577]
-visible = false
-position = Vector2(-3, -53)
-texture = ExtResource("3_dqkch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2129353866]
 shape = SubResource("RectangleShape2D_csncd")

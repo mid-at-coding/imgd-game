@@ -1,13 +1,16 @@
 [gd_scene format=4 uid="uid://cr6ch3larx25t"]
 
 [ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://scenes/player.tscn" id="1_ev4l4"]
+[ext_resource type="Script" uid="uid://lg4k6vnvymk" path="res://scripts/level.gd" id="1_tiom6"]
 [ext_resource type="Texture2D" uid="uid://b2owduqhdi1p3" path="res://assets/art/wildWestTiles.png" id="2_3iph8"]
 [ext_resource type="PackedScene" uid="uid://go74e5lv2gn7" path="res://scenes/house1.tscn" id="3_bmwat"]
 [ext_resource type="PackedScene" uid="uid://mhjhoyj0y1mx" path="res://scenes/house2.tscn" id="4_ono8l"]
 [ext_resource type="PackedScene" uid="uid://dlpr3ebja4y7a" path="res://scenes/house3.tscn" id="5_0pvwb"]
 [ext_resource type="PackedScene" uid="uid://cwpvkvedavhge" path="res://scenes/house4.tscn" id="6_87ii0"]
+[ext_resource type="PackedScene" uid="uid://dvju3jcfcynad" path="res://scenes/saloon.tscn" id="7_a8y81"]
+[ext_resource type="PackedScene" uid="uid://b8447letixese" path="res://scenes/door.tscn" id="8_vq7yb"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bmwat"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vq7yb"]
 texture = ExtResource("2_3iph8")
 margins = Vector2i(111, 54)
 texture_region_size = Vector2i(116, 116)
@@ -25,10 +28,11 @@ texture_region_size = Vector2i(116, 116)
 
 [sub_resource type="TileSet" id="TileSet_3iph8"]
 tile_size = Vector2i(116, 116)
-sources/0 = SubResource("TileSetAtlasSource_bmwat")
+sources/0 = SubResource("TileSetAtlasSource_vq7yb")
 
 [node name="Game" type="Node2D" unique_id=1823023380]
 y_sort_enabled = true
+script = ExtResource("1_tiom6")
 
 [node name="BG" type="TileMapLayer" parent="." unique_id=905373993]
 z_index = -1
@@ -44,7 +48,7 @@ tile_map_data = PackedByteArray("AAAKAAIAAAAKAAMAAAAFAAUAAAAMAAMAAAADAAIAAAAMAAM
 tile_set = SubResource("TileSet_3iph8")
 
 [node name="Player" parent="." unique_id=1546396198 instance=ExtResource("1_ev4l4")]
-position = Vector2(4, 82)
+position = Vector2(968, 1567)
 
 [node name="house1" parent="." unique_id=1980566653 instance=ExtResource("3_bmwat")]
 position = Vector2(483, -27)
@@ -63,3 +67,21 @@ position = Vector2(1612, 941)
 
 [node name="house6" parent="." unique_id=1806935289 instance=ExtResource("6_87ii0")]
 position = Vector2(363, 1087)
+
+[node name="saloon" parent="." unique_id=141192415 instance=ExtResource("7_a8y81")]
+position = Vector2(957, -319)
+
+[node name="Doors" type="Node" parent="." unique_id=2106538291]
+
+[node name="Door_Saloon" parent="Doors" unique_id=883638600 instance=ExtResource("8_vq7yb")]
+position = Vector2(966, -375)
+destination_level_tag = "dungeon_saloon_game"
+destination_door_tag = "Entrance"
+
+[node name="CollisionShape2D" parent="Doors/Door_Saloon" index="0" unique_id=1437705022]
+position = Vector2(-1.9999999, 35.999996)
+
+[node name="Spawn" parent="Doors/Door_Saloon" index="1" unique_id=1116256810]
+position = Vector2(-1, 98)
+
+[editable path="Doors/Door_Saloon"]

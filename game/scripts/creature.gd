@@ -40,6 +40,10 @@ func _ready():
 	if target == TargetMode.FOLLOW:
 		player = get_node("/root/Game/Player")
 	sprite.play_idle()
+	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
+	
+func _on_spawn(position: Vector2, direction: String):
+	global_position = position
 
 # Construct a creature with certain parameters
 @warning_ignore("shadowed_variable")
