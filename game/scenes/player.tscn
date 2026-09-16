@@ -49,6 +49,8 @@ shape = SubResource("RectangleShape2D_csncd")
 
 [node name="ParameterGun" parent="." unique_id=941152522 instance=ExtResource("3_qhqgy")]
 gun_data = SubResource("Resource_dqkch")
+ammo_consumption = -1
+ammo = 3
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=698633368]
 unique_name_in_owner = true

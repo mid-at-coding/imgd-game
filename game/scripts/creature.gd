@@ -29,8 +29,6 @@
 # |_ Game
 # |  |_ Player
 # ...
-# TODO: Add attacking and damage parameter
-# TODO: Parameterize sprite name
 # TODO: Make the sprite an interface
 class_name Creature extends CharacterBody2D
 
@@ -48,7 +46,7 @@ func _ready():
 	sprite.play_idle()
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 	
-func _on_spawn(position: Vector2, _direction: String):
+func _on_spawn(position: Vector2, direction: String):
 	global_position = position
 
 # Construct a creature with certain parameters

@@ -5,6 +5,11 @@
 #     MOUSE: Aim towards the mouse
 #     PLAYER: Aim towards the player
 #     CONSTANT: Don't change aim
+#   AmmoConsumption - How much ammo to consume per .shoot()
+#     >= 1: Ammo decreases by AmmoConsumption * the amount of fired bullets
+#     0: Ammo is not consumed
+#     <= -1: Ammo decreases by |AmmoConsumption| per shot, regardless of how
+#       many bullets were fired
 # Tree:
 # [parameter_gun] : ParameterGun
 # |_ Timer : Timer
@@ -22,6 +27,8 @@ const BULLET_SCENE = preload("res://scenes/bullet_2d.tscn")
 enum TargetMode { MOUSE, PLAYER, CONSTANT }
 @export var gun_data : GunData
 @export var target : TargetMode
+@export var ammo_consumption : int = 0
+@export var ammo = 0
 var player
 
 func _ready() -> void:
@@ -48,12 +55,28 @@ func _physics_process(delta: float) -> void:
 	else:
 		$WeaponPivot/WeaponBasic.flip_v = false
 
+# Returns how much ammo would be consumed on a shoot()
+func _get_consumption() -> int:
+	if (ammo_consumption == 0):
+		return 0
+	elif (ammo_consumption > 0):
+		return ammo_consumption * gun_data.bullets
+	return abs(ammo_consumption)
+
 # Try to fire
 func fire() -> void:
-	if $Timer.is_stopped():
-		shoot()
-		$Timer.set_wait_time(1.0/gun_data.fire_rate)
-		$Timer.start()
+	# Don't fire if we're cooling down
+	if !$Timer.is_stopped():
+		return
+	# Don't fire if we don't have ammo
+	if (ammo - _get_consumption() < 0):
+		return
+	if (target == TargetMode.MOUSE):
+		print(ammo, " - ", _get_consumption())
+	ammo -= _get_consumption()
+	shoot()
+	$Timer.set_wait_time(1.0/gun_data.fire_rate)
+	$Timer.start()
 
 # Unconditionally pawn bullets from gun
 func shoot() -> void:
