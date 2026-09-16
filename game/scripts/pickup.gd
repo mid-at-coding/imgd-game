@@ -50,7 +50,7 @@ func _compare_prop(first : float, second : float) -> String:
 	var regex = RegEx.create_from_string("(0+)([0-9]*)\\.")
 	return \
 	regex.sub(format % \
-	[first, 
+	[first,
 	"green" if first > second else "red" if first < second else "grey", 
 	first - second], "[color=dim_gray]$1[/color]$2.")
 
@@ -71,7 +71,6 @@ func _update_and_show_hover() -> void:
 	Max Health:   %s
 	Speed:        %s
 	"""
-	
 	const consumable_format = """
 	%s: +%s
 	"""
@@ -79,7 +78,7 @@ func _update_and_show_hover() -> void:
 		var curr : GunData = player.gun.gun_data
 		var new : GunData = diff
 		# TODO: set this dynamically
-		label.size = Vector2(715, 400)
+		label.size = Vector2(715, 350)
 		label.clear()
 		label.append_text(gun_format % \
 		[_compare_prop(new.fire_rate, curr.fire_rate),
