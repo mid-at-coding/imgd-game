@@ -26,6 +26,7 @@ metadata/_custom_type_script = "uid://bx7gx2juhxy5s"
 [sub_resource type="Resource" id="Resource_dqkch"]
 script = ExtResource("5_tuyoq")
 bullet = SubResource("Resource_fjrip")
+ammo_consumption = 1
 metadata/_custom_type_script = "uid://2hlvq8ucffqs"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfffa"]
@@ -49,7 +50,6 @@ shape = SubResource("RectangleShape2D_csncd")
 
 [node name="ParameterGun" parent="." unique_id=941152522 instance=ExtResource("3_qhqgy")]
 gun_data = SubResource("Resource_dqkch")
-ammo_consumption = -1
 ammo = 3
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=698633368]

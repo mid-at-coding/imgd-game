@@ -5,6 +5,8 @@
 #     CREATURE: The resource is a CreatureData which will replace 
 #       player.creature_data
 #     GUN: The resource is a BulletData which will replace player.gun.gun_data 
+#     CONSUMABLE: The resource is a ConsumablePickup which will be applied to
+#       the player
 #   CreateHover - Whether a hover canvas layer should be created based on
 #     stats
 #   Diff - The resource to apply to the player's data
@@ -20,7 +22,7 @@ class_name Pickup extends Area2D
 @onready var sprite : Node2D = get_node("Sprite")
 @onready var hover : CanvasLayer = null
 @export var diff : Resource
-enum PickupType { CREATURE, GUN }
+enum PickupType { CREATURE, GUN, CONSUMABLE }
 @export var type : PickupType
 @export var create_hover : bool = false
 @onready var player : Creature = get_node("/root/Game/Player")
@@ -45,7 +47,12 @@ func _ready() -> void:
 
 func _compare_prop(first : float, second : float) -> String:
 	const format = "%08.2f [color=%s](%+08.2f)[/color]"
-	return format % [first, "green" if first > second else "red" if first < second else "grey", first - second]
+	var regex = RegEx.create_from_string("(0+)([0-9]*)\\.")
+	return \
+	regex.sub(format % \
+	[first, 
+	"green" if first > second else "red" if first < second else "grey", 
+	first - second], "[color=dim_gray]$1[/color]$2.")
 
 # Updates the data within the hover before showing if we own it
 func _update_and_show_hover() -> void:
@@ -58,12 +65,15 @@ func _update_and_show_hover() -> void:
 	Spread:       %s
 	Bullet Speed: %s
 	Damage:       %s
-	%s to pick up
+	Ammo Usage:   %s
 	"""
 	const creature_format = """
 	Max Health:   %s
 	Speed:        %s
-	%s to pick up
+	"""
+	
+	const consumable_format = """
+	%s: +%s
 	"""
 	if (type == PickupType.GUN):
 		var curr : GunData = player.gun.gun_data
@@ -77,7 +87,7 @@ func _update_and_show_hover() -> void:
 		 _compare_prop(new.spread_angle, curr.spread_angle),
 		 _compare_prop(new.bullet.speed, curr.bullet.speed),
 		 _compare_prop(new.bullet.damage, curr.bullet.damage),
-		 InputMap.action_get_events("accept_pickup")[0].as_text()])
+		 _compare_prop(-ParameterGun.get_consumption(new), -ParameterGun.get_consumption(curr))])
 	
 	elif (type == PickupType.CREATURE):
 		var curr : CreatureData = player.creature_data
@@ -87,9 +97,19 @@ func _update_and_show_hover() -> void:
 		label.clear()
 		label.append_text(creature_format % \
 		[_compare_prop(new.maxhealth, curr.maxhealth),
-		 _compare_prop(new.speed, curr.speed),
-		 InputMap.action_get_events("accept_pickup")[0].as_text()])
+		 _compare_prop(new.speed, curr.speed)])
 	
+	elif (type == PickupType.CONSUMABLE):
+		var pickup : ConsumablePickup = diff
+		# TODO: set this dynamically
+		label.size = Vector2(715, 150)
+		label.clear()
+		if (pickup.health != 0):
+			label.append_text(consumable_format % ["Health", pickup.health])
+		if (pickup.ammo != 0):
+			label.append_text(consumable_format % ["Ammo", pickup.ammo])
+	
+	label.append_text("%s to pick up" % InputMap.action_get_events("accept_pickup")[0].as_text())
 	# Add themes
 	label.theme = preload("res://themes/pickupLabel.tres")
 	label.add_theme_stylebox_override("normal", preload("res://themes/pickupLabelNormal.tres"))
@@ -101,9 +121,13 @@ func _process(_delta: float) -> void:
 	if (!hover.visible || !Input.is_action_pressed("accept_pickup")):
 		return
 	if (type == PickupType.CREATURE):
-		player.creature_data = diff
+		player.creature_data.maxhealth = diff.maxhealth
+		player.creature_data.speed = diff.speed
 	if (type == PickupType.GUN):
 		player.gun.gun_data = diff
+	if (type == PickupType.CONSUMABLE):
+		player.health += diff.health
+		player.gun.ammo += diff.ammo
 	hover.hide()
 	sprite.play_pickup()
 	queue_free()

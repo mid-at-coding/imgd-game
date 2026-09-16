@@ -8,3 +8,5 @@ class_name GunData extends Resource
 @export var spread_angle : float = deg_to_rad(15)
 ## The bullets being shot
 @export var bullet : BulletData = BulletData.new()
+## How much ammo is spent per shot (see parameter_gun.gd)
+@export var ammo_consumption : int = 0

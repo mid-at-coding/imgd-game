@@ -27,7 +27,6 @@ const BULLET_SCENE = preload("res://scenes/bullet_2d.tscn")
 enum TargetMode { MOUSE, PLAYER, CONSTANT }
 @export var gun_data : GunData
 @export var target : TargetMode
-@export var ammo_consumption : int = 0
 @export var ammo = 0
 var player
 
@@ -56,7 +55,8 @@ func _physics_process(delta: float) -> void:
 		$WeaponPivot/WeaponBasic.flip_v = false
 
 # Returns how much ammo would be consumed on a shoot()
-func _get_consumption() -> int:
+static func get_consumption(gun_data : GunData) -> int:
+	var ammo_consumption = gun_data.ammo_consumption
 	if (ammo_consumption == 0):
 		return 0
 	elif (ammo_consumption > 0):
@@ -69,11 +69,9 @@ func fire() -> void:
 	if !$Timer.is_stopped():
 		return
 	# Don't fire if we don't have ammo
-	if (ammo - _get_consumption() < 0):
+	if (ammo - get_consumption(gun_data) < 0):
 		return
-	if (target == TargetMode.MOUSE):
-		print(ammo, " - ", _get_consumption())
-	ammo -= _get_consumption()
+	ammo -= get_consumption(gun_data)
 	shoot()
 	$Timer.set_wait_time(1.0/gun_data.fire_rate)
 	$Timer.start()
