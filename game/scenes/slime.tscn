@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://c055juj57t86b" path="res://scripts/slime.gd" id="1_87y5x"]
 [ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://assets/art/groundShadow.png" id="1_cq7ej"]
 [ext_resource type="Texture2D" uid="uid://c078jrp2yvc4s" path="res://assets/art/slimeFace.png" id="2_ygydt"]
-[ext_resource type="Texture2D" uid="uid://psjecpyx5kqs" path="res://assets/art/ghostEnemy.png" id="3_gstla"]
 [ext_resource type="Texture2D" uid="uid://btbxea1f3vwot" path="res://assets/art/slimeBodyHurt.png" id="4_0qu0c"]
 [ext_resource type="Texture2D" uid="uid://cai2ijnbypqtr" path="res://assets/art/slimeFaceHurt.png" id="4_hi70h"]
+[ext_resource type="Texture2D" uid="uid://be2ix5wf6170e" path="res://assets/art/ghostMoveSpritesheet.png" id="7_gstla"]
 
 [sub_resource type="Animation" id="Animation_y4lve"]
 length = 0.001
@@ -212,6 +212,49 @@ _data = {
 &"walk": SubResource("Animation_l6fy2")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5wyi"]
+atlas = ExtResource("7_gstla")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l8pv"]
+atlas = ExtResource("7_gstla")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnioy"]
+atlas = ExtResource("7_gstla")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xjuo"]
+atlas = ExtResource("7_gstla")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a02ik"]
+atlas = ExtResource("7_gstla")
+region = Rect2(0, 200, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ebrl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5wyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l8pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnioy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xjuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a02ik")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Slime" type="Node2D" unique_id=972096811]
 script = ExtResource("1_87y5x")
 
@@ -224,10 +267,6 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_cq7ej")
 
 [node name="Anchor" type="Marker2D" parent="." unique_id=1733491898]
-
-[node name="GhostEnemy" type="Sprite2D" parent="Anchor" unique_id=697022247]
-position = Vector2(-7, -40)
-texture = ExtResource("3_gstla")
 
 [node name="SlimeBody" type="Sprite2D" parent="Anchor" unique_id=1305489894]
 visible = false
@@ -249,3 +288,10 @@ texture = ExtResource("2_ygydt")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1998800681]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_j6cum")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1910058800]
+position = Vector2(-3, -43)
+sprite_frames = SubResource("SpriteFrames_5ebrl")
+autoplay = "default"
+frame = 3
+frame_progress = 0.4401739

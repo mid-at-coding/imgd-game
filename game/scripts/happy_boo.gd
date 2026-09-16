@@ -6,17 +6,22 @@
 # |_ %AnimationPlayer : AnimationPlayer
 # |_ %HealthBar : ProgressBar
 # |_ %HurtBox : Area2D
+# TODO adjust happyboo code to be new Player code (code that uses %AnimationPlayer are old)
 extends Node2D
 
 signal health_depleted
 @export var damage_rate = 6.0
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 # Plays idle animation
 func play_idle():
+	animated_sprite_2d.play("idle")
 	%AnimationPlayer.play("idle")
+
 
 # Plays walk animation
 func play_walk():
+	animated_sprite_2d.play("walk")
 	%AnimationPlayer.play("walk")
 
 # There is no hurt animation, currently
@@ -28,6 +33,10 @@ func _physics_process(delta: float) -> void:
 	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
 	if overlapping_mobs:
 		get_parent().take_damage(damage_rate * overlapping_mobs.size() * delta)
+	var direction := Input.get_axis("move_left", "move_right")
+	# Flip based on input direction
+	if direction != 0:
+		animated_sprite_2d.flip_h = direction > 0
 
 # Raise death signal
 func die():
