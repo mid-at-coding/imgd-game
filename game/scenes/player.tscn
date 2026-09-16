@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://xp88v303vdqs" path="res://scenes/parameter_gun.tscn" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="4_qlg0r"]
 [ext_resource type="Script" uid="uid://2hlvq8ucffqs" path="res://scripts/gun_data.gd" id="5_tuyoq"]
+[ext_resource type="Script" uid="uid://c5qutix84lema" path="res://scripts/happy_boo_vitals_display.gd" id="7_smehm"]
+[ext_resource type="Theme" uid="uid://bavulhgkdvqfg" path="res://themes/pickupLabel.tres" id="8_ur7pv"]
 
 [sub_resource type="Resource" id="Resource_lw0rm"]
 script = ExtResource("2_tuyoq")
@@ -34,6 +36,13 @@ size = Vector2(84, 54)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5sny"]
 bg_color = Color(0.623529, 0.866667, 0.317647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4r1p"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0, 0, 0, 0.3647059)
 
 [node name="Player" type="CharacterBody2D" unique_id=1546396198]
 motion_mode = 1
@@ -71,5 +80,31 @@ offset_bottom = -150.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_a5sny")
 value = 100.0
 show_percentage = false
+
+[node name="VitalsDisplay" type="VBoxContainer" parent="." unique_id=2111633980]
+unique_name_in_owner = true
+z_index = 3
+offset_left = -960.0
+offset_right = -600.0
+offset_bottom = 314.0
+script = ExtResource("7_smehm")
+
+[node name="HealthDisplay" type="RichTextLabel" parent="VitalsDisplay" unique_id=1104343476]
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("8_ur7pv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y4r1p")
+text = "HEALTH"
+fit_content = true
+scroll_active = false
+
+[node name="AmmoDisplay" type="RichTextLabel" parent="VitalsDisplay" unique_id=1716619253]
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("8_ur7pv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y4r1p")
+text = "AMMO"
+fit_content = true
+scroll_active = false
 
 [connection signal="health_depleted" from="HappyBoo" to="." method="_on_happy_boo_health_depleted"]

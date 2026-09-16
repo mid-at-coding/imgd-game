@@ -47,11 +47,11 @@ func _ready() -> void:
 
 func _compare_prop(first : float, second : float) -> String:
 	const format = "%08.2f [color=%s](%+08.2f)[/color]"
-	var regex = RegEx.create_from_string("(0+)([0-9]*)\\.")
+	var regex = RegEx.create_from_string("(0+)([0-9]+)\\.")
 	return \
 	regex.sub(format % \
 	[first,
-	"green" if first > second else "red" if first < second else "grey", 
+	"green" if first > second else "red" if first < second else "dim_gray", 
 	first - second], "[color=dim_gray]$1[/color]$2.")
 
 # Updates the data within the hover before showing if we own it

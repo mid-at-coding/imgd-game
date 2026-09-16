@@ -10,8 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dvju3jcfcynad" path="res://scenes/saloon.tscn" id="7_a8y81"]
 [ext_resource type="PackedScene" uid="uid://b8447letixese" path="res://scenes/door.tscn" id="8_vq7yb"]
 [ext_resource type="PackedScene" uid="uid://dtt6j3lit86i4" path="res://scenes/pickup.tscn" id="10_lw0rm"]
-[ext_resource type="PackedScene" uid="uid://4a4h5aa2xyig" path="res://scenes/mob.tscn" id="10_nbohw"]
-[ext_resource type="PackedScene" uid="uid://xp88v303vdqs" path="res://scenes/parameter_gun.tscn" id="11_3ttha"]
 [ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://assets/art/pistol.png" id="11_kbsvw"]
 [ext_resource type="Script" uid="uid://c6i4d2u6eqgrw" path="res://scripts/level1_game_pickup_sprite.gd" id="12_rkm4h"]
 [ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="12_uqpmc"]
@@ -73,28 +71,6 @@ ammo = 50
 health = 0
 metadata/_custom_type_script = "uid://7nwxxdev5n8t"
 
-[sub_resource type="Resource" id="Resource_fjrip"]
-script = ExtResource("14_kbsvw")
-shoot = 1
-speed = 150
-spriteName = "Slime"
-ownerMask = 1
-metadata/_custom_type_script = "uid://d1746gglsvtso"
-
-[sub_resource type="Resource" id="Resource_lw0rm"]
-script = ExtResource("12_uqpmc")
-owner = 1
-metadata/_custom_type_script = "uid://bx7gx2juhxy5s"
-
-[sub_resource type="Resource" id="Resource_7cd6e"]
-script = ExtResource("13_aq4rc")
-fire_rate = 1
-bullets = 1
-bullet = SubResource("Resource_lw0rm")
-metadata/_custom_type_script = "uid://2hlvq8ucffqs"
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1donq"]
-
 [node name="Game" type="Node2D" unique_id=1823023380]
 y_sort_enabled = true
 script = ExtResource("1_tiom6")
@@ -150,7 +126,7 @@ position = Vector2(-1.9999999, 35.999996)
 position = Vector2(-1, 98)
 
 [node name="Pickup" parent="." unique_id=1561076725 instance=ExtResource("10_lw0rm")]
-position = Vector2(955, 986)
+position = Vector2(1258, 903)
 diff = SubResource("Resource_pg2rt")
 type = 1
 create_hover = true
@@ -163,7 +139,7 @@ texture = ExtResource("11_kbsvw")
 script = ExtResource("12_rkm4h")
 
 [node name="Pickup2" parent="." unique_id=1492556882 instance=ExtResource("10_lw0rm")]
-position = Vector2(915, 697)
+position = Vector2(1258, 775)
 diff = SubResource("Resource_rkm4h")
 create_hover = true
 
@@ -176,7 +152,7 @@ texture = ExtResource("16_rkm4h")
 script = ExtResource("12_rkm4h")
 
 [node name="Pickup3" parent="." unique_id=1820550585 instance=ExtResource("10_lw0rm")]
-position = Vector2(1119, 702)
+position = Vector2(1254, 642)
 diff = SubResource("Resource_ve1sm")
 type = 2
 create_hover = true
@@ -190,7 +166,7 @@ texture = ExtResource("16_rkm4h")
 script = ExtResource("12_rkm4h")
 
 [node name="Pickup4" parent="." unique_id=649577813 instance=ExtResource("10_lw0rm")]
-position = Vector2(1286, 704)
+position = Vector2(1255, 502)
 diff = SubResource("Resource_elns2")
 type = 2
 create_hover = true
@@ -202,18 +178,5 @@ shape = SubResource("RectangleShape2D_ybxbt")
 modulate = Color(1.1755697, 0, 0.024115214, 1)
 texture = ExtResource("16_rkm4h")
 script = ExtResource("12_rkm4h")
-
-[node name="Mob" parent="." unique_id=1758012314 instance=ExtResource("10_nbohw")]
-position = Vector2(968, 1719)
-creature_data = SubResource("Resource_fjrip")
-
-[node name="ParameterGun" parent="Mob" unique_id=941152522 instance=ExtResource("11_3ttha")]
-position = Vector2(-19, 3)
-gun_data = SubResource("Resource_7cd6e")
-target = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1709796092]
-position = Vector2(968, 1719)
-shape = SubResource("WorldBoundaryShape2D_1donq")
 
 [editable path="Doors/Door_Saloon"]
