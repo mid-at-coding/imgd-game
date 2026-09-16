@@ -9,10 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://cwpvkvedavhge" path="res://scenes/house4.tscn" id="6_87ii0"]
 [ext_resource type="PackedScene" uid="uid://dvju3jcfcynad" path="res://scenes/saloon.tscn" id="7_a8y81"]
 [ext_resource type="PackedScene" uid="uid://b8447letixese" path="res://scenes/door.tscn" id="8_vq7yb"]
+[ext_resource type="PackedScene" uid="uid://dtt6j3lit86i4" path="res://scenes/pickup.tscn" id="10_lw0rm"]
 [ext_resource type="PackedScene" uid="uid://4a4h5aa2xyig" path="res://scenes/mob.tscn" id="10_nbohw"]
 [ext_resource type="PackedScene" uid="uid://xp88v303vdqs" path="res://scenes/parameter_gun.tscn" id="11_3ttha"]
+[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://assets/art/pistol.png" id="11_kbsvw"]
+[ext_resource type="Script" uid="uid://c6i4d2u6eqgrw" path="res://scripts/level1_game_pickup_sprite.gd" id="12_rkm4h"]
 [ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="12_uqpmc"]
 [ext_resource type="Script" uid="uid://2hlvq8ucffqs" path="res://scripts/gun_data.gd" id="13_aq4rc"]
+[ext_resource type="Script" uid="uid://d1746gglsvtso" path="res://scripts/creature_data.gd" id="14_kbsvw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vq7yb"]
 texture = ExtResource("2_3iph8")
@@ -33,6 +37,27 @@ texture_region_size = Vector2i(116, 116)
 [sub_resource type="TileSet" id="TileSet_3iph8"]
 tile_size = Vector2i(116, 116)
 sources/0 = SubResource("TileSetAtlasSource_vq7yb")
+
+[sub_resource type="Resource" id="Resource_kbsvw"]
+script = ExtResource("12_uqpmc")
+metadata/_custom_type_script = "uid://bx7gx2juhxy5s"
+
+[sub_resource type="Resource" id="Resource_pg2rt"]
+script = ExtResource("13_aq4rc")
+fire_rate = 3
+bullets = 5
+bullet = SubResource("Resource_kbsvw")
+metadata/_custom_type_script = "uid://2hlvq8ucffqs"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybxbt"]
+
+[sub_resource type="Resource" id="Resource_fjrip"]
+script = ExtResource("14_kbsvw")
+shoot = 1
+speed = 150
+spriteName = "Slime"
+ownerMask = 1
+metadata/_custom_type_script = "uid://d1746gglsvtso"
 
 [sub_resource type="Resource" id="Resource_lw0rm"]
 script = ExtResource("12_uqpmc")
@@ -102,13 +127,36 @@ position = Vector2(-1.9999999, 35.999996)
 [node name="Spawn" parent="Doors/Door_Saloon" index="1" unique_id=1116256810]
 position = Vector2(-1, 98)
 
+[node name="Hover" type="CanvasLayer" parent="." unique_id=2075084159]
+visible = false
+
+[node name="Label" type="Label" parent="Hover" unique_id=709820611]
+offset_left = 947.0
+offset_top = 322.0
+offset_right = 1078.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 45
+text = "BITCH"
+
+[node name="Pickup" parent="." unique_id=1561076725 instance=ExtResource("10_lw0rm")]
+position = Vector2(1019, 394)
+diff = SubResource("Resource_pg2rt")
+type = 1
+create_hover = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup" unique_id=777948372]
+shape = SubResource("RectangleShape2D_ybxbt")
+
+[node name="Sprite" type="Sprite2D" parent="Pickup" unique_id=605655283]
+texture = ExtResource("11_kbsvw")
+script = ExtResource("12_rkm4h")
+
 [node name="Mob" parent="." unique_id=1758012314 instance=ExtResource("10_nbohw")]
 position = Vector2(968, 1719)
-shoot = 1
-speed = 100
-ownerMask = 1
+creature_data = SubResource("Resource_fjrip")
 
 [node name="ParameterGun" parent="Mob" unique_id=941152522 instance=ExtResource("11_3ttha")]
+position = Vector2(-19, 3)
 gun_data = SubResource("Resource_7cd6e")
 target = 1
 

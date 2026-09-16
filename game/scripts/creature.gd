@@ -1,10 +1,11 @@
-# This class is responsible for managing a creature with stats, which involves
-# - Moving
-# - Taking damage and dying
-# - Playing animations
-#   - Idle when velocity == 0
-#   - Walking when velocity > 0
-#   - Hurt when hit
+## This class is responsible for managing a creature with stats, which involves
+## - Moving
+## - Taking damage and dying
+## - Playing animations
+##   - Idle when velocity == 0
+##   - Walking when velocity > 0
+##   - Hurt when hit
+## - Firing a ParameterGun
 # Parameters:
 #   Movement: Enum to select how the creature should move
 #     INPUT  - Move based on input
@@ -35,22 +36,14 @@ class_name Creature extends CharacterBody2D
 
 signal health_depleted
 
-enum TargetMode { INPUT, FOLLOW, STAND }
-enum ShootMode { NEVER, ALWAYS, MOUSE }
-@export var movement = TargetMode.FOLLOW
-@export var shoot = ShootMode.NEVER
-@export var speed = 200
-@export var maxhealth = 3.0
-@export var spriteName = "Sprite"
-@export var gunName = "ParameterGun"
-@export var ownerMask : BulletData.OwnerClass = BulletData.OwnerClass.PLAYER
-@onready var sprite = get_node(spriteName)
-@onready var gun = get_node(gunName)
-@onready var health = maxhealth
+@export var creature_data : CreatureData = CreatureData.new()
+@onready var sprite = get_node(creature_data.spriteName)
+@onready var gun : ParameterGun = get_node(creature_data.gunName)
+@onready var health = creature_data.maxhealth
 var player
 
 func _ready():
-	if movement == TargetMode.FOLLOW:
+	if creature_data.movement == CreatureData.TargetMode.FOLLOW:
 		player = get_node("/root/Game/Player")
 	sprite.play_idle()
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
@@ -60,27 +53,25 @@ func _on_spawn(position: Vector2, direction: String):
 
 # Construct a creature with certain parameters
 @warning_ignore("shadowed_variable")
-func with_parameters(movement : TargetMode, speed : int, maxhealth : int) -> Creature:
-	self.movement = movement
-	self.speed = speed
-	self.maxhealth = maxhealth
+func with_parameters(p_creature_data : CreatureData) -> Creature:
+	creature_data = p_creature_data
 	return self
 
 # Return the direction that the character should move towards based on TargetMode
 func _get_direction_vector() -> Vector2:
-	if movement == TargetMode.INPUT :
+	if creature_data.movement == CreatureData.TargetMode.INPUT :
 		return Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	elif movement == TargetMode.FOLLOW:
+	elif creature_data.movement == CreatureData.TargetMode.FOLLOW:
 		return global_position.direction_to(player.global_position)
 	return Vector2(0,0)
 
 # Try to fire bullet
 func _try_fire() -> void:
-	if shoot == ShootMode.NEVER:
+	if creature_data.shoot == CreatureData.ShootMode.NEVER:
 		return
-	elif shoot == ShootMode.MOUSE and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	elif creature_data.shoot == CreatureData.ShootMode.MOUSE and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		gun.fire()
-	elif shoot == ShootMode.ALWAYS:
+	elif creature_data.shoot == CreatureData.ShootMode.ALWAYS:
 		gun.fire()
 
 # Move, play the appropriate animation, and fire if necessary
@@ -90,7 +81,7 @@ func _physics_process(_delta: float) -> void:
 		sprite.play_walk()
 	else:
 		sprite.play_idle()
-	velocity = direction * speed
+	velocity = direction * creature_data.speed
 	move_and_slide()
 	_try_fire()
 

@@ -29,7 +29,7 @@ func _physics_process(delta):
 
 # Apply damage when possible
 func _on_body_entered(body):
-	if body.get("ownerMask") == bullet_data.owner:
+	if body.get("creature_data").ownerMask == bullet_data.owner:
 		return
 	queue_free()
 	if body.has_method("take_damage"):

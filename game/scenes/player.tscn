@@ -2,9 +2,19 @@
 
 [ext_resource type="Script" uid="uid://bdw2ybx4tgaa" path="res://scripts/creature.gd" id="1_dqkch"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://scenes/happy_boo.tscn" id="2_bl5ih"]
+[ext_resource type="Script" uid="uid://d1746gglsvtso" path="res://scripts/creature_data.gd" id="2_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://xp88v303vdqs" path="res://scenes/parameter_gun.tscn" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="4_qlg0r"]
 [ext_resource type="Script" uid="uid://2hlvq8ucffqs" path="res://scripts/gun_data.gd" id="5_tuyoq"]
+
+[sub_resource type="Resource" id="Resource_lw0rm"]
+script = ExtResource("2_tuyoq")
+movement = 0
+shoot = 2
+speed = 500
+maxhealth = 600.0
+spriteName = "HappyBoo"
+metadata/_custom_type_script = "uid://d1746gglsvtso"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csncd"]
 size = Vector2(66, 38)
@@ -15,8 +25,6 @@ metadata/_custom_type_script = "uid://bx7gx2juhxy5s"
 
 [sub_resource type="Resource" id="Resource_dqkch"]
 script = ExtResource("5_tuyoq")
-fire_rate = 1
-bullets = 1
 bullet = SubResource("Resource_fjrip")
 metadata/_custom_type_script = "uid://2hlvq8ucffqs"
 
@@ -29,11 +37,7 @@ bg_color = Color(0.623529, 0.866667, 0.317647, 1)
 [node name="Player" type="CharacterBody2D" unique_id=1546396198]
 motion_mode = 1
 script = ExtResource("1_dqkch")
-movement = 0
-shoot = 2
-speed = 600
-maxhealth = 100.0
-spriteName = "HappyBoo"
+creature_data = SubResource("Resource_lw0rm")
 
 [node name="HappyBoo" parent="." unique_id=984748070 instance=ExtResource("2_bl5ih")]
 unique_name_in_owner = true
