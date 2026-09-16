@@ -127,17 +127,6 @@ position = Vector2(-1.9999999, 35.999996)
 [node name="Spawn" parent="Doors/Door_Saloon" index="1" unique_id=1116256810]
 position = Vector2(-1, 98)
 
-[node name="Hover" type="CanvasLayer" parent="." unique_id=2075084159]
-visible = false
-
-[node name="Label" type="Label" parent="Hover" unique_id=709820611]
-offset_left = 947.0
-offset_top = 322.0
-offset_right = 1078.0
-offset_bottom = 385.0
-theme_override_font_sizes/font_size = 45
-text = "BITCH"
-
 [node name="Pickup" parent="." unique_id=1561076725 instance=ExtResource("10_lw0rm")]
 position = Vector2(1019, 394)
 diff = SubResource("Resource_pg2rt")
