@@ -48,7 +48,7 @@ func _ready():
 	sprite.play_idle()
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 	
-func _on_spawn(position: Vector2, direction: String):
+func _on_spawn(position: Vector2, _direction: String):
 	global_position = position
 
 # Construct a creature with certain parameters

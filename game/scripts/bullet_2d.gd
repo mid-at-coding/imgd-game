@@ -24,7 +24,7 @@ func _physics_process(delta):
 	position += Vector2.RIGHT.rotated(rotation) * bullet_data.speed * delta
 	
 	travelled_distance += bullet_data.speed * delta
-	if travelled_distance > bullet_data.range:
+	if travelled_distance > bullet_data.maxRange:
 		queue_free()
 
 # Apply damage when possible

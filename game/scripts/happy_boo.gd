@@ -28,11 +28,8 @@ func play_walk():
 func play_hurt(health):
 	%HealthBar.value = health
 
-# Take damage
-func _physics_process(delta: float) -> void:
-#	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
-#	if overlapping_mobs:
-#		get_parent().take_damage(damage_rate * overlapping_mobs.size() * delta)
+# Update sprite
+func _physics_process(_delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	# Flip based on input direction
 	if direction != 0:

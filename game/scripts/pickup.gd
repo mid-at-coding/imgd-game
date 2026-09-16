@@ -24,7 +24,7 @@ enum PickupType { CREATURE, GUN }
 @export var type : PickupType
 @export var create_hover : bool = false
 @onready var player : Creature = get_node("/root/Game/Player")
-var label : Label
+var label : RichTextLabel
 
 # Play the sprite's float animation and hide the hover, then create an initial
 # hover if necessary
@@ -38,47 +38,62 @@ func _ready() -> void:
 		# TODO: replace with custom scene for style
 		hover = CanvasLayer.new()
 		add_child(hover)
-		label = Label.new()
+		label = RichTextLabel.new()
 		hover.add_child(label)
 	sprite.play_float()
 	hover.hide()
 
+func _compare_prop(first : float, second : float) -> String:
+	const format = "%08.2f [color=%s](%+08.2f)[/color]"
+	return format % [first, "green" if first > second else "red" if first < second else "grey", first - second]
+
+# Updates the data within the hover before showing if we own it
 func _update_and_show_hover() -> void:
 	if (!create_hover):
 		hover.show()
 		return
 	const gun_format = """
-	Fire Rate: %.2f    (%+.2f)
-	Bullets: %.2f      (%+.2f)
-	Spread: %.2f       (%+.2f)
-	Bullet Speed: %.2f (%+.2f)
-	Damage: %.2f       (%+.2f)
+	Fire Rate:    %s
+	Bullets:      %s
+	Spread:       %s
+	Bullet Speed: %s
+	Damage:       %s
 	%s to pick up
 	"""
 	const creature_format = """
-	Max Health: %.2f (%+.2f)
-	Speed: %.2f      (%+.2f)
+	Max Health:   %s
+	Speed:        %s
 	%s to pick up
 	"""
 	if (type == PickupType.GUN):
 		var curr : GunData = player.gun.gun_data
 		var new : GunData = diff
-		label.text = gun_format % \
-		[new.fire_rate,     (new.fire_rate - curr.fire_rate),
-		 new.bullets,       (new.bullets - curr.bullets),
-		 new.spread_angle,  (new.spread_angle - curr.spread_angle),
-		 new.bullet.speed,  (new.bullet.speed - curr.bullet.speed),
-		 new.bullet.damage, (new.bullet.damage - curr.bullet.damage),
-		 InputMap.action_get_events("accept_pickup")[0].as_text()]
+		# TODO: set this dynamically
+		label.size = Vector2(715, 400)
+		label.clear()
+		label.append_text(gun_format % \
+		[_compare_prop(new.fire_rate, curr.fire_rate),
+		 _compare_prop(new.bullets, curr.bullets),
+		 _compare_prop(new.spread_angle, curr.spread_angle),
+		 _compare_prop(new.bullet.speed, curr.bullet.speed),
+		 _compare_prop(new.bullet.damage, curr.bullet.damage),
+		 InputMap.action_get_events("accept_pickup")[0].as_text()])
+	
 	elif (type == PickupType.CREATURE):
 		var curr : CreatureData = player.creature_data
 		var new : CreatureData = diff
-		label.text = creature_format % \
-		[new.maxhealth, (new.maxhealth - curr.maxhealth),
-		 new.speed,     (new.speed - curr.speed),
-		 InputMap.action_get_events("accept_pickup")[0].as_text()]
-	# TODO: add theme
-	label.add_theme_font_size_override("font_size", 45)
+		# TODO: set this dynamically
+		label.size = Vector2(715, 200)
+		label.clear()
+		label.append_text(creature_format % \
+		[_compare_prop(new.maxhealth, curr.maxhealth),
+		 _compare_prop(new.speed, curr.speed),
+		 InputMap.action_get_events("accept_pickup")[0].as_text()])
+	
+	# Add themes
+	label.theme = preload("res://themes/pickupLabel.tres")
+	label.add_theme_stylebox_override("normal", preload("res://themes/pickupLabelNormal.tres"))
+	
 	hover.show()
 
 # If we encounter a pickup bind while showing we should apply the diff
