@@ -5,6 +5,10 @@ extends Node
 
 const scene_level1_game = preload("res://scenes/level1_game.tscn")
 const scene_dungeon_saloon_game = preload("res://scenes/dungeon_saloon_game.tscn")
+static var player_data
+static var player_gun
+static var player_health
+static var player_ammo
 
 signal on_trigger_player_spawn
 
@@ -20,10 +24,21 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_dungeon_saloon_game
 		
 	if scene_to_load != null:
+		# Save player data
+		var player : Creature = get_node("/root/Game").get_node("%Player")
+		player_data = player.creature_data
+		player_gun = player.gun.gun_data
+		player_health = player.health
+		player_ammo = player.gun.ammo
 		spawn_door_tag = destination_tag
 		get_tree().call_deferred("change_scene_to_packed", scene_to_load)
 
-
+func _restore_player():
+	var player : Creature = get_node("/root/Game").get_node("%Player")
+	player.creature_data = player_data
+	player.gun.gun_data = player_gun
+	player.health = player_health
+	player.gun.ammo = player_ammo
 
 func trigger_player_spawn(position: Vector2, direction: String):
 	on_trigger_player_spawn.emit(position, direction)

@@ -18,8 +18,7 @@
 # |_ %ShootingPoint : Mark2D
 # (if target == PLAYER)
 # root 
-# |_ Game
-# |  |_ Player
+# |_ %Player
 
 class_name ParameterGun extends Node2D
 const RANGE = 1200
@@ -33,7 +32,7 @@ var player
 func _ready() -> void:
 	# Acquire player if necessary
 	if target == TargetMode.PLAYER:
-		player = get_node("/root/Game/Player")
+		player = get_node("%Player")
 
 # Aim gun
 func _get_look(_delta: float) -> Vector2:

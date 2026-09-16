@@ -26,8 +26,7 @@
 # |_ Gun : ParameterGun
 # (if target == FOLLOW)
 # root 
-# |_ Game
-# |  |_ Player
+# |_ %Player
 # ...
 # TODO: Make the sprite an interface
 class_name Creature extends CharacterBody2D
@@ -42,12 +41,13 @@ var player
 
 func _ready():
 	if creature_data.movement == CreatureData.TargetMode.FOLLOW:
-		player = get_node("/root/Game/Player")
+		player = get_node("%Player")
 	sprite.play_idle()
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
-	
+
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
+	NavigationManager._restore_player()
 
 # Construct a creature with certain parameters
 @warning_ignore("shadowed_variable")

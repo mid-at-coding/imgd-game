@@ -4,6 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://b2owduqhdi1p3" path="res://assets/art/wildWestTiles.png" id="1_vt8kp"]
 [ext_resource type="PackedScene" uid="uid://b8447letixese" path="res://scenes/door.tscn" id="2_djq8p"]
 [ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://scenes/player.tscn" id="3_b81me"]
+[ext_resource type="PackedScene" uid="uid://4a4h5aa2xyig" path="res://scenes/mob.tscn" id="5_qfjux"]
+[ext_resource type="Script" uid="uid://d1746gglsvtso" path="res://scripts/creature_data.gd" id="6_0sklo"]
+[ext_resource type="PackedScene" uid="uid://xp88v303vdqs" path="res://scenes/parameter_gun.tscn" id="7_px73g"]
+[ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="8_6nlq8"]
+[ext_resource type="Script" uid="uid://2hlvq8ucffqs" path="res://scripts/gun_data.gd" id="9_vaknx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_djq8p"]
 texture = ExtResource("1_vt8kp")
@@ -24,6 +29,26 @@ texture_region_size = Vector2i(116, 116)
 [sub_resource type="TileSet" id="TileSet_b81me"]
 tile_size = Vector2i(116, 116)
 sources/0 = SubResource("TileSetAtlasSource_djq8p")
+
+[sub_resource type="Resource" id="Resource_oedvp"]
+script = ExtResource("6_0sklo")
+shoot = 1
+speed = 150
+spriteName = "Slime"
+ownerMask = 1
+metadata/_custom_type_script = "uid://d1746gglsvtso"
+
+[sub_resource type="Resource" id="Resource_lw0rm"]
+script = ExtResource("8_6nlq8")
+owner = 1
+metadata/_custom_type_script = "uid://bx7gx2juhxy5s"
+
+[sub_resource type="Resource" id="Resource_2uonm"]
+script = ExtResource("9_vaknx")
+fire_rate = 1
+bullets = 1
+bullet = SubResource("Resource_lw0rm")
+metadata/_custom_type_script = "uid://2hlvq8ucffqs"
 
 [node name="Game" type="Node2D" unique_id=737626321]
 script = ExtResource("1_b81me")
@@ -53,6 +78,16 @@ position = Vector2(1077, 1700)
 position = Vector2(1072, 1606)
 
 [node name="Player" parent="Doors/Door_Entrance" unique_id=1546396198 instance=ExtResource("3_b81me")]
+unique_name_in_owner = true
 position = Vector2(1077, 1522)
+
+[node name="Mob" parent="." unique_id=1758012314 instance=ExtResource("5_qfjux")]
+position = Vector2(1035, 604)
+creature_data = SubResource("Resource_oedvp")
+
+[node name="ParameterGun" parent="Mob" unique_id=941152522 instance=ExtResource("7_px73g")]
+position = Vector2(-19, 3)
+gun_data = SubResource("Resource_2uonm")
+target = 1
 
 [editable path="Doors/Door_Entrance"]

@@ -12,8 +12,7 @@
 #   Diff - The resource to apply to the player's data
 # Tree:
 # root 
-# |_ Game
-# |  |_ Player
+# |_ %Player
 # ...
 # [pickup.gd] : Area2D
 # |_ Sprite : Implements play_float(), play_pickup() 
@@ -25,7 +24,7 @@ class_name Pickup extends Area2D
 enum PickupType { CREATURE, GUN, CONSUMABLE }
 @export var type : PickupType
 @export var create_hover : bool = false
-@onready var player : Creature = get_node("/root/Game/Player")
+@onready var player : Creature = get_node("%Player")
 var label : RichTextLabel
 
 # Play the sprite's float animation and hide the hover, then create an initial
