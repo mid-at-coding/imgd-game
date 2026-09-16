@@ -1,4 +1,4 @@
-# This script is responsible for spawning bullets from a gun
+# This script is responsible for spawning bullets from and pointing a gun
 # Parameters:
 #   spread_angle: The angle between the center bullet and each outer bullet
 # Tree:
