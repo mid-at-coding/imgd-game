@@ -65,7 +65,17 @@ text = "Build 1:
 Build 2:
          - Added mouse aim and shooting
          - Randomized enemy health and speed
-         - Parameterized player and enemy stats"
+         - Parameterized player and enemy stats
+Build 3: 
+         - Added gun upgrades and pickups
+         - Gave weapons to enemies
+         - Created basic UI
+         - Added transition between scenes 
+         - Updated sprites
+
+
+
+"
 
 [node name="to_main" parent="." unique_id=1101285918 instance=ExtResource("2_44psg")]
 visible = false
