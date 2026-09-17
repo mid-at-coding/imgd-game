@@ -18,4 +18,7 @@ class_name Door
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Creature:
-		NavigationManager.go_to_level(destination_level_tag, destination_door_tag)
+		# check if all enemies are defeated
+		var enemies = get_tree().get_nodes_in_group("enemies")
+		if enemies.is_empty():
+			NavigationManager.go_to_level(destination_level_tag, destination_door_tag)
