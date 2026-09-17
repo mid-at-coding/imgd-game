@@ -107,4 +107,13 @@ text = "AMMO"
 fit_content = true
 scroll_active = false
 
+[node name="ChargeDisplay" type="RichTextLabel" parent="VitalsDisplay" unique_id=1413393872]
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("8_ur7pv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y4r1p")
+text = "WIPES"
+fit_content = true
+scroll_active = false
+
 [connection signal="health_depleted" from="HappyBoo" to="." method="_on_happy_boo_health_depleted"]

@@ -9,6 +9,7 @@ static var player_data
 static var player_gun
 static var player_health
 static var player_ammo
+static var player_charges : int = 3
 
 signal on_trigger_player_spawn
 
@@ -30,6 +31,7 @@ func go_to_level(level_tag, destination_tag):
 		player_gun = player.gun.gun_data
 		player_health = player.health
 		player_ammo = player.gun.ammo
+		player_charges = player.wipe_charges
 		spawn_door_tag = destination_tag
 		get_tree().call_deferred("change_scene_to_packed", scene_to_load)
 
@@ -39,6 +41,7 @@ func _restore_player():
 	player.gun.gun_data = player_gun
 	player.health = player_health
 	player.gun.ammo = player_ammo
+	player.wipe_charges = player_charges
 
 func trigger_player_spawn(position: Vector2, direction: String):
 	on_trigger_player_spawn.emit(position, direction)

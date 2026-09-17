@@ -13,3 +13,5 @@ func display(creature : Creature) -> void:
 	$AmmoDisplay.clear()
 	$AmmoDisplay.add_text("AMMO: %05d/%05d" % \
 		[creature.gun.ammo, ParameterGun.get_consumption(creature.gun.gun_data)])
+	$ChargeDisplay.clear()
+	$ChargeDisplay.add_text("WIPES: %01d/3" % [creature.wipe_charges])

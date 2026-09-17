@@ -39,6 +39,9 @@ signal health_depleted
 @onready var health = creature_data.maxhealth
 var player
 
+const SCREEN_WIPE_SCENE = preload("res://scenes/screen_wipe.tscn")
+var wipe_charges : int = 3
+
 func _ready():
 	if creature_data.movement == CreatureData.TargetMode.FOLLOW:
 		player = get_node("%Player")
@@ -97,3 +100,15 @@ func take_damage(bullet: BulletData):
 # XXX: this should definitely be done a different way
 func _on_happy_boo_health_depleted() -> void:
 	health_depleted.emit()
+
+# Fire screen wipe if creature is player-controlled and has charges
+func _input(event: InputEvent) -> void:
+	# Ensure only the player can use this ability
+	if creature_data.movement != CreatureData.TargetMode.INPUT:
+		return
+		
+	if event.is_action_pressed("use_wipe") and wipe_charges > 0:
+		wipe_charges -= 1
+		var wipe = SCREEN_WIPE_SCENE.instantiate()
+		wipe.global_position = global_position
+		get_tree().root.add_child(wipe)
