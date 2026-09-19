@@ -43,6 +43,18 @@ func _physics_process(delta: float) -> void:
 	if direction != 0:
 		$AnimatedSprite2D.flip_h = direction > 0
 
+
+const SCREEN_WIPE_SCENE = preload("res://scenes/screen_wipe.tscn")
+var wipe_charges : int = 3
+
+# Fire screen wipe if creature is player-controlled and has charges
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("use_wipe") and wipe_charges > 0:
+		wipe_charges -= 1
+		var wipe = SCREEN_WIPE_SCENE.instantiate()
+		wipe.global_position = global_position
+		get_tree().root.add_child(wipe)
+
 # Raise death signal
 func die():
 	health_depleted.emit()
