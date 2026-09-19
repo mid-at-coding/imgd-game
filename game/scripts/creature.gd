@@ -49,6 +49,8 @@ func _ready():
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 
 func _on_spawn(position: Vector2, direction: String):
+	if (creature_data.ownerMask != BulletData.OwnerClass.PLAYER):
+		return
 	global_position = position
 	NavigationManager._restore_player()
 
