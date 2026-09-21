@@ -53,6 +53,7 @@ creature_data = SubResource("Resource_lw0rm")
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2129353866]
+position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_csncd")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=473099899]
