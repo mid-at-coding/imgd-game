@@ -5,6 +5,8 @@ extends Node
 
 const scene_level1_game = preload("res://scenes/level1_game.tscn")
 const scene_dungeon_saloon_game = preload("res://scenes/dungeon_saloon_game.tscn")
+const scene_dungeon_saloon_left_game = preload("res://scenes/dungeon_saloon_left_game.tscn")
+const scene_dungeon_saloon_right_game = preload("res://scenes/dungeon_saloon_right_game.tscn")
 static var player_data
 static var player_gun
 static var player_health
@@ -23,6 +25,10 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_level1_game
 		"dungeon_saloon_game":
 			scene_to_load = scene_dungeon_saloon_game
+		"dungeon_saloon_left_game":
+			scene_to_load = scene_dungeon_saloon_left_game
+		"dungeon_saloon_right_game":
+			scene_to_load = scene_dungeon_saloon_right_game
 		
 	if scene_to_load != null:
 		# Save player data
