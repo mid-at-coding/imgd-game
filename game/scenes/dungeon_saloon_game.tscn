@@ -242,12 +242,12 @@ tile_set = SubResource("TileSet_vaknx")
 collision_enabled = false
 
 [node name="FadeArea" parent="HiddenArea" unique_id=1153085700 instance=ExtResource("11_px73g")]
-position = Vector2(10, 890)
-scale = Vector2(30.007973, 77.11103)
+position = Vector2(38.000004, 890)
+scale = Vector2(32.847973, 78.46497)
 
 [node name="FadeArea2" parent="HiddenArea" unique_id=1006055543 instance=ExtResource("11_px73g")]
-position = Vector2(2381, 890.00006)
-scale = Vector2(30.007973, 77.11103)
+position = Vector2(2366.9998, 890)
+scale = Vector2(32.08798, 77.11103)
 
 [editable path="Doors/Door_Entrance"]
 [editable path="Doors/Door_Saloon1Left"]

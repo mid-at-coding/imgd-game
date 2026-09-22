@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="4_qlg0r"]
 [ext_resource type="Script" uid="uid://2hlvq8ucffqs" path="res://scripts/gun_data.gd" id="5_tuyoq"]
 [ext_resource type="Script" uid="uid://c5qutix84lema" path="res://scripts/happy_boo_vitals_display.gd" id="7_smehm"]
+[ext_resource type="Texture2D" uid="uid://bq3f03oc8mhuv" path="res://assets/art/healthBackground.png" id="7_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://b6r7f3fjcmkc5" path="res://assets/art/healthBar.png" id="8_d2wvv"]
 [ext_resource type="Theme" uid="uid://bavulhgkdvqfg" path="res://themes/pickupLabel.tres" id="8_ur7pv"]
 
 [sub_resource type="Resource" id="Resource_lw0rm"]
@@ -33,9 +35,6 @@ metadata/_custom_type_script = "uid://2hlvq8ucffqs"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfffa"]
 size = Vector2(84, 54)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5sny"]
-bg_color = Color(0.623529, 0.866667, 0.317647, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4r1p"]
 content_margin_left = 15.0
@@ -71,16 +70,14 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=440365805]
 shape = SubResource("RectangleShape2D_kfffa")
 
-[node name="HealthBar" type="ProgressBar" parent="." unique_id=384523252]
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=1192115635]
 unique_name_in_owner = true
-z_index = 100
-offset_left = -83.0
-offset_top = -185.0
-offset_right = 87.0
-offset_bottom = -150.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_a5sny")
-value = 100.0
-show_percentage = false
+offset_left = -888.0
+offset_top = -498.0
+offset_right = -407.0
+offset_bottom = -427.0
+texture_under = ExtResource("7_y4r1p")
+texture_progress = ExtResource("8_d2wvv")
 
 [node name="VitalsDisplay" type="VBoxContainer" parent="." unique_id=2111633980]
 unique_name_in_owner = true

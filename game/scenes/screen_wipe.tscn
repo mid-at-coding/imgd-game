@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cmbwbprkikbe8"]
 
-[ext_resource type="Script" uid="uid://hiej0x1cx44d" path="res://scenes/screen_wipe.gd" id="1_hugti"]
+[ext_resource type="Script" uid="uid://hiej0x1cx44d" path="res://scripts/screen_wipe.gd" id="1_hugti"]
 [ext_resource type="Texture2D" uid="uid://hi7mxw3kdb7w" path="res://assets/art/FireRing.png" id="2_nu058"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_763yj"]
 
