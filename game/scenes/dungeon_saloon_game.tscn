@@ -181,10 +181,55 @@ destination_door_tag = "Saloon2Right"
 position = Vector2(-111, 13)
 
 [node name="Mob" parent="." unique_id=1758012314 instance=ExtResource("5_qfjux")]
-position = Vector2(1035, 604)
+position = Vector2(786, 481)
 creature_data = SubResource("Resource_oedvp")
 
 [node name="ParameterGun" parent="Mob" unique_id=941152522 instance=ExtResource("7_px73g")]
+position = Vector2(-19, 3)
+gun_data = SubResource("Resource_2uonm")
+target = 1
+
+[node name="Mob2" parent="." unique_id=2087214183 instance=ExtResource("5_qfjux")]
+position = Vector2(662, 808)
+creature_data = SubResource("Resource_oedvp")
+
+[node name="ParameterGun" parent="Mob2" unique_id=597036289 instance=ExtResource("7_px73g")]
+position = Vector2(-19, 3)
+gun_data = SubResource("Resource_2uonm")
+target = 1
+
+[node name="Mob3" parent="." unique_id=309064820 instance=ExtResource("5_qfjux")]
+position = Vector2(1278, 811)
+creature_data = SubResource("Resource_oedvp")
+
+[node name="ParameterGun" parent="Mob3" unique_id=1317766945 instance=ExtResource("7_px73g")]
+position = Vector2(-19, 3)
+gun_data = SubResource("Resource_2uonm")
+target = 1
+
+[node name="Mob4" parent="." unique_id=551567926 instance=ExtResource("5_qfjux")]
+position = Vector2(1528, 514)
+creature_data = SubResource("Resource_oedvp")
+
+[node name="ParameterGun" parent="Mob4" unique_id=333321084 instance=ExtResource("7_px73g")]
+position = Vector2(-19, 3)
+gun_data = SubResource("Resource_2uonm")
+target = 1
+
+[node name="Mob5" parent="." unique_id=574568666 instance=ExtResource("5_qfjux")]
+position = Vector2(1085, 670)
+creature_data = SubResource("Resource_oedvp")
+
+[node name="ParameterGun" parent="Mob5" unique_id=1594448992 instance=ExtResource("7_px73g")]
+position = Vector2(-19, 3)
+gun_data = SubResource("Resource_2uonm")
+target = 1
+
+[node name="Mob6" parent="." unique_id=2113850872 instance=ExtResource("5_qfjux")]
+position = Vector2(1278, 505)
+creature_data = SubResource("Resource_oedvp")
+
+[node name="ParameterGun" parent="Mob6" unique_id=221023609 instance=ExtResource("7_px73g")]
 position = Vector2(-19, 3)
 gun_data = SubResource("Resource_2uonm")
 target = 1
