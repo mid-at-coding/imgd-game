@@ -23,13 +23,17 @@ func _ready() -> void:
 	# Fade in over 1.5 seconds
 	var tween = create_tween()
 	tween.tween_property(menu_root, "modulate:a", 1.0, 1.5)
+	
 
+# Stop background music and transition to game
 func _on_button_start_pressed() -> void:
-	Bgm.stop() # Stops the menu track immediately
+	Bgm.stop() 
 	get_tree().change_scene_to_file("res://scenes/level1_game.tscn")
 
+# Transition to changelog
 func _on_button_change_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/changelog.tscn")
 
+# Transition to credits
 func _on_button_credits_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")

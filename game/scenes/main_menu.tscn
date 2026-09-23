@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://ci4nfw4r1j2w7" path="res://assets/art/changelogButtonHolo.png" id="6_lgwnu"]
 [ext_resource type="Texture2D" uid="uid://b7sqyrkuoc1i7" path="res://assets/art/creditButtonWood.png" id="7_flqon"]
 [ext_resource type="Texture2D" uid="uid://p0o51ahvmeo" path="res://assets/art/creditButtonHolo.png" id="8_rcqid"]
+[ext_resource type="AudioStream" uid="uid://bn7j5jf1xw5mf" path="res://assets/sfx/buttonHover.wav" id="10_lgwnu"]
+[ext_resource type="AudioStream" uid="uid://4x74jc6jhk27" path="res://assets/sfx/buttonClick.wav" id="11_flqon"]
 
 [sub_resource type="FontVariation" id="FontVariation_7vrkn"]
 variation_embolden = 2.0
@@ -29,6 +31,12 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 theme_override_constants/separation = 30
 script = ExtResource("2_fu7sn")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="button_holder" unique_id=1304584957]
+stream = ExtResource("11_flqon")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="button_holder" unique_id=1239420821]
+stream = ExtResource("10_lgwnu")
 
 [node name="ButtonStart" type="TextureButton" parent="button_holder" unique_id=71091908]
 layout_mode = 2
