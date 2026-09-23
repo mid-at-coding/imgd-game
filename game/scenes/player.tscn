@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bq3f03oc8mhuv" path="res://assets/art/healthBackground.png" id="7_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://b6r7f3fjcmkc5" path="res://assets/art/healthBar.png" id="8_d2wvv"]
 [ext_resource type="Theme" uid="uid://bavulhgkdvqfg" path="res://themes/pickupLabel.tres" id="8_ur7pv"]
+[ext_resource type="AudioStream" uid="uid://ymeg4fgqas3j" path="res://assets/sfx/shoot.wav" id="11_3v2ag"]
+[ext_resource type="AudioStream" uid="uid://dhij21ad4p4et" path="res://assets/sfx/endShoot.wav" id="12_jej6c"]
 
 [sub_resource type="Resource" id="Resource_lw0rm"]
 script = ExtResource("2_tuyoq")
@@ -113,5 +115,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_y4r1p")
 text = "WIPES"
 fit_content = true
 scroll_active = false
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=405988539]
+stream = ExtResource("11_3v2ag")
+
+[node name="EndShootSound" type="AudioStreamPlayer2D" parent="." unique_id=296512443]
+stream = ExtResource("12_jej6c")
 
 [connection signal="health_depleted" from="HappyBoo" to="." method="_on_happy_boo_health_depleted"]

@@ -63,18 +63,18 @@ static func get_consumption(gun_data : GunData) -> int:
 	return abs(ammo_consumption)
 
 # Try to fire
-func fire() -> void:
+func fire() -> bool:
 	# Don't fire if we're cooling down
 	if !$Timer.is_stopped():
-		return
+		return false
 	# Don't fire if we don't have ammo
 	if (ammo - get_consumption(gun_data) < 0):
-		return
+		return false
 	ammo -= get_consumption(gun_data)
 	shoot()
 	$Timer.set_wait_time(1.0/gun_data.fire_rate)
 	$Timer.start()
-
+	return true
 # Unconditionally pawn bullets from gun
 func shoot() -> void:
 	for i in gun_data.bullets:

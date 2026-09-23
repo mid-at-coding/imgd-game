@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hiej0x1cx44d" path="res://scripts/screen_wipe.gd" id="1_hugti"]
 [ext_resource type="Texture2D" uid="uid://hi7mxw3kdb7w" path="res://assets/art/FireRing.png" id="2_nu058"]
-
+[ext_resource type="AudioStream" uid="uid://bbjkpfcgvw1kn" path="res://assets/sfx/screenWipe.wav" id="3_nu058"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_763yj"]
 
@@ -20,5 +20,8 @@ shape = SubResource("CircleShape2D_763yj")
 position = Vector2(-1, 1)
 scale = Vector2(0.51000005, 0.54999995)
 texture = ExtResource("2_nu058")
+
+[node name="WipeSound" type="AudioStreamPlayer2D" parent="." unique_id=1415157554]
+stream = ExtResource("3_nu058")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
