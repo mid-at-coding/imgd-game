@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dvju3jcfcynad" path="res://scenes/saloon.tscn" id="7_a8y81"]
 [ext_resource type="PackedScene" uid="uid://b8447letixese" path="res://scenes/door.tscn" id="8_vq7yb"]
 [ext_resource type="PackedScene" uid="uid://dtt6j3lit86i4" path="res://scenes/pickup.tscn" id="10_lw0rm"]
-[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://assets/art/pistol.png" id="11_kbsvw"]
+[ext_resource type="Texture2D" uid="uid://bsxfb6u7w16gb" path="res://assets/art/coreGlow.png" id="11_lw0rm"]
+[ext_resource type="Texture2D" uid="uid://dewsj4q2q0c5c" path="res://assets/art/coreBulletOne.png" id="12_kbsvw"]
 [ext_resource type="Script" uid="uid://c6i4d2u6eqgrw" path="res://scripts/level1_game_pickup_sprite.gd" id="12_rkm4h"]
 [ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="12_uqpmc"]
 [ext_resource type="Script" uid="uid://2hlvq8ucffqs" path="res://scripts/gun_data.gd" id="13_aq4rc"]
@@ -161,6 +162,14 @@ position = Vector2(-10.999999, 32.999996)
 [node name="Spawn" parent="Doors/Door_Saloon" index="1" unique_id=1116256810]
 position = Vector2(-1, 98)
 
+[node name="Door_npcOut" parent="Doors" unique_id=198691105 instance=ExtResource("8_vq7yb")]
+position = Vector2(1564, 2413)
+destination_level_tag = "npc_room_game"
+destination_door_tag = "npcIn"
+
+[node name="Spawn" parent="Doors/Door_npcOut" index="1" unique_id=1116256810]
+position = Vector2(-1, 69)
+
 [node name="Pickup" parent="." unique_id=1561076725 instance=ExtResource("10_lw0rm")]
 position = Vector2(1258, 903)
 diff = SubResource("Resource_pg2rt")
@@ -171,8 +180,14 @@ create_hover = true
 shape = SubResource("RectangleShape2D_ybxbt")
 
 [node name="Sprite" type="Sprite2D" parent="Pickup" unique_id=605655283]
-texture = ExtResource("11_kbsvw")
+texture = ExtResource("12_kbsvw")
 script = ExtResource("12_rkm4h")
+
+[node name="Glow" type="Sprite2D" parent="Pickup/Sprite" unique_id=587078032]
+texture = ExtResource("11_lw0rm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Pickup/Sprite" unique_id=1501474209]
+texture = ExtResource("12_kbsvw")
 
 [node name="Pickup2" parent="." unique_id=1492556882 instance=ExtResource("10_lw0rm")]
 position = Vector2(1258, 775)
@@ -216,3 +231,4 @@ texture = ExtResource("16_rkm4h")
 script = ExtResource("12_rkm4h")
 
 [editable path="Doors/Door_Saloon"]
+[editable path="Doors/Door_npcOut"]

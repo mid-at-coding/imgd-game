@@ -24,6 +24,8 @@ func play_walk():
 # There is no hurt animation, currently
 func play_hurt(health):
 	%HealthBar.value = health
+	
+
 
 # Update UI
 func _creature_read():

@@ -127,6 +127,8 @@ bullets = 1
 bullet = SubResource("Resource_lw0rm")
 metadata/_custom_type_script = "uid://2hlvq8ucffqs"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ebrl"]
+
 [node name="Game" type="Node2D" unique_id=737626321]
 script = ExtResource("1_b81me")
 
@@ -248,6 +250,13 @@ scale = Vector2(32.847973, 78.46497)
 [node name="FadeArea2" parent="HiddenArea" unique_id=1006055543 instance=ExtResource("11_px73g")]
 position = Vector2(2366.9998, 890)
 scale = Vector2(32.08798, 77.11103)
+
+[node name="DoorBorder" type="StaticBody2D" parent="." unique_id=1637720222]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorBorder" unique_id=1068651842]
+position = Vector2(1082, 1771)
+scale = Vector2(16.2, 1)
+shape = SubResource("RectangleShape2D_5ebrl")
 
 [editable path="Doors/Door_Entrance"]
 [editable path="Doors/Door_Saloon1Left"]

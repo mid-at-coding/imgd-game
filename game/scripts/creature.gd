@@ -88,6 +88,11 @@ func _physics_process(_delta: float) -> void:
 
 # Take damage when hit by bullet
 func take_damage(bullet: BulletData):
+	# red tint
+	sprite.modulate = Color(1.0, 0.526, 0.489, 1.0)
+	await get_tree().create_timer(0.2).timeout
+	sprite.modulate = Color.WHITE
+	
 	sprite.play_hurt(health)
 	health -= bullet.damage
 	if health <= 0:
