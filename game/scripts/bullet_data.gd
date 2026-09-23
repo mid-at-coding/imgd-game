@@ -6,6 +6,7 @@ class_name BulletData extends Resource
 @export var maxRange : int = 1200
 ## How much damage the bullet deals when it hits
 @export var damage : int = 1
+# TODO: this class should probably be standalone
 enum OwnerClass { PLAYER, ENEMY }
 ## What owns the bullet
 @export var owner : OwnerClass = OwnerClass.PLAYER

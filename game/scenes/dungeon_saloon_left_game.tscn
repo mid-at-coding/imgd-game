@@ -222,6 +222,7 @@ tile_set = SubResource("TileSet_o187w")
 [node name="Door_Saloon2Left" parent="Doors" unique_id=883638600 instance=ExtResource("3_0aa7q")]
 destination_level_tag = "dungeon_saloon_game"
 destination_door_tag = "Saloon1Left"
+locked = false
 
 [node name="CollisionShape2D" parent="Doors/Door_Saloon2Left" index="0" unique_id=1437705022]
 position = Vector2(646.99994, 1115.9999)

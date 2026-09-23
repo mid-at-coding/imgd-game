@@ -12,13 +12,12 @@ class_name Door
 @export var destination_level_tag: String
 @export var destination_door_tag: String
 @export var spawn_direction = "up"
-
+@export var locked = true
 @onready var spawn = $Spawn
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Creature:
-		# check if all enemies are defeated
-		var enemies = get_tree().get_nodes_in_group("enemies")
-		if enemies.is_empty():
-			NavigationManager.go_to_level(destination_level_tag, destination_door_tag)
+		if locked || body.creature_data.ownerMask != BulletData.OwnerClass.PLAYER:
+			return
+		NavigationManager.go_to_level(destination_level_tag, destination_door_tag)

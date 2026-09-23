@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://scenes/player.tscn" id="3_b81me"]
 [ext_resource type="PackedScene" uid="uid://4a4h5aa2xyig" path="res://scenes/mob.tscn" id="5_qfjux"]
 [ext_resource type="Script" uid="uid://d1746gglsvtso" path="res://scripts/creature_data.gd" id="6_0sklo"]
+[ext_resource type="Script" uid="uid://b8pqsvvo5pfbj" path="res://scripts/spawner.gd" id="6_6nlq8"]
 [ext_resource type="PackedScene" uid="uid://xp88v303vdqs" path="res://scenes/parameter_gun.tscn" id="7_px73g"]
 [ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="8_6nlq8"]
 [ext_resource type="Script" uid="uid://2hlvq8ucffqs" path="res://scripts/gun_data.gd" id="9_vaknx"]
@@ -155,6 +156,7 @@ tile_set = SubResource("TileSet_vaknx")
 [node name="Door_Entrance" parent="Doors" unique_id=883638600 instance=ExtResource("2_djq8p")]
 destination_level_tag = "level1_game"
 destination_door_tag = "Saloon"
+locked = false
 
 [node name="CollisionShape2D" parent="Doors/Door_Entrance" index="0" unique_id=1437705022]
 position = Vector2(1077, 1700)
@@ -182,56 +184,62 @@ destination_door_tag = "Saloon2Right"
 [node name="Spawn" parent="Doors/Door_Saloon1Right" index="1" unique_id=1116256810]
 position = Vector2(-111, 13)
 
-[node name="Mob" parent="." unique_id=1758012314 instance=ExtResource("5_qfjux")]
+[node name="Spawner" type="Node" parent="." unique_id=396690273]
+script = ExtResource("6_6nlq8")
+Creatures = Array[NodePath]([NodePath("Mob"), NodePath("Mob2"), NodePath("Mob3"), NodePath("Mob4"), NodePath("Mob5"), NodePath("Mob6")])
+Doors = Array[NodePath]([NodePath("../Doors/Door_Saloon1Left"), NodePath("../Doors/Door_Saloon1Right")])
+metadata/_custom_type_script = "uid://b8pqsvvo5pfbj"
+
+[node name="Mob" parent="Spawner" unique_id=1758012314 instance=ExtResource("5_qfjux")]
 position = Vector2(786, 481)
 creature_data = SubResource("Resource_oedvp")
 
-[node name="ParameterGun" parent="Mob" unique_id=941152522 instance=ExtResource("7_px73g")]
+[node name="ParameterGun" parent="Spawner/Mob" unique_id=941152522 instance=ExtResource("7_px73g")]
 position = Vector2(-19, 3)
 gun_data = SubResource("Resource_2uonm")
 target = 1
 
-[node name="Mob2" parent="." unique_id=2087214183 instance=ExtResource("5_qfjux")]
+[node name="Mob2" parent="Spawner" unique_id=2087214183 instance=ExtResource("5_qfjux")]
 position = Vector2(662, 808)
 creature_data = SubResource("Resource_oedvp")
 
-[node name="ParameterGun" parent="Mob2" unique_id=597036289 instance=ExtResource("7_px73g")]
+[node name="ParameterGun" parent="Spawner/Mob2" unique_id=597036289 instance=ExtResource("7_px73g")]
 position = Vector2(-19, 3)
 gun_data = SubResource("Resource_2uonm")
 target = 1
 
-[node name="Mob3" parent="." unique_id=309064820 instance=ExtResource("5_qfjux")]
+[node name="Mob3" parent="Spawner" unique_id=309064820 instance=ExtResource("5_qfjux")]
 position = Vector2(1278, 811)
 creature_data = SubResource("Resource_oedvp")
 
-[node name="ParameterGun" parent="Mob3" unique_id=1317766945 instance=ExtResource("7_px73g")]
+[node name="ParameterGun" parent="Spawner/Mob3" unique_id=1317766945 instance=ExtResource("7_px73g")]
 position = Vector2(-19, 3)
 gun_data = SubResource("Resource_2uonm")
 target = 1
 
-[node name="Mob4" parent="." unique_id=551567926 instance=ExtResource("5_qfjux")]
+[node name="Mob4" parent="Spawner" unique_id=551567926 instance=ExtResource("5_qfjux")]
 position = Vector2(1528, 514)
 creature_data = SubResource("Resource_oedvp")
 
-[node name="ParameterGun" parent="Mob4" unique_id=333321084 instance=ExtResource("7_px73g")]
+[node name="ParameterGun" parent="Spawner/Mob4" unique_id=333321084 instance=ExtResource("7_px73g")]
 position = Vector2(-19, 3)
 gun_data = SubResource("Resource_2uonm")
 target = 1
 
-[node name="Mob5" parent="." unique_id=574568666 instance=ExtResource("5_qfjux")]
+[node name="Mob5" parent="Spawner" unique_id=574568666 instance=ExtResource("5_qfjux")]
 position = Vector2(1085, 670)
 creature_data = SubResource("Resource_oedvp")
 
-[node name="ParameterGun" parent="Mob5" unique_id=1594448992 instance=ExtResource("7_px73g")]
+[node name="ParameterGun" parent="Spawner/Mob5" unique_id=1594448992 instance=ExtResource("7_px73g")]
 position = Vector2(-19, 3)
 gun_data = SubResource("Resource_2uonm")
 target = 1
 
-[node name="Mob6" parent="." unique_id=2113850872 instance=ExtResource("5_qfjux")]
+[node name="Mob6" parent="Spawner" unique_id=2113850872 instance=ExtResource("5_qfjux")]
 position = Vector2(1278, 505)
 creature_data = SubResource("Resource_oedvp")
 
-[node name="ParameterGun" parent="Mob6" unique_id=221023609 instance=ExtResource("7_px73g")]
+[node name="ParameterGun" parent="Spawner/Mob6" unique_id=221023609 instance=ExtResource("7_px73g")]
 position = Vector2(-19, 3)
 gun_data = SubResource("Resource_2uonm")
 target = 1

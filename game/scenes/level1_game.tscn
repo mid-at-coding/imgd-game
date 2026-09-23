@@ -155,6 +155,7 @@ position = Vector2(940, -317)
 position = Vector2(966, -375)
 destination_level_tag = "dungeon_saloon_game"
 destination_door_tag = "Entrance"
+locked = false
 
 [node name="CollisionShape2D" parent="Doors/Door_Saloon" index="0" unique_id=1437705022]
 position = Vector2(-10.999999, 32.999996)
@@ -166,6 +167,7 @@ position = Vector2(-1, 98)
 position = Vector2(1564, 2413)
 destination_level_tag = "npc_room_game"
 destination_door_tag = "npcIn"
+locked = false
 
 [node name="Spawn" parent="Doors/Door_npcOut" index="1" unique_id=1116256810]
 position = Vector2(-1, 69)
