@@ -34,6 +34,8 @@ class_name Creature extends CharacterBody2D
 signal health_depleted
 
 @export var creature_data : CreatureData = CreatureData.new()
+static var hurt_tint_time : float = 0.2
+static var hurt_tint : Color = Color(1.0, 0.526, 0.489, 1.0)
 @onready var sprite = get_node(creature_data.spriteName)
 @onready var gun : ParameterGun = get_node(creature_data.gunName)
 @onready var health = creature_data.maxhealth
@@ -112,10 +114,12 @@ func _physics_process(_delta: float) -> void:
 
 # Take damage when hit by bullet
 func take_damage(bullet: BulletData):
-	# red tint
-	sprite.modulate = Color(1.0, 0.526, 0.489, 1.0)
-	await get_tree().create_timer(0.2).timeout
-	sprite.modulate = Color.WHITE
+	
+	# Apply tint
+	# TODO: Should this live in sprite.play_hurt()?
+	sprite.modulate = hurt_tint
+	get_tree().create_timer(hurt_tint_time).timeout.connect(func():
+		sprite.modulate = Color.WHITE)
 	
 	sprite.play_hurt(health)
 	health -= bullet.damage

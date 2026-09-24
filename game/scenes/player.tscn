@@ -90,6 +90,7 @@ offset_bottom = 314.0
 script = ExtResource("7_smehm")
 
 [node name="HealthDisplay" type="RichTextLabel" parent="VitalsDisplay" unique_id=1104343476]
+visible = false
 clip_contents = false
 layout_mode = 2
 theme = ExtResource("8_ur7pv")

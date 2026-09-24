@@ -4,6 +4,7 @@
 # [happy_boo_vitals_display.gd] : VBoxContainer
 # |_ HealthDisplay : RichTextLabel
 # |_ AmmoDisplay : RichTextLabel
+# |_ ChargeDisplay : RichTextLabel
 extends VBoxContainer
 
 func display(creature : Creature) -> void:
