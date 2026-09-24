@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cojv70427mncn"]
+
+[ext_resource type="Texture2D" uid="uid://bjdch7xedae7b" path="res://assets/art/npc_cowboySpriteSheet.png" id="1_nh2m4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abqhh"]
+atlas = ExtResource("1_nh2m4")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv78h"]
+atlas = ExtResource("1_nh2m4")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ebrl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abqhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv78h")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ebrl"]
+radius = 25.019993
+
+[node name="npc" type="CharacterBody2D" unique_id=1017293381]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=869436974]
+sprite_frames = SubResource("SpriteFrames_5ebrl")
+autoplay = "default"
+frame_progress = 0.48698175
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=692874467]
+position = Vector2(0, 57)
+shape = SubResource("CircleShape2D_5ebrl")
