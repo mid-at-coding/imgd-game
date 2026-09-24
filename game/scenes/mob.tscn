@@ -30,10 +30,11 @@ bullets = 1
 bullet = SubResource("Resource_ebxvl")
 metadata/_custom_type_script = "uid://2hlvq8ucffqs"
 
-[node name="Mob" type="CharacterBody2D" unique_id=1758012314 groups=["enemies"]]
+[node name="Mob" type="CharacterBody2D" unique_id=1706582842 groups=["enemies"]]
 collision_layer = 2
 script = ExtResource("1_bsing")
 creature_data = SubResource("Resource_og0x0")
+metadata/_custom_type_script = "uid://bdw2ybx4tgaa"
 
 [node name="Slime" parent="." unique_id=339565775 instance=ExtResource("2_d4cuo")]
 unique_name_in_owner = true
