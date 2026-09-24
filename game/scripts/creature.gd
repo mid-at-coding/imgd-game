@@ -46,13 +46,15 @@ var time_spent_shooting : float = 0.0
 # Requires shooting for 0.5 seconds before playing the end sound. Adjust as needed!
 var min_shoot_time_for_tail : float = 2.0
 var player
+var reticle : CompressedTexture2D = preload("res://assets/art/reticle.png")
+
 
 func _ready():
 	if creature_data.movement == CreatureData.TargetMode.FOLLOW:
 		player = get_tree().current_scene.get_node("%Player")
 	sprite.play_idle()
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
-
+	Input.set_custom_mouse_cursor(reticle)
 func _on_spawn(position: Vector2, direction: String):
 	if (creature_data.ownerMask != BulletData.OwnerClass.PLAYER):
 		return

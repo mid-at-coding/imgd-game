@@ -20,9 +20,12 @@
 [ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="12_uqpmc"]
 [ext_resource type="Script" uid="uid://2hlvq8ucffqs" path="res://scripts/gun_data.gd" id="13_aq4rc"]
 [ext_resource type="Script" uid="uid://d1746gglsvtso" path="res://scripts/creature_data.gd" id="14_kbsvw"]
-[ext_resource type="Texture2D" uid="uid://dvgfmy6vtvjji" path="res://assets/art/slimeBody.png" id="16_rkm4h"]
 [ext_resource type="Script" uid="uid://7nwxxdev5n8t" path="res://scripts/consumable_pickup.gd" id="17_ve1sm"]
 [ext_resource type="Script" uid="uid://b3xdimrv31vkm" path="res://scenes/level1_game_wave_trigger.gd" id="21_4vy4j"]
+[ext_resource type="Texture2D" uid="uid://qx8bgpjeqkam" path="res://assets/art/maxHealthPickupSpriteSheet.png" id="22_xca8r"]
+[ext_resource type="Texture2D" uid="uid://jgy4md51hjmr" path="res://assets/art/HealthRecoveryPickupSpriteSheet.png" id="23_hnhta"]
+[ext_resource type="Texture2D" uid="uid://c58qk7iqpwwjd" path="res://assets/art/AmmoPickupSpriteSheet.png" id="24_45510"]
+[ext_resource type="Texture2D" uid="uid://c3vggk2vbg3w7" path="res://assets/art/sign.png" id="25_hnhta"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vq7yb"]
 texture = ExtResource("2_3iph8")
@@ -75,15 +78,221 @@ maxhealth = 700.0
 spriteName = "HappyBoo"
 metadata/_custom_type_script = "uid://d1746gglsvtso"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_45510"]
+atlas = ExtResource("22_xca8r")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlr6q"]
+atlas = ExtResource("22_xca8r")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ar3x"]
+atlas = ExtResource("22_xca8r")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keaj4"]
+atlas = ExtResource("22_xca8r")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r013"]
+atlas = ExtResource("22_xca8r")
+region = Rect2(0, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vnq0"]
+atlas = ExtResource("22_xca8r")
+region = Rect2(200, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2677"]
+atlas = ExtResource("22_xca8r")
+region = Rect2(400, 200, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ebrl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45510")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlr6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ar3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keaj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r013")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vnq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2677")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
 [sub_resource type="Resource" id="Resource_ve1sm"]
 script = ExtResource("17_ve1sm")
 metadata/_custom_type_script = "uid://7nwxxdev5n8t"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mq32"]
+atlas = ExtResource("23_hnhta")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fw85p"]
+atlas = ExtResource("23_hnhta")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qqaf"]
+atlas = ExtResource("23_hnhta")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrov0"]
+atlas = ExtResource("23_hnhta")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2sq1"]
+atlas = ExtResource("23_hnhta")
+region = Rect2(0, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk8iq"]
+atlas = ExtResource("23_hnhta")
+region = Rect2(200, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djkyk"]
+atlas = ExtResource("23_hnhta")
+region = Rect2(400, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnd3q"]
+atlas = ExtResource("23_hnhta")
+region = Rect2(600, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmhfs"]
+atlas = ExtResource("23_hnhta")
+region = Rect2(0, 400, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_61t1o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mq32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fw85p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qqaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrov0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2sq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk8iq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djkyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnd3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmhfs")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
 
 [sub_resource type="Resource" id="Resource_elns2"]
 script = ExtResource("17_ve1sm")
 ammo = 50
 health = 0
 metadata/_custom_type_script = "uid://7nwxxdev5n8t"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yx6l"]
+atlas = ExtResource("24_45510")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iroh"]
+atlas = ExtResource("24_45510")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87fti"]
+atlas = ExtResource("24_45510")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lj3k"]
+atlas = ExtResource("24_45510")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jpap"]
+atlas = ExtResource("24_45510")
+region = Rect2(0, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5jiu"]
+atlas = ExtResource("24_45510")
+region = Rect2(200, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0l8n"]
+atlas = ExtResource("24_45510")
+region = Rect2(400, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1rst"]
+atlas = ExtResource("24_45510")
+region = Rect2(600, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxclp"]
+atlas = ExtResource("24_45510")
+region = Rect2(0, 400, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_daccu"]
+atlas = ExtResource("24_45510")
+region = Rect2(200, 400, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qbfb6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yx6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0iroh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87fti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lj3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jpap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5jiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0l8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1rst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxclp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_daccu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_763yj"]
 size = Vector2(2962, 52)
@@ -264,9 +473,12 @@ create_hover = true
 shape = SubResource("RectangleShape2D_ybxbt")
 
 [node name="Sprite" type="Sprite2D" parent="Pickup2" unique_id=2016628976]
-modulate = Color(1.1755697, 0, 0.024115214, 1)
-texture = ExtResource("16_rkm4h")
 script = ExtResource("12_rkm4h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pickup2/Sprite" unique_id=1680691016]
+sprite_frames = SubResource("SpriteFrames_5ebrl")
+autoplay = "default"
+frame_progress = 0.66987944
 
 [node name="Pickup3" parent="." unique_id=1820550585 instance=ExtResource("10_lw0rm")]
 position = Vector2(1254, 642)
@@ -278,9 +490,12 @@ create_hover = true
 shape = SubResource("RectangleShape2D_ybxbt")
 
 [node name="Sprite" type="Sprite2D" parent="Pickup3" unique_id=1800692093]
-modulate = Color(1.1755697, 0, 0.024115214, 1)
-texture = ExtResource("16_rkm4h")
 script = ExtResource("12_rkm4h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pickup3/Sprite" unique_id=1790544193]
+sprite_frames = SubResource("SpriteFrames_61t1o")
+autoplay = "default"
+frame_progress = 0.70960164
 
 [node name="Pickup4" parent="." unique_id=649577813 instance=ExtResource("10_lw0rm")]
 position = Vector2(1255, 502)
@@ -292,9 +507,12 @@ create_hover = true
 shape = SubResource("RectangleShape2D_ybxbt")
 
 [node name="Sprite" type="Sprite2D" parent="Pickup4" unique_id=2112971049]
-modulate = Color(1.1755697, 0, 0.024115214, 1)
-texture = ExtResource("16_rkm4h")
 script = ExtResource("12_rkm4h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pickup4/Sprite" unique_id=213207895]
+sprite_frames = SubResource("SpriteFrames_qbfb6")
+autoplay = "default"
+frame_progress = 0.9943401
 
 [node name="WaveTrigger1" type="Area2D" parent="." unique_id=1733082383 node_paths=PackedStringArray("connected_houses")]
 script = ExtResource("21_4vy4j")
@@ -320,6 +538,10 @@ connected_houses = [NodePath("../doubleHouse2"), NodePath("../barnHouse2"), Node
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaveTrigger3" unique_id=955131806]
 position = Vector2(1, -2654)
 shape = SubResource("RectangleShape2D_763yj")
+
+[node name="Sign" type="Sprite2D" parent="." unique_id=921985768]
+position = Vector2(1425, 2447)
+texture = ExtResource("25_hnhta")
 
 [connection signal="body_entered" from="WaveTrigger1" to="WaveTrigger1" method="_on_body_entered"]
 [connection signal="body_entered" from="WaveTrigger2" to="WaveTrigger2" method="_on_body_entered"]

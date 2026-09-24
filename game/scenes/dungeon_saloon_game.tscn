@@ -194,7 +194,7 @@ metadata/_custom_type_script = "uid://b8pqsvvo5pfbj"
 position = Vector2(786, 481)
 creature_data = SubResource("Resource_oedvp")
 
-[node name="ParameterGun" parent="Spawner/Mob" unique_id=941152522 instance=ExtResource("7_px73g")]
+[node name="ParameterGun2" parent="Spawner/Mob" unique_id=941152522 instance=ExtResource("7_px73g")]
 position = Vector2(-19, 3)
 gun_data = SubResource("Resource_2uonm")
 target = 1
@@ -203,7 +203,7 @@ target = 1
 position = Vector2(662, 808)
 creature_data = SubResource("Resource_oedvp")
 
-[node name="ParameterGun" parent="Spawner/Mob2" unique_id=597036289 instance=ExtResource("7_px73g")]
+[node name="ParameterGun2" parent="Spawner/Mob2" unique_id=597036289 instance=ExtResource("7_px73g")]
 position = Vector2(-19, 3)
 gun_data = SubResource("Resource_2uonm")
 target = 1
@@ -212,7 +212,7 @@ target = 1
 position = Vector2(1278, 811)
 creature_data = SubResource("Resource_oedvp")
 
-[node name="ParameterGun" parent="Spawner/Mob3" unique_id=1317766945 instance=ExtResource("7_px73g")]
+[node name="ParameterGun2" parent="Spawner/Mob3" unique_id=1317766945 instance=ExtResource("7_px73g")]
 position = Vector2(-19, 3)
 gun_data = SubResource("Resource_2uonm")
 target = 1
@@ -221,7 +221,7 @@ target = 1
 position = Vector2(1528, 514)
 creature_data = SubResource("Resource_oedvp")
 
-[node name="ParameterGun" parent="Spawner/Mob4" unique_id=333321084 instance=ExtResource("7_px73g")]
+[node name="ParameterGun2" parent="Spawner/Mob4" unique_id=333321084 instance=ExtResource("7_px73g")]
 position = Vector2(-19, 3)
 gun_data = SubResource("Resource_2uonm")
 target = 1
@@ -230,7 +230,7 @@ target = 1
 position = Vector2(1085, 670)
 creature_data = SubResource("Resource_oedvp")
 
-[node name="ParameterGun" parent="Spawner/Mob5" unique_id=1594448992 instance=ExtResource("7_px73g")]
+[node name="ParameterGun2" parent="Spawner/Mob5" unique_id=1594448992 instance=ExtResource("7_px73g")]
 position = Vector2(-19, 3)
 gun_data = SubResource("Resource_2uonm")
 target = 1
@@ -239,7 +239,7 @@ target = 1
 position = Vector2(1278, 505)
 creature_data = SubResource("Resource_oedvp")
 
-[node name="ParameterGun" parent="Spawner/Mob6" unique_id=221023609 instance=ExtResource("7_px73g")]
+[node name="ParameterGun2" parent="Spawner/Mob6" unique_id=221023609 instance=ExtResource("7_px73g")]
 position = Vector2(-19, 3)
 gun_data = SubResource("Resource_2uonm")
 target = 1
