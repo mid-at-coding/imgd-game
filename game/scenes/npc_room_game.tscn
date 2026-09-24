@@ -115,6 +115,7 @@ tile_set = SubResource("TileSet_56lpp")
 [node name="Door_npcIn" parent="Doors" unique_id=883638600 instance=ExtResource("4_pell5")]
 destination_level_tag = "level1_game"
 destination_door_tag = "npcOut"
+locked = false
 
 [node name="CollisionShape2D" parent="Doors/Door_npcIn" index="0" unique_id=1437705022]
 position = Vector2(590.99994, 982.99994)
