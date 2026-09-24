@@ -1,14 +1,39 @@
 [gd_scene format=3 uid="uid://4a4h5aa2xyig"]
 
 [ext_resource type="Script" uid="uid://bdw2ybx4tgaa" path="res://scripts/creature.gd" id="1_bsing"]
+[ext_resource type="Script" uid="uid://d1746gglsvtso" path="res://scripts/creature_data.gd" id="2_71rcx"]
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://scenes/slime.tscn" id="2_d4cuo"]
+[ext_resource type="PackedScene" uid="uid://xp88v303vdqs" path="res://scenes/parameter_gun.tscn" id="3_71rcx"]
+[ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="5_h8ps3"]
+[ext_resource type="Script" uid="uid://2hlvq8ucffqs" path="res://scripts/gun_data.gd" id="5_xsfyf"]
+
+[sub_resource type="Resource" id="Resource_og0x0"]
+script = ExtResource("2_71rcx")
+shoot = 1
+speed = 150
+spriteName = "Slime"
+ownerMask = 1
+metadata/_custom_type_script = "uid://d1746gglsvtso"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ypitm"]
 radius = 67.0
 
+[sub_resource type="Resource" id="Resource_ebxvl"]
+script = ExtResource("5_h8ps3")
+owner = 1
+metadata/_custom_type_script = "uid://bx7gx2juhxy5s"
+
+[sub_resource type="Resource" id="Resource_71rcx"]
+script = ExtResource("5_xsfyf")
+fire_rate = 1
+bullets = 1
+bullet = SubResource("Resource_ebxvl")
+metadata/_custom_type_script = "uid://2hlvq8ucffqs"
+
 [node name="Mob" type="CharacterBody2D" unique_id=1758012314 groups=["enemies"]]
 collision_layer = 2
 script = ExtResource("1_bsing")
+creature_data = SubResource("Resource_og0x0")
 
 [node name="Slime" parent="." unique_id=339565775 instance=ExtResource("2_d4cuo")]
 unique_name_in_owner = true
@@ -17,3 +42,8 @@ unique_name_in_owner = true
 position = Vector2(0, -28)
 shape = SubResource("CircleShape2D_ypitm")
 debug_color = Color(0.701961, 0.282353, 0.352941, 0.419608)
+
+[node name="ParameterGun" parent="." unique_id=941152522 instance=ExtResource("3_71rcx")]
+gun_data = SubResource("Resource_71rcx")
+target = 1
+ammo = 500

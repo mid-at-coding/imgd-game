@@ -47,7 +47,7 @@ var player
 
 func _ready():
 	if creature_data.movement == CreatureData.TargetMode.FOLLOW:
-		player = get_node("%Player")
+		player = get_tree().current_scene.get_node("%Player")
 	sprite.play_idle()
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 
@@ -94,6 +94,9 @@ func _try_fire(delta: float) -> void:
 	elif was_shooting:
 		if end_shoot_sound and time_spent_shooting >= min_shoot_time_for_tail:
 			end_shoot_sound.play()
+			# Reset the timer so it starts fresh on the next click
+		time_spent_shooting = 0.0
+
 	was_shooting = is_shooting
 
 # Move, play the appropriate animation, and fire if necessary

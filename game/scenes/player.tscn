@@ -18,7 +18,7 @@ script = ExtResource("2_tuyoq")
 movement = 0
 shoot = 2
 speed = 500
-maxhealth = 600.0
+maxhealth = 50.0
 spriteName = "HappyBoo"
 metadata/_custom_type_script = "uid://d1746gglsvtso"
 
@@ -61,7 +61,7 @@ shape = SubResource("RectangleShape2D_csncd")
 
 [node name="ParameterGun" parent="." unique_id=941152522 instance=ExtResource("3_qhqgy")]
 gun_data = SubResource("Resource_dqkch")
-ammo = 3
+ammo = 500
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=698633368]
 unique_name_in_owner = true
