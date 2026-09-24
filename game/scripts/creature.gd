@@ -117,7 +117,9 @@ func _physics_process(_delta: float) -> void:
 
 # Take damage when hit by bullet
 func take_damage(bullet: BulletData):
-	
+	# No point taking damage if we're already dead
+	if health <= 0:
+		return
 	# Apply tint
 	# TODO: Should this live in sprite.play_hurt()?
 	sprite.modulate = hurt_tint
