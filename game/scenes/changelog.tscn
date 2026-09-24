@@ -72,7 +72,14 @@ Build 3:
          - Created basic UI
          - Added transition between scenes 
          - Updated sprites
-
+Build 4:
+         - Extended starting strip map with borders
+         - Added button and gun SFX
+         - Added waves, spawning ghost enemies at houses
+         - Added NPC house to strip 
+         - Updated pickup, projectile, player, and health bar sprites
+         - Added art assets to Saloon
+         - Made doors lockable
 
 
 "
