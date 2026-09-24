@@ -31,6 +31,7 @@
 # TODO: Make the sprite an interface
 class_name Creature extends CharacterBody2D
 
+## Triggered when this creature dies
 signal health_depleted
 
 @export var creature_data : CreatureData = CreatureData.new()
@@ -126,12 +127,8 @@ func take_damage(bullet: BulletData):
 	sprite.play_hurt(health)
 	health -= bullet.damage
 	if health <= 0:
+		health_depleted.emit()
 		# TODO: Maybe we should wait around before queue_free()ing? Perhaps
 		# listen for a signal?
 		sprite.die()
 		queue_free()
-
-# Pass signal from happy_boo so that game can read it
-# XXX: this should definitely be done a different way
-func _on_happy_boo_health_depleted() -> void:
-	health_depleted.emit()

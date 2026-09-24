@@ -1,16 +1,13 @@
-[gd_scene format=4 uid="uid://duay16vpf3u56"]
+[gd_scene format=4 uid="uid://35k3jb08xv6p"]
 
 [ext_resource type="Script" uid="uid://lg4k6vnvymk" path="res://scripts/level.gd" id="1_b81me"]
 [ext_resource type="Texture2D" uid="uid://b2owduqhdi1p3" path="res://assets/art/wildWestTiles.png" id="1_vt8kp"]
 [ext_resource type="PackedScene" uid="uid://b8447letixese" path="res://scenes/door.tscn" id="2_djq8p"]
 [ext_resource type="Texture2D" uid="uid://bxmvo8k5cqpjt" path="res://assets/art/saloonSpriteSheet.png" id="3_0sklo"]
 [ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://scenes/player.tscn" id="3_b81me"]
-[ext_resource type="PackedScene" uid="uid://4a4h5aa2xyig" path="res://scenes/mob.tscn" id="5_qfjux"]
-[ext_resource type="Script" uid="uid://d1746gglsvtso" path="res://scripts/creature_data.gd" id="6_0sklo"]
 [ext_resource type="Script" uid="uid://b8pqsvvo5pfbj" path="res://scripts/spawner.gd" id="6_6nlq8"]
-[ext_resource type="PackedScene" uid="uid://xp88v303vdqs" path="res://scenes/parameter_gun.tscn" id="7_px73g"]
-[ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="8_6nlq8"]
-[ext_resource type="Script" uid="uid://2hlvq8ucffqs" path="res://scripts/gun_data.gd" id="9_vaknx"]
+[ext_resource type="Script" uid="uid://cj8o0cwe30dl4" path="res://scripts/wave_manager.gd" id="6_vaknx"]
+[ext_resource type="PackedScene" uid="uid://difmp0qyf71mg" path="res://scenes/dungeon_saloon_spawner_mobs.tscn" id="8_qfjux"]
 [ext_resource type="PackedScene" uid="uid://d11lfecs3ayb8" path="res://scenes/fade_area.tscn" id="11_px73g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0sklo"]
@@ -108,26 +105,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0sklo")
 sources/1 = SubResource("TileSetAtlasSource_px73g")
 
-[sub_resource type="Resource" id="Resource_oedvp"]
-script = ExtResource("6_0sklo")
-shoot = 1
-speed = 150
-spriteName = "Slime"
-ownerMask = 1
-metadata/_custom_type_script = "uid://d1746gglsvtso"
-
-[sub_resource type="Resource" id="Resource_lw0rm"]
-script = ExtResource("8_6nlq8")
-owner = 1
-metadata/_custom_type_script = "uid://bx7gx2juhxy5s"
-
-[sub_resource type="Resource" id="Resource_2uonm"]
-script = ExtResource("9_vaknx")
-fire_rate = 1
-bullets = 1
-bullet = SubResource("Resource_lw0rm")
-metadata/_custom_type_script = "uid://2hlvq8ucffqs"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ebrl"]
 
 [node name="Game" type="Node2D" unique_id=737626321]
@@ -184,65 +161,16 @@ destination_door_tag = "Saloon2Right"
 [node name="Spawn" parent="Doors/Door_Saloon1Right" index="1" unique_id=1116256810]
 position = Vector2(-111, 13)
 
-[node name="Spawner" type="Node" parent="." unique_id=396690273]
+[node name="WaveManager" type="Node2D" parent="." unique_id=930089092 node_paths=PackedStringArray("Spawners", "Doors")]
+script = ExtResource("6_vaknx")
+Spawners = [NodePath("Spawner")]
+Doors = [NodePath("../Doors/Door_Saloon1Left"), NodePath("../Doors/Door_Saloon1Right")]
+metadata/_custom_type_script = "uid://cj8o0cwe30dl4"
+
+[node name="Spawner" type="Node2D" parent="WaveManager" unique_id=705384899]
 script = ExtResource("6_6nlq8")
-Creatures = Array[NodePath]([NodePath("Mob"), NodePath("Mob2"), NodePath("Mob3"), NodePath("Mob4"), NodePath("Mob5"), NodePath("Mob6")])
-Doors = Array[NodePath]([NodePath("../Doors/Door_Saloon1Left"), NodePath("../Doors/Door_Saloon1Right")])
+Creatures = ExtResource("8_qfjux")
 metadata/_custom_type_script = "uid://b8pqsvvo5pfbj"
-
-[node name="Mob" parent="Spawner" unique_id=1758012314 instance=ExtResource("5_qfjux")]
-position = Vector2(786, 481)
-creature_data = SubResource("Resource_oedvp")
-
-[node name="ParameterGun2" parent="Spawner/Mob" unique_id=941152522 instance=ExtResource("7_px73g")]
-position = Vector2(-19, 3)
-gun_data = SubResource("Resource_2uonm")
-target = 1
-
-[node name="Mob2" parent="Spawner" unique_id=2087214183 instance=ExtResource("5_qfjux")]
-position = Vector2(662, 808)
-creature_data = SubResource("Resource_oedvp")
-
-[node name="ParameterGun2" parent="Spawner/Mob2" unique_id=597036289 instance=ExtResource("7_px73g")]
-position = Vector2(-19, 3)
-gun_data = SubResource("Resource_2uonm")
-target = 1
-
-[node name="Mob3" parent="Spawner" unique_id=309064820 instance=ExtResource("5_qfjux")]
-position = Vector2(1278, 811)
-creature_data = SubResource("Resource_oedvp")
-
-[node name="ParameterGun2" parent="Spawner/Mob3" unique_id=1317766945 instance=ExtResource("7_px73g")]
-position = Vector2(-19, 3)
-gun_data = SubResource("Resource_2uonm")
-target = 1
-
-[node name="Mob4" parent="Spawner" unique_id=551567926 instance=ExtResource("5_qfjux")]
-position = Vector2(1528, 514)
-creature_data = SubResource("Resource_oedvp")
-
-[node name="ParameterGun2" parent="Spawner/Mob4" unique_id=333321084 instance=ExtResource("7_px73g")]
-position = Vector2(-19, 3)
-gun_data = SubResource("Resource_2uonm")
-target = 1
-
-[node name="Mob5" parent="Spawner" unique_id=574568666 instance=ExtResource("5_qfjux")]
-position = Vector2(1085, 670)
-creature_data = SubResource("Resource_oedvp")
-
-[node name="ParameterGun2" parent="Spawner/Mob5" unique_id=1594448992 instance=ExtResource("7_px73g")]
-position = Vector2(-19, 3)
-gun_data = SubResource("Resource_2uonm")
-target = 1
-
-[node name="Mob6" parent="Spawner" unique_id=2113850872 instance=ExtResource("5_qfjux")]
-position = Vector2(1278, 505)
-creature_data = SubResource("Resource_oedvp")
-
-[node name="ParameterGun2" parent="Spawner/Mob6" unique_id=221023609 instance=ExtResource("7_px73g")]
-position = Vector2(-19, 3)
-gun_data = SubResource("Resource_2uonm")
-target = 1
 
 [node name="HiddenArea" type="TileMapLayer" parent="." unique_id=408147282]
 use_parent_material = true
