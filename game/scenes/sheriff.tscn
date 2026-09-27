@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dkellogekayf6"]
+
+[ext_resource type="Texture2D" uid="uid://diq20mkkajvj3" path="res://assets/art/sheriff.png" id="1_2n8su"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp806"]
+size = Vector2(66.25, 85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ebrl"]
+size = Vector2(264.5, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbfb6"]
+size = Vector2(308.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61t1o"]
+size = Vector2(82, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r03d5"]
+size = Vector2(33.5, 139)
+
+[node name="sheriff" type="StaticBody2D" unique_id=510068488]
+
+[node name="Sheriff" type="Sprite2D" parent="." unique_id=1981625329]
+position = Vector2(-54, -116)
+texture = ExtResource("1_2n8su")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=392301608]
+position = Vector2(-226, -137)
+shape = SubResource("RectangleShape2D_tp806")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1814089114]
+position = Vector2(-193.25, -37)
+shape = SubResource("RectangleShape2D_5ebrl")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="." unique_id=992799905]
+position = Vector2(-16, -152)
+shape = SubResource("RectangleShape2D_qbfb6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=446137480]
+position = Vector2(-28.25, -65)
+shape = SubResource("RectangleShape2D_qbfb6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=200354931]
+position = Vector2(90, -36.5)
+shape = SubResource("RectangleShape2D_61t1o")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="." unique_id=198561001]
+position = Vector2(215.75, -49)
+shape = SubResource("RectangleShape2D_r03d5")

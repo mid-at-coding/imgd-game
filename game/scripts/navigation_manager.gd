@@ -8,6 +8,8 @@ const scene_dungeon_saloon_game = preload("res://scenes/dungeon_saloon_game.tscn
 const scene_dungeon_saloon_left_game = preload("res://scenes/dungeon_saloon_left_game.tscn")
 const scene_dungeon_saloon_right_game = preload("res://scenes/dungeon_saloon_right_game.tscn")
 const scene_npc_room_game = preload("res://scenes/npc_room_game.tscn")
+const scene_dungeon_sheriff_game = preload("res://scenes/dungeon_sheriff_game.tscn")
+const scene_level2_game = preload("res://scenes/level2_game.tscn")
 static var player_data
 static var player_gun
 static var player_health
@@ -32,6 +34,10 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_dungeon_saloon_right_game
 		"npc_room_game":
 			scene_to_load = scene_npc_room_game
+		"dungeon_sheriff_game":
+			scene_to_load = scene_dungeon_sheriff_game
+		"level2_game":
+			scene_to_load = scene_level2_game
 		
 	if scene_to_load != null:
 		# Save player data
