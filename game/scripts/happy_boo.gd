@@ -31,7 +31,7 @@ func _creature_read():
 	%VitalsDisplay.display(creature)
 
 # Update sprite
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	_creature_read()
 	var direction := Input.get_axis("move_left", "move_right")
 	# Flip based on input direction

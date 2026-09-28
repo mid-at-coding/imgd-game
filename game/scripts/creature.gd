@@ -56,7 +56,8 @@ func _ready():
 	sprite.play_idle()
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 	Input.set_custom_mouse_cursor(reticle)
-func _on_spawn(position: Vector2, direction: String):
+
+func _on_spawn(position: Vector2, _direction: String):
 	if (creature_data.ownerMask != BulletData.OwnerClass.PLAYER):
 		return
 	global_position = position

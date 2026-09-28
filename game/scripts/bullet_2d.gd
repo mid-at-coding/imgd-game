@@ -28,9 +28,7 @@ func _physics_process(delta):
 		queue_free()
 
 # Apply damage when possible
-func _on_body_entered(body):
-	if body.get("creature_data").ownerMask == bullet_data.owner:
-		return
+func _on_body_entered(body: Node2D):
 	queue_free()
-	if body.has_method("take_damage"):
+	if body.has_method("take_damage") and body.get("creature_data").ownerMask != bullet_data.owner:
 		body.take_damage(bullet_data)

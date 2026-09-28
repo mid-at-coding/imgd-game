@@ -10,7 +10,6 @@ radius = 15.0333
 top_level = true
 collision_layer = 0
 collision_mask = 3
-monitorable = false
 script = ExtResource("1_lg2ne")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=781331271]
