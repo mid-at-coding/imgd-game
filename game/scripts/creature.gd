@@ -105,15 +105,17 @@ func _try_fire(delta: float) -> void:
 	was_shooting = is_shooting
 
 # Move, play the appropriate animation, and fire if necessary
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var direction = _get_direction_vector()
 	if (direction.length() > 0):
 		sprite.play_walk()
 	else:
 		sprite.play_idle()
 	velocity = direction * creature_data.speed
+	if sprite.has_method("apply_impulse"):
+		velocity += sprite.apply_impulse(velocity, delta)
 	move_and_slide()
-	_try_fire(_delta)
+	_try_fire(delta)
 
 # Take damage when hit by bullet
 func take_damage(bullet: BulletData):
