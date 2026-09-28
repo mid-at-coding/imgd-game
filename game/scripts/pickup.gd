@@ -32,9 +32,9 @@ var label : RichTextLabel
 func _ready() -> void:
 	if (!create_hover):
 		hover = get_node("Hover")
-	if (hover == null):
-		push_warning("Hover node is null, recreating")
-		create_hover = true
+		if (hover == null):
+			push_warning("Hover node is null, recreating")
+			create_hover = true
 	if (create_hover):
 		# TODO: replace with custom scene for style
 		hover = CanvasLayer.new()
@@ -116,6 +116,7 @@ func _update_and_show_hover() -> void:
 
 # If we encounter a pickup bind while showing we should apply the diff
 func _process(_delta: float) -> void:
+	# TODO: Pickup mode (i.e. automatic if strictly better, automatic, manual)
 	if (!hover.visible || !Input.is_action_pressed("accept_pickup")):
 		return
 	if (type == PickupType.CREATURE):
