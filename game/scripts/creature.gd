@@ -39,8 +39,8 @@ signal health_depleted
 @export var creature_data : CreatureData = CreatureData.new()
 static var hurt_tint_time : float = 0.2
 static var hurt_tint : Color = Color(1.0, 0.526, 0.489, 1.0)
-@onready var sprite = get_node(creature_data.spriteName)
-@onready var gun : ParameterGun = get_node(creature_data.gunName)
+@export var sprite : Node
+@export var gun : ParameterGun
 @onready var health = creature_data.maxhealth
 @onready var shoot_sound = get_node_or_null("ShootSound")
 @onready var end_shoot_sound = get_node_or_null("EndShootSound")

@@ -13,9 +13,5 @@ enum ShootMode { NEVER, ALWAYS, MOUSE }
 @export var speed = 200
 ## How much health the creature can have at maximum
 @export var maxhealth = 3.0
-## The name of the creature's sprite in the tree
-@export var spriteName = "Sprite"
-## The name of the creature's gun in the tree
-@export var gunName = "ParameterGun"
 ## What type of creature the creature is
 @export var ownerMask : BulletData.OwnerClass = BulletData.OwnerClass.PLAYER

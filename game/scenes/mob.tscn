@@ -11,7 +11,6 @@
 script = ExtResource("2_71rcx")
 shoot = 1
 speed = 150
-spriteName = "Slime"
 ownerMask = 1
 metadata/_custom_type_script = "uid://d1746gglsvtso"
 
@@ -30,10 +29,12 @@ bullets = 1
 bullet = SubResource("Resource_ebxvl")
 metadata/_custom_type_script = "uid://2hlvq8ucffqs"
 
-[node name="Mob" type="CharacterBody2D" unique_id=1706582842 groups=["enemies"]]
+[node name="Mob" type="CharacterBody2D" unique_id=1706582842 node_paths=PackedStringArray("sprite", "gun") groups=["enemies"]]
 collision_layer = 2
 script = ExtResource("1_bsing")
 creature_data = SubResource("Resource_og0x0")
+sprite = NodePath("Slime")
+gun = NodePath("ParameterGun")
 metadata/_custom_type_script = "uid://bdw2ybx4tgaa"
 
 [node name="Slime" parent="." unique_id=339565775 instance=ExtResource("2_d4cuo")]

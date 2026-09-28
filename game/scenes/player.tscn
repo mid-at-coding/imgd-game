@@ -19,7 +19,6 @@ movement = 0
 shoot = 2
 speed = 500
 maxhealth = 50.0
-spriteName = "HappyBoo"
 metadata/_custom_type_script = "uid://d1746gglsvtso"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csncd"]
@@ -45,10 +44,12 @@ content_margin_right = 15.0
 content_margin_bottom = 15.0
 bg_color = Color(0, 0, 0, 0.3647059)
 
-[node name="Player" type="CharacterBody2D" unique_id=1546396198]
+[node name="Player" type="CharacterBody2D" unique_id=1546396198 node_paths=PackedStringArray("sprite", "gun")]
 motion_mode = 1
 script = ExtResource("1_dqkch")
 creature_data = SubResource("Resource_lw0rm")
+sprite = NodePath("HappyBoo")
+gun = NodePath("ParameterGun")
 
 [node name="HappyBoo" parent="." unique_id=984748070 instance=ExtResource("2_bl5ih")]
 unique_name_in_owner = true
