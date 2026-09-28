@@ -120,6 +120,7 @@ func _process(_delta: float) -> void:
 		return
 	if (type == PickupType.CREATURE):
 		player.creature_data.maxhealth = diff.maxhealth
+		player.health = diff.maxhealth
 		player.creature_data.speed = diff.speed
 	if (type == PickupType.GUN):
 		player.gun.gun_data = diff
