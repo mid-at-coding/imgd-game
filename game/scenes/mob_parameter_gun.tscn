@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://g7ur3wyb104j"]
+
+[ext_resource type="Script" uid="uid://btdq8wcw1hh3j" path="res://scripts/parameter_gun.gd" id="1_a7ysi"]
+[ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="2_7fqnw"]
+[ext_resource type="PackedScene" uid="uid://kc82j385l7yt" path="res://scenes/mob_bullet_2d.tscn" id="3_a7ysi"]
+[ext_resource type="Script" uid="uid://2hlvq8ucffqs" path="res://scripts/gun_data.gd" id="4_tq7x4"]
+[ext_resource type="Texture2D" uid="uid://dh4e8a88hggih" path="res://assets/art/weaponBasic.png" id="5_nex3m"]
+
+[sub_resource type="Resource" id="Resource_pd84s"]
+script = ExtResource("2_7fqnw")
+owner = 1
+metadata/_custom_type_script = "uid://bx7gx2juhxy5s"
+
+[sub_resource type="Resource" id="Resource_gfqvb"]
+script = ExtResource("4_tq7x4")
+fire_rate = 1
+bullets = 1
+bullet = SubResource("Resource_pd84s")
+bullet_scene = ExtResource("3_a7ysi")
+metadata/_custom_type_script = "uid://2hlvq8ucffqs"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nthgb"]
+radius = 987.0
+
+[node name="ParameterGun" type="Area2D" unique_id=941152522]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_a7ysi")
+gun_data = SubResource("Resource_gfqvb")
+target = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=610048026]
+shape = SubResource("CircleShape2D_nthgb")
+
+[node name="WeaponPivot" type="Marker2D" parent="." unique_id=1495600283]
+position = Vector2(62, 0)
+gizmo_extents = 47.7
+
+[node name="WeaponBasic" type="Sprite2D" parent="WeaponPivot" unique_id=1656868825]
+position = Vector2(14, 1)
+texture = ExtResource("5_nex3m")
+flip_h = true
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/WeaponBasic" unique_id=1993003497]
+unique_name_in_owner = true
+show_behind_parent = true
+position = Vector2(21, -12)
+gizmo_extents = 30.6
+
+[node name="Timer" type="Timer" parent="." unique_id=633816227]
+wait_time = 0.096
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

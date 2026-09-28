@@ -3,7 +3,7 @@ class_name BulletData extends Resource
 ## How fast the bullet moves, in u/s
 @export var speed : int = 1000
 ## How far the bullet can move from its birthplace before dying
-@export var maxRange : int = 1200
+static var maxRange : int = 2000
 ## How much damage the bullet deals when it hits
 @export var damage : int = 1
 # TODO: this class should probably be standalone
