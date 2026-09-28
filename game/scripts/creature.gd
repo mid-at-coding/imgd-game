@@ -11,6 +11,8 @@
 #     INPUT  - Move based on input
 #     FOLLOW - Move directly towards the player
 #     STAND - Stand still
+#     FOLLOW_DISTANCE - Move directly towards the player until a minimum
+#       distance
 #   Shoot: How the creature should choose to shoot
 #     NEVER - Never shoot
 #     ALWAYS - Always shoot
@@ -51,7 +53,8 @@ var reticle : CompressedTexture2D = preload("res://assets/art/reticle.png")
 
 
 func _ready():
-	if creature_data.movement == CreatureData.TargetMode.FOLLOW:
+	if creature_data.movement == CreatureData.TargetMode.FOLLOW or \
+	creature_data.movement == CreatureData.TargetMode.FOLLOW_DISTANCE:
 		player = get_tree().current_scene.get_node("%Player")
 	sprite.play_idle()
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
@@ -75,6 +78,10 @@ func _get_direction_vector() -> Vector2:
 		return Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	elif creature_data.movement == CreatureData.TargetMode.FOLLOW:
 		return global_position.direction_to(player.global_position)
+	elif creature_data.movement == CreatureData.TargetMode.FOLLOW_DISTANCE:
+		var dist = global_position.distance_to(player.global_position)
+		if dist > creature_data.follow_distance:
+			return global_position.direction_to(player.global_position)
 	return Vector2(0,0)
 
 # Try to fire bullet and handle shooting audio states

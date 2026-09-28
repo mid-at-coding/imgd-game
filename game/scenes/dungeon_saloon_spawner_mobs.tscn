@@ -8,6 +8,8 @@
 
 [sub_resource type="Resource" id="Resource_oedvp"]
 script = ExtResource("2_omwp1")
+movement = 3
+follow_distance = 200
 shoot = 1
 speed = 150
 spriteName = "Slime"
