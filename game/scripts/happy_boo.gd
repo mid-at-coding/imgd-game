@@ -3,11 +3,17 @@
 # Tree:
 # [happy_boo] : Node2D
 # |_ $AnimatedSprite2D : AnimatedSprite2D
+# |_ DashTimer : ProgressBar
 # |_ %HealthBar : ProgressBar
 # |_ %VitalsDisplay : Implements .display(Creature)
 # |_ %HurtBox : Area2D
 # TODO adjust happyboo code to be new Player code (code that uses %AnimationPlayer are old)
 extends Node2D
+const SCREEN_WIPE_SCENE = preload("res://scenes/screen_wipe.tscn")
+var wipe_charges : int = 3
+var last_dash : float = 10
+const dash_time : float = 2
+
 
 signal health_depleted
 
@@ -29,6 +35,8 @@ func _creature_read():
 	%HealthBar.value = creature.health
 	%HealthBar.max_value = creature.creature_data.maxhealth
 	%VitalsDisplay.display(creature)
+	%DashTimer.visible = last_dash - 1 < dash_time 
+	%DashTimer.value = last_dash / dash_time
 
 # Update sprite
 func _physics_process(_delta: float) -> void:
@@ -38,14 +46,8 @@ func _physics_process(_delta: float) -> void:
 	if direction != 0:
 		$AnimatedSprite2D.flip_h = direction > 0
 
-
-const SCREEN_WIPE_SCENE = preload("res://scenes/screen_wipe.tscn")
-var wipe_charges : int = 3
-var last_dash : float = 10
-const dash_time : float = 2
-
 func apply_impulse(vel : Vector2, delta : float):
-	if (last_dash <= dash_time):
+	if (last_dash <= dash_time * 10):
 		last_dash += delta
 	var mul = 100 * max(0, 1 - pow(5 * last_dash - 0.7, 4))
 	return vel * mul * delta
