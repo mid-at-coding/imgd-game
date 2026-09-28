@@ -10,3 +10,5 @@ class_name GunData extends Resource
 @export var bullet : BulletData = BulletData.new()
 ## How much ammo is spent per shot (see parameter_gun.gd)
 @export var ammo_consumption : int = 0
+## The bullet scene to instantiate
+@export var bullet_scene : PackedScene = preload("res://scenes/bullet_2d.tscn")

@@ -22,7 +22,6 @@
 
 class_name ParameterGun extends Node2D
 const RANGE = 1200
-const BULLET_SCENE = preload("res://scenes/bullet_2d.tscn")
 enum TargetMode { MOUSE, PLAYER, CONSTANT }
 @export var gun_data : GunData
 @export var target : TargetMode
@@ -75,12 +74,13 @@ func fire() -> bool:
 	$Timer.set_wait_time(1.0/gun_data.fire_rate)
 	$Timer.start()
 	return true
-# Unconditionally pawn bullets from gun
+
+# Unconditionally spawn bullets from gun
 func shoot() -> void:
 	for i in gun_data.bullets:
 		var mag : int = (i + 1) / 2
 		var dir : int = (i % 2) * 2 - 1
-		var new_bullet = BULLET_SCENE \
+		var new_bullet = gun_data.bullet_scene \
 		.instantiate() \
 		.with_parameters(gun_data.bullet)
 		
