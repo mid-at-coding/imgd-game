@@ -17,22 +17,40 @@ var _spawners_left = 0
 var _curr = 0
 
 func _advance() -> void:
-	if _spawners_left == 1:
-		_unlock();
-		return
 	_spawners_left -= 1
 	_curr += 1
+	if _spawners_left == 0:
+		_unlock();
+		return
 	get_tree().create_timer(Delay).timeout.connect(Spawners[_curr].spawn)
 
-func _ready() -> void:
+func _onload() -> void:
+	if _curr >= Spawners.size():
+		return
 	Spawners[_curr].spawn()
 	for spawner in Spawners:
-		_spawners_left += 1
 		# Avoid connecting a signal multiple times
 		if (!spawner.creatures_dead.is_connected(_advance)):
 			spawner.creatures_dead.connect(_advance)
+	_spawners_left = Spawners.size() - _curr
+
+
+func _ready() -> void:
+	NavigationManager.loaded.connect(_onload)
 
 # Unlock our doors
 func _unlock() -> void:
 	for door in Doors:
 		door.locked = false
+
+func state_key() -> String:
+	return get_path()
+
+## Save our state so that we don't respawn enemies
+func save_state():
+	return {"_curr":_curr}
+
+func load_state(dict):
+	if !dict:
+		return
+	_curr = dict._curr

@@ -64,7 +64,30 @@ func _on_spawn(position: Vector2, _direction: String):
 	if (creature_data.ownerMask != BulletData.OwnerClass.PLAYER):
 		return
 	global_position = position
-	NavigationManager._restore_player()
+
+func state_key():
+	if (creature_data.ownerMask != BulletData.OwnerClass.PLAYER):
+		return
+	return "Player"
+
+func save_state():
+	if (creature_data.ownerMask != BulletData.OwnerClass.PLAYER):
+		return
+	return {
+		"creature_data": creature_data,
+		"gun_data": gun.gun_data,
+		"gun_ammo": gun.ammo,
+		"health": health,
+		"wipe_charges": sprite.wipe_charges}
+
+func load_state(dict):
+	if (creature_data.ownerMask != BulletData.OwnerClass.PLAYER):
+		return
+	creature_data = dict.creature_data
+	gun.gun_data = dict.gun_data
+	gun.ammo = dict.gun_ammo
+	health = dict.health
+	sprite.wipe_charges = dict.wipe_charges
 
 # Construct a creature with certain parameters
 @warning_ignore("shadowed_variable")

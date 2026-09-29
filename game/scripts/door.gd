@@ -15,6 +15,14 @@ class_name Door
 @export var locked = true
 @onready var spawn = $Spawn
 
+func state_key():
+	return String(get_path()) + destination_door_tag
+
+func save_state():
+	return locked
+
+func load_state(dict):
+	locked = dict
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Creature:

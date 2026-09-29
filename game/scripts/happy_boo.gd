@@ -14,12 +14,20 @@ var wipe_charges : int = 3
 var last_dash : float = 10
 const dash_time : float = 2
 
-
 signal health_depleted
 
 # Plays idle animation
 func play_idle():
 	$AnimatedSprite2D.play("idle")
+
+func state_key():
+	return "happy_boo"
+
+func save_state():
+	return {"wipe_charges":wipe_charges}
+
+func load_state(dict):
+	wipe_charges = dict.wipe_charges
 
 # Plays walk animation
 func play_walk():

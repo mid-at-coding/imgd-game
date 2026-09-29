@@ -3,60 +3,50 @@
 
 extends Node
 
-const scene_level1_game = preload("res://scenes/level1_game.tscn")
-const scene_dungeon_saloon_game = preload("res://scenes/dungeon_saloon_game.tscn")
-const scene_dungeon_saloon_left_game = preload("res://scenes/dungeon_saloon_left_game.tscn")
-const scene_dungeon_saloon_right_game = preload("res://scenes/dungeon_saloon_right_game.tscn")
-const scene_npc_room_game = preload("res://scenes/npc_room_game.tscn")
-const scene_dungeon_sheriff_game = preload("res://scenes/dungeon_sheriff_game.tscn")
-const scene_level2_game = preload("res://scenes/level2_game.tscn")
-static var player_data
-static var player_gun
-static var player_health
-static var player_ammo
-static var player_charges : int = 3
+const level_dict : Dictionary[String, PackedScene] = {
+	"level1_game":preload("res://scenes/level1_game.tscn"),
+	"dungeon_saloon_game":preload("res://scenes/dungeon_saloon_game.tscn"),
+	"dungeon_saloon_left_game":preload("res://scenes/dungeon_saloon_left_game.tscn"),
+	"dungeon_saloon_right_game":preload("res://scenes/dungeon_saloon_right_game.tscn"),
+	"npc_room_game":preload("res://scenes/npc_room_game.tscn"),
+	"level2_game":preload("res://scenes/level2_game.tscn")
+}
+static var saved_data : Dictionary[String, Variant];
 
 signal on_trigger_player_spawn
+signal loaded
 
 var spawn_door_tag
 
-func go_to_level(level_tag, destination_tag):
-	var scene_to_load
-	
-	match level_tag:
-		"level1_game":
-			scene_to_load = scene_level1_game
-		"dungeon_saloon_game":
-			scene_to_load = scene_dungeon_saloon_game
-		"dungeon_saloon_left_game":
-			scene_to_load = scene_dungeon_saloon_left_game
-		"dungeon_saloon_right_game":
-			scene_to_load = scene_dungeon_saloon_right_game
-		"npc_room_game":
-			scene_to_load = scene_npc_room_game
-		"dungeon_sheriff_game":
-			scene_to_load = scene_dungeon_sheriff_game
-		"level2_game":
-			scene_to_load = scene_level2_game
-		
-	if scene_to_load != null:
-		# Save player data
-		var player : Creature = get_node("/root/Game").get_node("%Player")
-		player_data = player.creature_data
-		player_gun = player.gun.gun_data
-		player_health = player.health
-		player_ammo = player.gun.ammo
-		player_charges = player.sprite.wipe_charges
-		spawn_door_tag = destination_tag
-		get_tree().call_deferred("change_scene_to_packed", scene_to_load)
+## Save data from all nodes that want to save their data
+func _save_data(node : Node):
+	if node.has_method("state_key") and node.has_method("save_state") and node.state_key() != null:
+		saved_data[node.state_key()] = node.save_state()
+	for child in node.get_children():
+		_save_data(child)
 
-func _restore_player():
-	var player : Creature = get_node("/root/Game").get_node("%Player")
-	player.creature_data = player_data
-	player.gun.gun_data = player_gun
-	player.health = player_health
-	player.gun.ammo = player_ammo
-	player.sprite.wipe_charges = player_charges
+## Load data from all nodes that want to load their data
+func _load_data(node : Node):
+	if node.has_method("state_key") and node.has_method("load_state") and saved_data.has(node.state_key()):
+		node.load_state(saved_data[node.state_key()])
+	for child in node.get_children():
+		_load_data(child)
+
+func go_to_level(level_tag, destination_tag):
+	var scene_to_load = level_dict[level_tag]
+		
+	if scene_to_load == null:
+		return
+	
+	# Save data
+	_save_data(get_tree().root)
+	spawn_door_tag = destination_tag
+	get_tree().call_deferred("change_scene_to_packed", scene_to_load)
 
 func trigger_player_spawn(position: Vector2, direction: String):
 	on_trigger_player_spawn.emit(position, direction)
+
+## Restore all saved state
+func restore():
+	_load_data(get_tree().root)
+	loaded.emit()
