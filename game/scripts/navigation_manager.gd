@@ -9,7 +9,10 @@ const level_dict : Dictionary[String, PackedScene] = {
 	"dungeon_saloon_left_game":preload("res://scenes/dungeon_saloon_left_game.tscn"),
 	"dungeon_saloon_right_game":preload("res://scenes/dungeon_saloon_right_game.tscn"),
 	"npc_room_game":preload("res://scenes/npc_room_game.tscn"),
-	"level2_game":preload("res://scenes/level2_game.tscn")
+	"level2_game":preload("res://scenes/level2_game.tscn"),
+	"dungeon_sheriff_game":preload("res://scenes/dungeon_sheriff_game.tscn"),
+	"level3_game":preload("res://scenes/level3_game.tscn"),
+	"dungeon_graveyard_game":preload("res://scenes/dungeon_graveyard_game.tscn")
 }
 static var saved_data : Dictionary[String, Variant];
 

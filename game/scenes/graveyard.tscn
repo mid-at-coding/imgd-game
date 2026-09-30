@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://0xf3maxupq3b"]
+
+[ext_resource type="Texture2D" uid="uid://dfjhhvkpoc2us" path="res://assets/art/graveyard.png" id="1_x72jc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ebrl"]
+size = Vector2(264.5, 116)
+
+[node name="graveyard" type="StaticBody2D" unique_id=510068488]
+
+[node name="Graveyard" type="Sprite2D" parent="." unique_id=889386642]
+position = Vector2(-100, -121)
+texture = ExtResource("1_x72jc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1814089114]
+position = Vector2(-106.00001, -33)
+scale = Vector2(2.7000136, 1)
+shape = SubResource("RectangleShape2D_5ebrl")
