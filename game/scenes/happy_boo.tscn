@@ -650,6 +650,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ebrl"]
+radius = 64.070274
+
 [node name="HappyBoo" type="Node2D" unique_id=1320819343]
 script = ExtResource("1_kg7lb")
 
@@ -727,3 +730,13 @@ position = Vector2(-1, -55)
 sprite_frames = SubResource("SpriteFrames_qxm0y")
 animation = &"idle"
 frame_progress = 0.82746005
+
+[node name="Direction" type="Marker2D" parent="." unique_id=1225599743]
+
+[node name="ActionableFinder" type="Area2D" parent="Direction" unique_id=1934801087]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder" unique_id=11549128]
+position = Vector2(-1, -9)
+shape = SubResource("CircleShape2D_5ebrl")

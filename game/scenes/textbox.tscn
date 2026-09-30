@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://b72e44p03kl6d"]
+
+[ext_resource type="Texture2D" uid="uid://bwq48vfc28mmu" path="res://assets/art/textbox.png" id="1_3xmdk"]
+[ext_resource type="Script" uid="uid://1wv6dks8dwcq" path="res://scripts/textbox.gd" id="1_g5d5p"]
+[ext_resource type="FontFile" uid="uid://dymrlvpqc21mk" path="res://assets/fonts/OldTown.ttf" id="1_nyk3b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g5d5p"]
+
+[node name="Textbox" type="CanvasLayer" unique_id=2025844439]
+script = ExtResource("1_g5d5p")
+
+[node name="TextboxContainer" type="MarginContainer" parent="." unique_id=1702193084]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -275.0
+offset_right = -40.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = -67
+theme_override_constants/margin_right = -16
+theme_override_constants/margin_bottom = -16
+
+[node name="Panel" type="Panel" parent="TextboxContainer" unique_id=965317665]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_g5d5p")
+
+[node name="Textbox" type="Sprite2D" parent="TextboxContainer/Panel" unique_id=2086553021]
+position = Vector2(941.25, 161)
+scale = Vector2(1.3107167, 1)
+texture = ExtResource("1_3xmdk")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer/Panel" unique_id=1210866091]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99300003
+anchor_bottom = 0.98100007
+offset_left = 86.0
+offset_top = 58.0
+offset_right = -69.84009
+offset_bottom = -39.73001
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Panel" type="Panel" parent="TextboxContainer/Panel/MarginContainer" unique_id=194182975]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/Panel/MarginContainer" unique_id=511821095]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextboxContainer/Panel/MarginContainer/HBoxContainer" unique_id=214336553]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.30588236, 0.08235294, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_nyk3b")
+theme_override_font_sizes/font_size = 70
+text = "placeholder text aaaa"
+autowrap_mode = 3
+clip_text = true
+
+[node name="End" type="Label" parent="TextboxContainer/Panel/MarginContainer/HBoxContainer" unique_id=850308472]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.30588236, 0.08235294, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("1_nyk3b")
+theme_override_font_sizes/font_size = 100
+text = "v"

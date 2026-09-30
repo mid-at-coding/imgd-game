@@ -13,6 +13,7 @@ const SCREEN_WIPE_SCENE = preload("res://scenes/screen_wipe.tscn")
 var wipe_charges : int = 3
 var last_dash : float = 10
 const dash_time : float = 2
+@onready var actionable_finder: Area2D = $Direction/ActionableFinder
 
 signal health_depleted
 
@@ -69,6 +70,14 @@ func _input(event: InputEvent) -> void:
 		get_tree().root.add_child(wipe)
 	if event.is_action_pressed("dash") and last_dash > dash_time:
 		last_dash = 0
+		
+func _unhandled_input(event: InputEvent) -> void:
+	# plays dialogue if player near interactable object
+	if Input.is_action_just_pressed("ui_accept"):
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			return
 
 # Raise death signal
 func die():
