@@ -57,12 +57,12 @@ func _ready():
 	creature_data.movement == CreatureData.TargetMode.FOLLOW_DISTANCE:
 		player = get_tree().current_scene.get_node("%Player")
 	sprite.play_idle()
-	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
-	Input.set_custom_mouse_cursor(reticle)
+	if (creature_data.ownerMask == BulletData.OwnerClass.PLAYER):
+		NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
+		Input.set_custom_mouse_cursor(reticle)
+		health_depleted.connect(NavigationManager.game_over)
 
 func _on_spawn(position: Vector2, _direction: String):
-	if (creature_data.ownerMask != BulletData.OwnerClass.PLAYER):
-		return
 	global_position = position
 
 func state_key():
@@ -99,6 +99,9 @@ func with_parameters(p_creature_data : CreatureData) -> Creature:
 func _get_direction_vector() -> Vector2:
 	if creature_data.movement == CreatureData.TargetMode.INPUT :
 		return Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	# No need to move...
+	elif !NavigationManager.player_alive:
+		return Vector2(0,0)
 	elif creature_data.movement == CreatureData.TargetMode.FOLLOW:
 		return global_position.direction_to(player.global_position)
 	elif creature_data.movement == CreatureData.TargetMode.FOLLOW_DISTANCE:

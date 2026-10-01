@@ -37,7 +37,7 @@ func _ready() -> void:
 func _get_look(_delta: float) -> Vector2:
 	if target == TargetMode.MOUSE:
 		return get_global_mouse_position()
-	elif target == TargetMode.PLAYER:
+	elif target == TargetMode.PLAYER and NavigationManager.player_alive:
 		return player.get_global_position()
 	return Vector2(0,0)
 

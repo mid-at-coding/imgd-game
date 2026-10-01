@@ -18,6 +18,7 @@ static var saved_data : Dictionary[String, Variant];
 
 signal on_trigger_player_spawn
 signal loaded
+var player_alive : bool = true
 
 var spawn_door_tag
 
@@ -53,3 +54,9 @@ func trigger_player_spawn(position: Vector2, direction: String):
 func restore():
 	_load_data(get_tree().root)
 	loaded.emit()
+
+## Called when game is over
+func game_over():
+	player_alive = false
+	get_tree().root.add_child(preload("res://scenes/game_over.tscn").instantiate())
+	get_tree().paused = true

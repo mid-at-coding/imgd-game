@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://brq02g3brv88r"]
+
+[ext_resource type="Texture2D" uid="uid://dg5tilw2r7avy" path="res://assets/art/backButtonWood.png" id="1_wqhvx"]
+[ext_resource type="Texture2D" uid="uid://bk7ap526gihk7" path="res://assets/art/backButtonHolo.png" id="2_tbwuq"]
+[ext_resource type="Script" uid="uid://c68vsdkra3ana" path="res://scripts/game_over_to_main.gd" id="3_tbwuq"]
+[ext_resource type="FontFile" uid="uid://osa0p2chwomf" path="res://assets/fonts/IBMPlexMono-SemiBoldItalic.ttf" id="4_racf3"]
+
+[node name="GameOver" type="Node2D" unique_id=1381984040]
+process_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1915015549]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.09, 0.09, 0.09, 0.48235294)
+
+[node name="to_main" type="TextureButton" parent="." unique_id=2141476467]
+offset_left = 704.0
+offset_top = 512.0
+offset_right = 1078.0
+offset_bottom = 603.0
+texture_normal = ExtResource("1_wqhvx")
+texture_hover = ExtResource("2_tbwuq")
+script = ExtResource("3_tbwuq")
+
+[node name="Label" type="Label" parent="." unique_id=1500345688]
+offset_left = 704.0
+offset_top = 256.0
+offset_right = 1004.0
+offset_bottom = 322.0
+theme_override_fonts/font = ExtResource("4_racf3")
+theme_override_font_sizes/font_size = 50
+text = "Game Over!"
+
+[connection signal="pressed" from="to_main" to="to_main" method="_on_pressed"]
