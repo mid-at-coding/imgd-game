@@ -2,6 +2,12 @@ extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
 
+# Add in themes
+const STYLE_WOOD_TEXT = preload("res://themes/woodTextbox.tres")
+const STYLE_HOLO_TEXT = preload("res://themes/holoTextbox.tres")
+const STYLE_WOOD_NAME = preload("res://themes/woodNamebox.tres")
+
+
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
 
@@ -121,9 +127,31 @@ func start(with_dialogue_resource: DialogueResource = null, cue: String = "", ex
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(start_from_cue, temporary_game_states)
 	show()
 
+@onready var balloon_panel: PanelContainer = $Balloon/MarginContainer/PanelContainer
+@onready var namebox_panel: PanelContainer = $Balloon/NameboxContainer/PanelContainer
 
 ## Apply any changes to the balloon given a new [DialogueLine].
 func apply_dialogue_line() -> void:
+	if dialogue_line.character == "Shayn":
+		#use holo textbox
+		balloon_panel.theme = STYLE_HOLO_TEXT
+		namebox_panel.theme = STYLE_HOLO_TEXT
+		dialogue_label.theme = STYLE_HOLO_TEXT
+		dialogue_label.add_theme_color_override("default_color", Color.WHITE)
+		character_label.theme = STYLE_HOLO_TEXT
+		character_label.add_theme_color_override("default_color", Color.WHITE)
+
+
+	else:
+		#use wood textbox
+		balloon_panel.theme = STYLE_WOOD_TEXT
+		namebox_panel.theme = STYLE_WOOD_NAME
+		dialogue_label.theme = STYLE_WOOD_TEXT
+		dialogue_label.add_theme_color_override("default_color", Color(0.306, 0.082, 0.012, 1.0))
+		character_label.theme = STYLE_WOOD_TEXT
+		character_label.add_theme_color_override("default_color", Color(0.306, 0.082, 0.012, 1.0))
+
+	
 	mutation_cooldown.stop()
 
 	progress.hide()

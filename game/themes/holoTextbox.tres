@@ -1,0 +1,16 @@
+[gd_resource type="Theme" format=3 uid="uid://de47vg78xrxh"]
+
+[ext_resource type="Texture2D" uid="uid://cbghq021vhvbi" path="res://assets/art/textboxHolo.png" id="1_3ve3h"]
+[ext_resource type="FontFile" uid="uid://dyq42fx1486q3" path="res://assets/fonts/MotionControl-Bold.otf" id="2_87bnh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cwu5a"]
+texture = ExtResource("1_3ve3h")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xaf5m"]
+texture = ExtResource("1_3ve3h")
+
+[resource]
+default_font = ExtResource("2_87bnh")
+default_font_size = 50
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_cwu5a")
+TextEdit/styles/normal = SubResource("StyleBoxTexture_xaf5m")

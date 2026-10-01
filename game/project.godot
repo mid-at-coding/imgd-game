@@ -85,6 +85,7 @@ Bgm="*uid://diduejeu0dsjv"
 NavigationManager="*uid://cuw8udljq78pb"
 UiAudioManager="*uid://bwdiibpdwi3c"
 DialogueManager="*uid://c3rodes2l3gxb"
+State="*uid://dbqp27jkfaq7l"
 
 [dialogue_manager]
 

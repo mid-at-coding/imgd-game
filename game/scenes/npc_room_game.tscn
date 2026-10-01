@@ -8,6 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://cojv70427mncn" path="res://scenes/npc.tscn" id="6_pva8e"]
 [ext_resource type="PackedScene" uid="uid://m45m36qb2btp" path="res://scenes/actionable.tscn" id="7_56lpp"]
 [ext_resource type="Resource" uid="uid://1vigcwmy0qnr" path="res://dialogues/ezra.dialogue" id="8_0l2yf"]
+[ext_resource type="PackedScene" uid="uid://dtt6j3lit86i4" path="res://scenes/pickup.tscn" id="9_rjhji"]
+[ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="10_7wqd7"]
+[ext_resource type="PackedScene" uid="uid://br65mgv2n0bbd" path="res://scenes/bullet_2d.tscn" id="11_jbbio"]
+[ext_resource type="Script" uid="uid://2hlvq8ucffqs" path="res://scripts/gun_data.gd" id="12_dxhkw"]
+[ext_resource type="Texture2D" uid="uid://dewsj4q2q0c5c" path="res://assets/art/coreBulletOne.png" id="13_bxhcl"]
+[ext_resource type="Script" uid="uid://c6i4d2u6eqgrw" path="res://scripts/level1_game_pickup_sprite.gd" id="14_6etju"]
+[ext_resource type="Texture2D" uid="uid://bsxfb6u7w16gb" path="res://assets/art/coreGlow.png" id="15_64a7u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pva8e"]
 texture = ExtResource("2_jg768")
@@ -107,6 +114,20 @@ sources/1 = SubResource("TileSetAtlasSource_5028l")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ebrl"]
 size = Vector2(60, 96)
 
+[sub_resource type="Resource" id="Resource_kbsvw"]
+script = ExtResource("10_7wqd7")
+metadata/_custom_type_script = "uid://bx7gx2juhxy5s"
+
+[sub_resource type="Resource" id="Resource_rjhji"]
+script = ExtResource("12_dxhkw")
+fire_rate = 3
+bullets = 5
+bullet = SubResource("Resource_kbsvw")
+ammo_consumption = 1
+metadata/_custom_type_script = "uid://2hlvq8ucffqs"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wqd7"]
+
 [node name="Game" type="Node2D" unique_id=89498618]
 script = ExtResource("1_0wpnm")
 
@@ -154,5 +175,24 @@ dialogue_resource = ExtResource("8_0l2yf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="npc/Actionable" unique_id=1111481198]
 position = Vector2(0, 38)
 shape = SubResource("RectangleShape2D_5ebrl")
+
+[node name="Pickup" parent="." unique_id=1561076725 instance=ExtResource("9_rjhji")]
+position = Vector2(252, 391)
+diff = SubResource("Resource_rjhji")
+type = 1
+create_hover = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup" unique_id=522925763]
+shape = SubResource("RectangleShape2D_7wqd7")
+
+[node name="Sprite" type="Sprite2D" parent="Pickup" unique_id=2003266594]
+texture = ExtResource("13_bxhcl")
+script = ExtResource("14_6etju")
+
+[node name="Glow" type="Sprite2D" parent="Pickup/Sprite" unique_id=698781929]
+texture = ExtResource("15_64a7u")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Pickup/Sprite" unique_id=1674225689]
+texture = ExtResource("13_bxhcl")
 
 [editable path="Doors/Door_npcIn"]

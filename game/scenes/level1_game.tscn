@@ -316,7 +316,7 @@ tile_set = SubResource("TileSet_3iph8")
 
 [node name="Player" parent="." unique_id=1546396198 instance=ExtResource("1_ev4l4")]
 unique_name_in_owner = true
-position = Vector2(942, 7861)
+position = Vector2(1311, 2750)
 
 [node name="singleHouse1" parent="." unique_id=1980566653 instance=ExtResource("3_bmwat")]
 position = Vector2(360, 5970)

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bq5s1ois0i0cd"]
 
 [ext_resource type="Script" uid="uid://ebq64leefql7" path="res://dialogues/balloon.gd" id="1_36de5"]
+[ext_resource type="Theme" uid="uid://dffweb8r0nwn1" path="res://themes/woodTextbox.tres" id="2_7c2jb"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/nodes/dialogue_label/dialogue_label.tscn" id="2_a8ve6"]
-[ext_resource type="Texture2D" uid="uid://bwq48vfc28mmu" path="res://assets/art/textbox.png" id="2_pa16h"]
+[ext_resource type="Theme" uid="uid://de47vg78xrxh" path="res://themes/holoTextbox.tres" id="2_ooonl"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/nodes/responses_menu/dialogue_responses_menu.gd" id="3_72ixx"]
-[ext_resource type="FontFile" uid="uid://dymrlvpqc21mk" path="res://assets/fonts/OldTown.ttf" id="5_ooonl"]
-[ext_resource type="Texture2D" uid="uid://bmd3m4d5263oj" path="res://assets/art/textboxName.png" id="6_7c2jb"]
+[ext_resource type="Theme" uid="uid://ckxuqbd7l44y3" path="res://themes/holoNamebox.tres" id="4_rvrp7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 content_margin_left = 20.0
@@ -78,9 +78,6 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4tvo3"]
-texture = ExtResource("2_pa16h")
-
 [sub_resource type="Animation" id="Animation_nlsx6"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -117,9 +114,6 @@ _data = {
 &"progress": SubResource("Animation_qkmqt")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ebrl"]
-texture = ExtResource("6_7c2jb")
-
 [node name="ExampleBalloon" type="CanvasLayer" unique_id=38036521]
 layer = 100
 script = ExtResource("1_36de5")
@@ -148,13 +142,13 @@ grow_vertical = 0
 clip_children = 2
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxTexture_4tvo3")
+theme = ExtResource("2_7c2jb")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer" unique_id=903640783]
 layout_mode = 2
-theme_override_constants/margin_left = 75
+theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 60
-theme_override_constants/margin_right = 75
+theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 60
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer" unique_id=1685890612]
@@ -168,9 +162,7 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/default_color = Color(0.30588236, 0.08235294, 0.011764706, 1)
-theme_override_fonts/normal_font = ExtResource("5_ooonl")
-theme_override_font_sizes/normal_font_size = 70
+theme = ExtResource("4_rvrp7")
 text = "Dialogue..."
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=418507161]
@@ -221,7 +213,7 @@ offset_bottom = 137.96002
 
 [node name="PanelContainer" type="PanelContainer" parent="Balloon/NameboxContainer" unique_id=652734648]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_5ebrl")
+theme = ExtResource("2_ooonl")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/NameboxContainer/PanelContainer" unique_id=1888839982]
 layout_mode = 2
@@ -239,9 +231,6 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
-theme_override_colors/default_color = Color(0.30588236, 0.08235294, 0.011764706, 1)
-theme_override_fonts/normal_font = ExtResource("5_ooonl")
-theme_override_font_sizes/normal_font_size = 68
 bbcode_enabled = true
 text = "Character"
 fit_content = true

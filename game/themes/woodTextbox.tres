@@ -1,0 +1,13 @@
+[gd_resource type="Theme" format=3 uid="uid://dffweb8r0nwn1"]
+
+[ext_resource type="Texture2D" uid="uid://bwq48vfc28mmu" path="res://assets/art/textbox.png" id="1_wxcm3"]
+[ext_resource type="FontFile" uid="uid://dymrlvpqc21mk" path="res://assets/fonts/OldTown.ttf" id="2_n27ai"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kkcef"]
+texture = ExtResource("1_wxcm3")
+
+[resource]
+default_font = ExtResource("2_n27ai")
+default_font_size = 70
+Label/colors/font_color = Color(0.30588236, 0.08235294, 0.011764706, 1)
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_kkcef")

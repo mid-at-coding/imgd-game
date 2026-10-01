@@ -1,15 +1,19 @@
 ~ start
-Ezra: Keep back, stranger! Unless you're another one o' them green-glowing phantoms come to suck the marrow outta my bones! In which case... I got a bucket o' rock salt and a rusty shovel waitin' for ya!
-Shayn: I'm not a phantom. I'm human, and I don't want any trouble. 
-Shayn: Name's Shayn. I'm looking for a doctor. Think his name was Silas Hollister. Is he here?
-Ezra: Silas? Old "Crank"? You're a day late and a dollar short, kid. He hitched his covered wagon and headed further up the drag toward the saloon days ago… Before the town went completely to hell.
-Shayn: Did he have the Chrono-Caduceus with him? The healing device?
-Ezra: I don't know what high-falutin' words you're throwin' around, but he had a whole mess o' copper wire and clockwork gear in the back. 
-Ezra: But you ain't gonna make it two blocks down the Dustfall Strip with them feral specters swarming the road, not to mention Marshal Stone shootin' at anything that blinks sideways.
-Shayn: I can take care of myself. Just point me toward the saloon.
-Ezra: Straight down the main street. But if you're gonna survive the walk, you'd better be prepared. Here, take some grease for yer weapon there. I picked it off a scrap wagon.
-Shayn: Thanks…?
-Ezra: And dont say I didn't warn ya; now get off my darn porch.
+if State.talked_ezra
+	Ezra: Don't say I didn't warn ya.
+else
+	Ezra: Keep back, stranger! Unless you're another one o' them green-glowing phantoms come to suck the marrow outta my bones! In which case... I got a bucket o' rock salt and a rusty shovel waitin' for ya!
+	Shayn: I'm not a phantom. I'm human, and I don't want any trouble. 
+	Shayn: Name's Shayn. I'm looking for a doctor. Think his name was Silas Hollister. Is he here?
+	Ezra: Silas? Old "Crank"? You're a day late and a dollar short, kid. He hitched his covered wagon and headed further up the drag toward the saloon days ago… Before the town went completely to hell.
+	Shayn: Did he have the Chrono-Caduceus with him? The healing device?
+	Ezra: I don't know what high-falutin' words you're throwin' around, but he had a whole mess o' copper wire and clockwork gear in the back. 
+	Ezra: But you ain't gonna make it two blocks down the Dustfall Strip with them feral specters swarming the road, not to mention Marshal Stone shootin' at anything that blinks sideways.
+	Shayn: I can take care of myself. Just point me toward the saloon.
+	Ezra: Straight down the main street. But if you're gonna survive the walk, you'd better be prepared. Here, take some grease for yer weapon there. I picked it off a scrap wagon.
+	Shayn: Thanks…?
+	Ezra: And don't say I didn't warn ya; now get off my darn porch.
+	$> State.talked_ezra = true
 
 => END
 

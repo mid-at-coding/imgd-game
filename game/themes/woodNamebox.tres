@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://cx1aihtjpomhe"]
+
+[ext_resource type="Texture2D" uid="uid://bmd3m4d5263oj" path="res://assets/art/textboxName.png" id="1_gtwmt"]
+[ext_resource type="FontFile" uid="uid://dymrlvpqc21mk" path="res://assets/fonts/OldTown.ttf" id="2_imgss"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kkcef"]
+texture = ExtResource("1_gtwmt")
+
+[resource]
+default_font = ExtResource("2_imgss")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_kkcef")
