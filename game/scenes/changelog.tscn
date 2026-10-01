@@ -80,8 +80,15 @@ Build 4:
          - Updated pickup, projectile, player, and health bar sprites
          - Added art assets to Saloon
          - Made doors lockable
-
-
+Build 5
+         - Added player dash
+         - Added variation in enemy movement & bullet patterns
+         - Added textboxes & npc dialogue
+         - Enemies can no longer shoot through walls and no longer respawn after re-entering room
+         - Added game over screen that returns player to main menu
+         - Fixed health bar bug
+         - Updated sprite for charges & enemy projectiles
+         - Finished sprites for dungeon 2 & 3
 "
 
 [node name="to_main" parent="." unique_id=1101285918 instance=ExtResource("2_44psg")]

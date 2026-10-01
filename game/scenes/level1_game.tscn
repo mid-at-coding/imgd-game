@@ -56,7 +56,7 @@ tile_size = Vector2i(75, 75)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vq7yb")
 
-[sub_resource type="Resource" id="Resource_kbsvw"]
+[sub_resource type="Resource" id="Resource_45510"]
 script = ExtResource("12_uqpmc")
 metadata/_custom_type_script = "uid://bx7gx2juhxy5s"
 
@@ -64,7 +64,7 @@ metadata/_custom_type_script = "uid://bx7gx2juhxy5s"
 script = ExtResource("13_aq4rc")
 fire_rate = 3
 bullets = 5
-bullet = SubResource("Resource_kbsvw")
+bullet = SubResource("Resource_45510")
 ammo_consumption = 1
 metadata/_custom_type_script = "uid://2hlvq8ucffqs"
 
@@ -316,7 +316,7 @@ tile_set = SubResource("TileSet_3iph8")
 
 [node name="Player" parent="." unique_id=1546396198 instance=ExtResource("1_ev4l4")]
 unique_name_in_owner = true
-position = Vector2(1311, 2750)
+position = Vector2(947, 7581)
 
 [node name="singleHouse1" parent="." unique_id=1980566653 instance=ExtResource("3_bmwat")]
 position = Vector2(360, 5970)
