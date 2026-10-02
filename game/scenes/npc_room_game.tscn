@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://scenes/player.tscn" id="5_pva8e"]
 [ext_resource type="PackedScene" uid="uid://cojv70427mncn" path="res://scenes/npc.tscn" id="6_pva8e"]
 [ext_resource type="PackedScene" uid="uid://m45m36qb2btp" path="res://scenes/actionable.tscn" id="7_56lpp"]
-[ext_resource type="Resource" uid="uid://1vigcwmy0qnr" path="res://dialogues/ezra.dialogue" id="8_0l2yf"]
+[ext_resource type="Resource" uid="uid://1vigcwmy0qnr" path="res://addons/dialogue_manager/dialogues/ezra.dialogue" id="8_0l2yf"]
 [ext_resource type="PackedScene" uid="uid://dtt6j3lit86i4" path="res://scenes/pickup.tscn" id="9_rjhji"]
 [ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="10_7wqd7"]
 [ext_resource type="PackedScene" uid="uid://br65mgv2n0bbd" path="res://scenes/bullet_2d.tscn" id="11_jbbio"]

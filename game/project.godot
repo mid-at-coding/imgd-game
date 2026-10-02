@@ -89,7 +89,7 @@ State="*uid://dbqp27jkfaq7l"
 
 [dialogue_manager]
 
-runtime/balloon_path="res://dialogues/balloon.tscn"
+runtime/balloon_path="res://addons/dialogue_manager/dialogues/balloon.tscn"
 
 [display]
 
@@ -145,7 +145,7 @@ dash={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogues/ezra.dialogue")
+locale/translations_pot_files=PackedStringArray("res://addons/dialogue_manager/dialogues/ezra.dialogue")
 
 [layer_names]
 

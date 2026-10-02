@@ -1,6 +1,7 @@
 extends Area2D
 
-const Balloon = preload("res://dialogues/balloon.tscn")
+const Balloon = preload("res://addons/dialogue_manager/dialogues/balloon.tscn")
+
 
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start = "start"
