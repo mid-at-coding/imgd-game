@@ -322,6 +322,7 @@ position = Vector2(947, 7581)
 position = Vector2(360, 5970)
 script = ExtResource("5_og0x0")
 ghost_scene = ExtResource("6_kpebe")
+spawn_interval = 4.0
 
 [node name="SpawnTimer" type="Timer" parent="singleHouse1" unique_id=1231021134]
 
@@ -329,6 +330,7 @@ ghost_scene = ExtResource("6_kpebe")
 position = Vector2(1679, 5507)
 script = ExtResource("5_og0x0")
 ghost_scene = ExtResource("6_kpebe")
+spawn_interval = 4.0
 
 [node name="SpawnTimer" type="Timer" parent="singleHouse2" unique_id=601692287]
 
@@ -336,6 +338,7 @@ ghost_scene = ExtResource("6_kpebe")
 position = Vector2(222, 4709)
 script = ExtResource("5_og0x0")
 ghost_scene = ExtResource("6_kpebe")
+spawn_interval = 4.0
 
 [node name="SpawnTimer" type="Timer" parent="singleHouse3" unique_id=82927094]
 
@@ -343,6 +346,7 @@ ghost_scene = ExtResource("6_kpebe")
 position = Vector2(1468, 5111)
 script = ExtResource("8_kpebe")
 ghost_scene = ExtResource("6_kpebe")
+spawn_interval = 1.0
 
 [node name="SpawnTimer" type="Timer" parent="barnHouse1" unique_id=1222388218]
 
@@ -350,6 +354,7 @@ ghost_scene = ExtResource("6_kpebe")
 position = Vector2(489, 5371)
 script = ExtResource("10_4vy4j")
 ghost_scene = ExtResource("6_kpebe")
+spawn_interval = 5.0
 
 [node name="SpawnTimer" type="Timer" parent="doubleHouse1" unique_id=1677258615]
 
@@ -360,6 +365,7 @@ position = Vector2(1560, 2441)
 position = Vector2(380, 4189)
 script = ExtResource("8_kpebe")
 ghost_scene = ExtResource("6_kpebe")
+spawn_interval = 1.0
 
 [node name="SpawnTimer" type="Timer" parent="barnHouse2" unique_id=1510508290]
 
@@ -367,6 +373,7 @@ ghost_scene = ExtResource("6_kpebe")
 position = Vector2(1599, 4448)
 script = ExtResource("10_4vy4j")
 ghost_scene = ExtResource("6_kpebe")
+spawn_interval = 5.0
 
 [node name="SpawnTimer" type="Timer" parent="doubleHouse2" unique_id=641538446]
 
@@ -374,6 +381,7 @@ ghost_scene = ExtResource("6_kpebe")
 position = Vector2(1464, 3710)
 script = ExtResource("5_og0x0")
 ghost_scene = ExtResource("6_kpebe")
+spawn_interval = 4.0
 
 [node name="SpawnTimer" type="Timer" parent="singleHouse4" unique_id=1690065373]
 
@@ -381,6 +389,7 @@ ghost_scene = ExtResource("6_kpebe")
 position = Vector2(477, 3406)
 script = ExtResource("5_og0x0")
 ghost_scene = ExtResource("6_kpebe")
+spawn_interval = 4.0
 
 [node name="SpawnTimer" type="Timer" parent="singleHouse5" unique_id=2093416536]
 
@@ -388,6 +397,7 @@ ghost_scene = ExtResource("6_kpebe")
 position = Vector2(1702, 3051)
 script = ExtResource("10_4vy4j")
 ghost_scene = ExtResource("6_kpebe")
+spawn_interval = 5.0
 
 [node name="SpawnTimer" type="Timer" parent="doubleHouse3" unique_id=362982267]
 
@@ -395,6 +405,7 @@ ghost_scene = ExtResource("6_kpebe")
 position = Vector2(238, 2044)
 script = ExtResource("8_kpebe")
 ghost_scene = ExtResource("6_kpebe")
+spawn_interval = 1.0
 
 [node name="SpawnTimer" type="Timer" parent="barnHouse3" unique_id=45045604]
 
@@ -402,6 +413,7 @@ ghost_scene = ExtResource("6_kpebe")
 position = Vector2(1552, 1666)
 script = ExtResource("5_og0x0")
 ghost_scene = ExtResource("6_kpebe")
+spawn_interval = 4.0
 
 [node name="SpawnTimer" type="Timer" parent="singleHouse6" unique_id=635751886]
 
@@ -409,6 +421,7 @@ ghost_scene = ExtResource("6_kpebe")
 position = Vector2(420, 1052)
 script = ExtResource("5_og0x0")
 ghost_scene = ExtResource("6_kpebe")
+spawn_interval = 4.0
 
 [node name="SpawnTimer" type="Timer" parent="singleHouse7" unique_id=2105044467]
 
@@ -416,6 +429,7 @@ ghost_scene = ExtResource("6_kpebe")
 position = Vector2(1608, 864)
 script = ExtResource("10_4vy4j")
 ghost_scene = ExtResource("6_kpebe")
+spawn_interval = 5.0
 
 [node name="SpawnTimer" type="Timer" parent="doubleHouse4" unique_id=144880041]
 

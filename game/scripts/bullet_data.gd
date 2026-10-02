@@ -1,7 +1,7 @@
 ## Data class decribing a bullet
 class_name BulletData extends Resource
 ## How fast the bullet moves, in u/s
-@export var speed : int = 1000
+@export var speed : int = 400
 ## How far the bullet can move from its birthplace before dying
 static var maxRange : int = 2000
 ## How much damage the bullet deals when it hits
@@ -12,7 +12,7 @@ enum OwnerClass { PLAYER, ENEMY }
 @export var owner : OwnerClass = OwnerClass.PLAYER
 
 ## Create a bullet
-func _init(p_speed : int = 1000, p_range : int = 1200, p_damage : int = 1, p_owner : OwnerClass = OwnerClass.PLAYER):
+func _init(p_speed : int = 400, p_range : int = 1200, p_damage : int = 1, p_owner : OwnerClass = OwnerClass.PLAYER):
 	speed = p_speed
 	maxRange = p_range
 	damage = p_damage
