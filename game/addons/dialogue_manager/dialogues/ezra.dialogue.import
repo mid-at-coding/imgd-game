@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://1vigcwmy0qnr"
+path="res://.godot/imported/ezra.dialogue-3e8a307b64addbb3dba2fc66caa8619a.tres"
+
+[deps]
+
+source_file="res://addons/dialogue_manager/dialogues/ezra.dialogue"
+dest_files=["res://.godot/imported/ezra.dialogue-3e8a307b64addbb3dba2fc66caa8619a.tres"]
+
+[params]
+
+defaults=true

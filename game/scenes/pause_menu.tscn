@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://bkfj2tn6njymr"]
+
+[ext_resource type="Texture2D" uid="uid://cj1icavdaa7wo" path="res://assets/art/pauseMenuBox.png" id="1_1s2dm"]
+[ext_resource type="FontFile" uid="uid://bku2buy60tann" path="res://assets/fonts/MotionControl-BoldItalic.otf" id="2_88e76"]
+[ext_resource type="Script" uid="uid://b1nytk1nel6vb" path="res://scripts/pause_menu_button_holder.gd" id="3_v4r4p"]
+[ext_resource type="AudioStream" uid="uid://4x74jc6jhk27" path="res://assets/sfx/buttonClick.wav" id="4_71k7c"]
+[ext_resource type="AudioStream" uid="uid://bn7j5jf1xw5mf" path="res://assets/sfx/buttonHover.wav" id="5_cmnsq"]
+[ext_resource type="Theme" uid="uid://de47vg78xrxh" path="res://themes/holoTextbox.tres" id="6_v4r4p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4obqf"]
+
+[node name="pause_menu" type="CanvasLayer" unique_id=1937349172]
+
+[node name="TextboxContainer" type="MarginContainer" parent="." unique_id=545205670]
+custom_minimum_size = Vector2(1000, 700)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -123.5
+offset_right = 50.0
+offset_bottom = 123.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = -67
+theme_override_constants/margin_right = -16
+theme_override_constants/margin_bottom = -16
+
+[node name="PauseMenuBox" type="Sprite2D" parent="TextboxContainer" unique_id=66770386]
+position = Vector2(513.625, 316.25)
+scale = Vector2(1.2701823, 1.0180556)
+texture = ExtResource("1_1s2dm")
+
+[node name="PanelContainer" type="PanelContainer" parent="TextboxContainer" unique_id=1929039320]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4obqf")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer/PanelContainer" unique_id=1828092411]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/PanelContainer/MarginContainer" unique_id=73234238]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1692214248]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=322340498]
+custom_minimum_size = Vector2(10, 140)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.47058824, 0.9019608, 1, 1)
+theme_override_fonts/font = ExtResource("2_88e76")
+theme_override_font_sizes/font_size = 130
+text = "Game Paused"
+horizontal_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="button_holder" type="VBoxContainer" parent="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=198409313]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_constants/separation = 30
+script = ExtResource("3_v4r4p")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" unique_id=1361786347]
+stream = ExtResource("4_71k7c")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" unique_id=1608005706]
+stream = ExtResource("5_cmnsq")
+
+[node name="ResumeButton" type="Button" parent="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" unique_id=1543516359]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("6_v4r4p")
+text = "Resume"
+
+[node name="ControlButton" type="Button" parent="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" unique_id=1803909013]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("6_v4r4p")
+text = "Controls"
+
+[node name="MenuButton" type="Button" parent="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" unique_id=1534627099]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("6_v4r4p")
+text = "Main Menu"
+
+[node name="VolumeSlider" type="HSlider" parent="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" unique_id=682313029]
+layout_mode = 2
+
+[connection signal="pressed" from="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder/ResumeButton" to="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder/ControlButton" to="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" method="_on_control_button_pressed"]
+[connection signal="pressed" from="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder/MenuButton" to="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" method="_on_menu_button_pressed"]
