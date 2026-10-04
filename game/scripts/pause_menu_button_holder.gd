@@ -8,6 +8,7 @@ extends VBoxContainer
 
 
 
+
 # Send player to designated scene
 
 func _on_resume_button_pressed() -> void:
@@ -16,8 +17,8 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_control_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/controls_menu.tscn")
 	
-	pass # Replace with function body.
 
 
 func _on_menu_button_pressed() -> void:

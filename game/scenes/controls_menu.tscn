@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cj1icavdaa7wo" path="res://assets/art/pauseMenuBox.png" id="1_jfu8g"]
 [ext_resource type="FontFile" uid="uid://bku2buy60tann" path="res://assets/fonts/MotionControl-BoldItalic.otf" id="2_8jatx"]
-[ext_resource type="Script" uid="uid://b1nytk1nel6vb" path="res://scripts/pause_menu_button_holder.gd" id="3_62f8b"]
+[ext_resource type="Script" uid="uid://carkqbkxt5kq0" path="res://control_menu_button_holder.gd" id="3_jfu8g"]
 [ext_resource type="AudioStream" uid="uid://4x74jc6jhk27" path="res://assets/sfx/buttonClick.wav" id="4_2q5co"]
 [ext_resource type="AudioStream" uid="uid://bn7j5jf1xw5mf" path="res://assets/sfx/buttonHover.wav" id="5_hy8xy"]
 [ext_resource type="Theme" uid="uid://de47vg78xrxh" path="res://themes/holoTextbox.tres" id="6_8xih1"]
@@ -71,7 +71,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 theme_override_constants/separation = 30
-script = ExtResource("3_62f8b")
+script = ExtResource("3_jfu8g")
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" unique_id=1361786347]
 stream = ExtResource("4_2q5co")
@@ -85,7 +85,7 @@ layout_mode = 2
 theme = ExtResource("6_8xih1")
 text = "Back"
 
-[node name="Label2" type="Label" parent="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" unique_id=2006811394]
+[node name="ControlLabel" type="Label" parent="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" unique_id=2006811394]
 custom_minimum_size = Vector2(10, 400)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -93,14 +93,14 @@ size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.47058824, 0.9019608, 1, 1)
 theme_override_fonts/font = ExtResource("2_8jatx")
 theme_override_font_sizes/font_size = 70
-text = "Move WASD 
-	Click - shoot
-	space - dash
-	interact - E
-	charge - F
+text = "Move      |  WASD 
+Shoot     |  Right click
+Dash      |  Space
+Interact |  E
+Charge   |  F
+
 "
-horizontal_alignment = 1
 autowrap_mode = 3
 clip_text = true
 
-[connection signal="pressed" from="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder/BackButton" to="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder/BackButton" to="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" method="_on_back_button_pressed"]

@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://4x74jc6jhk27" path="res://assets/sfx/buttonClick.wav" id="4_71k7c"]
 [ext_resource type="AudioStream" uid="uid://bn7j5jf1xw5mf" path="res://assets/sfx/buttonHover.wav" id="5_cmnsq"]
 [ext_resource type="Theme" uid="uid://de47vg78xrxh" path="res://themes/holoTextbox.tres" id="6_v4r4p"]
+[ext_resource type="Script" uid="uid://bfcdmrdjjqsf7" path="res://volume_slider.gd" id="7_1s2dm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4obqf"]
 
@@ -97,8 +98,25 @@ layout_mode = 2
 theme = ExtResource("6_v4r4p")
 text = "Main Menu"
 
+[node name="VolumeLabel" type="Label" parent="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" unique_id=673799760]
+custom_minimum_size = Vector2(60, 65)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.47058824, 0.9019608, 1, 1)
+theme_override_fonts/font = ExtResource("2_88e76")
+theme_override_font_sizes/font_size = 60
+text = "Volume"
+horizontal_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
 [node name="VolumeSlider" type="HSlider" parent="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" unique_id=682313029]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("7_1s2dm")
+bus_name = "Master"
 
 [connection signal="pressed" from="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder/ResumeButton" to="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder/ControlButton" to="TextboxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/button_holder" method="_on_control_button_pressed"]

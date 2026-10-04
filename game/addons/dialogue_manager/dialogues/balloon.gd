@@ -21,7 +21,7 @@ const STYLE_WOOD_NAME = preload("res://themes/woodNamebox.tres")
 @export var will_block_other_input: bool = true
 
 ## The action to use for advancing the dialogue
-@export var next_action: StringName = &"ui_accept"
+@export var next_action: StringName = &"accept_pickup"
 
 ## The action to use to skip typing the dialogue
 @export var skip_action: StringName = &"ui_cancel"

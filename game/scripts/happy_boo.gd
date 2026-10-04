@@ -73,7 +73,7 @@ func _input(event: InputEvent) -> void:
 		
 func _unhandled_input(event: InputEvent) -> void:
 	# plays dialogue if player near interactable object
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("accept_pickup"):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
 			actionables[0].action()
