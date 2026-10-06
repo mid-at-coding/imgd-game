@@ -21,6 +21,12 @@ texture = ExtResource("2_oaoyc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1998346021]
 shape = SubResource("CircleShape2D_naqkr")
 
+[node name="ProjectileBG" type="Sprite2D" parent="." unique_id=1945892268]
+modulate = Color(1.2032688e-06, 0.58824366, 0.36183953, 1)
+position = Vector2(-10.5, 1)
+scale = Vector2(1.06, 1.1428572)
+texture = ExtResource("3_coqq8")
+
 [node name="GhostProjectile" type="Sprite2D" parent="." unique_id=1404065110]
 position = Vector2(-10, 1)
 texture = ExtResource("3_coqq8")
