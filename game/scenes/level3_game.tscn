@@ -183,7 +183,7 @@ ghost_scene = ExtResource("8_tmog3")
 [node name="SpawnTimer" type="Timer" parent="doubleHouse4" unique_id=1104670966]
 
 [node name="Sign" type="Sprite2D" parent="." unique_id=1329989612]
-position = Vector2(561, 3336)
+position = Vector2(473, 872)
 texture = ExtResource("14_5igyi")
 
 [editable path="Doors/Door_Graveyard"]
