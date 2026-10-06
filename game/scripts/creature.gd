@@ -141,6 +141,13 @@ func _try_fire(delta: float) -> void:
 # Move, play the appropriate animation, and fire if necessary
 func _physics_process(delta: float) -> void:
 	var direction = _get_direction_vector()
+	# flip direction of enemies based on player position
+	if player:
+		var direction_to_player = player.global_position.x - global_position.x
+		if direction_to_player < 0: 
+			sprite.find_children("AnimatedSprite2D")[0].flip_h = true
+		elif direction_to_player > 0:
+			sprite.find_children("AnimatedSprite2D")[0].flip_h = false
 	if (direction.length() > 0):
 		sprite.play_walk()
 	else:
