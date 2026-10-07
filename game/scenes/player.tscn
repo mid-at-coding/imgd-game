@@ -30,6 +30,7 @@ size = Vector2(66, 38)
 
 [sub_resource type="Resource" id="Resource_fjrip"]
 script = ExtResource("4_qlg0r")
+speed = 1200
 metadata/_custom_type_script = "uid://bx7gx2juhxy5s"
 
 [sub_resource type="Resource" id="Resource_dqkch"]
