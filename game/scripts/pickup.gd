@@ -110,7 +110,7 @@ func _update_and_show_hover() -> void:
 	label.append_text("%s to pick up" % InputMap.action_get_events("accept_pickup")[0].as_text())
 	# Add themes
 	label.theme = preload("res://themes/pickupLabel.tres")
-	label.add_theme_stylebox_override("normal", preload("res://themes/pickupLabelNormal.tres"))
+	label.add_theme_stylebox_override("normal", preload("res://themes/pickupLabelHolo.tres"))
 	
 	hover.show()
 

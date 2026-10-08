@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://dmr4ahqdvsmpd"]
+
+[ext_resource type="Texture2D" uid="uid://cbghq021vhvbi" path="res://assets/art/textboxHolo.png" id="1_t4oco"]
+
+[resource]
+texture = ExtResource("1_t4oco")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(1, 1, 1, 0.73333335)
