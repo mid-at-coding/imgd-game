@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d1746gglsvtso" path="res://scripts/creature_data.gd" id="2_71rcx"]
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://scenes/slime.tscn" id="2_d4cuo"]
 [ext_resource type="PackedScene" uid="uid://g7ur3wyb104j" path="res://scenes/mob_parameter_gun.tscn" id="4_71rcx"]
+[ext_resource type="AudioStream" uid="uid://j8x2c4q45kko" path="res://assets/sfx/ghostShot.wav" id="5_xsfyf"]
 
 [sub_resource type="Resource" id="Resource_og0x0"]
 script = ExtResource("2_71rcx")
@@ -32,3 +33,6 @@ shape = SubResource("CircleShape2D_ypitm")
 debug_color = Color(0.701961, 0.282353, 0.352941, 0.419608)
 
 [node name="ParameterGun" parent="." unique_id=941152522 instance=ExtResource("4_71rcx")]
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=1838163780]
+stream = ExtResource("5_xsfyf")

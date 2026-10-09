@@ -44,6 +44,7 @@ static var hurt_tint : Color = Color(1.0, 0.526, 0.489, 1.0)
 @onready var health = creature_data.maxhealth
 @onready var shoot_sound = get_node_or_null("ShootSound")
 @onready var end_shoot_sound = get_node_or_null("EndShootSound")
+@onready var hurt_sound: AudioStreamPlayer2D = get_node_or_null("HurtSound")
 var was_shooting : bool = false
 var time_spent_shooting : float = 0.0
 # Requires shooting for 0.5 seconds before playing the end sound. Adjust as needed!
@@ -163,17 +164,21 @@ func take_damage(bullet: BulletData):
 	# No point taking damage if we're already dead
 	if health <= 0:
 		return
+
+	# Play damage sound if player
+	if creature_data.ownerMask == BulletData.OwnerClass.PLAYER and hurt_sound:
+		hurt_sound.pitch_scale = randf_range(0.95, 1.05)
+		hurt_sound.play()
+
 	# Apply tint
 	# TODO: Should this live in sprite.play_hurt()?
 	sprite.modulate = hurt_tint
 	get_tree().create_timer(hurt_tint_time).timeout.connect(func():
 		sprite.modulate = Color.WHITE)
-	
+		
 	sprite.play_hurt(health)
 	health -= bullet.damage
 	if health <= 0:
 		health_depleted.emit()
-		# TODO: Maybe we should wait around before queue_free()ing? Perhaps
-		# listen for a signal?
 		sprite.die()
 		queue_free()

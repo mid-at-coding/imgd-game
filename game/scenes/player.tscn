@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dt88ecg65u0e4" path="res://assets/art/coreCurrent.png" id="12_fulsm"]
 [ext_resource type="AudioStream" uid="uid://dhij21ad4p4et" path="res://assets/sfx/endShoot.wav" id="12_jej6c"]
 [ext_resource type="Texture2D" uid="uid://dkh1vjmvvkunc" path="res://assets/art/screenwipe.png" id="13_4r5pv"]
+[ext_resource type="AudioStream" uid="uid://sauavo2mdkcm" path="res://assets/sfx/dodgeRoll.wav" id="17_qfm1y"]
+[ext_resource type="AudioStream" uid="uid://up0f0p68wkvt" path="res://assets/sfx/hitGrunt.wav" id="18_fulsm"]
 
 [sub_resource type="Resource" id="Resource_lw0rm"]
 script = ExtResource("2_tuyoq")
@@ -60,6 +62,10 @@ gun = NodePath("ParameterGun")
 
 [node name="HappyBoo" parent="." unique_id=984748070 instance=ExtResource("2_bl5ih")]
 unique_name_in_owner = true
+
+[node name="RollSound" type="AudioStreamPlayer2D" parent="HappyBoo" unique_id=1599003017]
+stream = ExtResource("17_qfm1y")
+volume_db = 7.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2129353866]
 position = Vector2(0, 9)
@@ -168,5 +174,8 @@ stream = ExtResource("11_3v2ag")
 
 [node name="EndShootSound" type="AudioStreamPlayer2D" parent="." unique_id=296512443]
 stream = ExtResource("12_jej6c")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=1195066852]
+stream = ExtResource("18_fulsm")
 
 [connection signal="health_depleted" from="HappyBoo" to="." method="_on_happy_boo_health_depleted"]
