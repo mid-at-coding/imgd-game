@@ -89,7 +89,14 @@ Build 5
          - Fixed health bar bug
          - Updated sprite for charges & enemy projectiles
          - Finished sprites for dungeon 2 & 3
-"
+Build 6:
+         - Implemented BGM to level 1
+         - Added lore elements arounds level 1
+         - Other levels are now accessible
+         - Changed ammo to be infinite
+         - Added game icon 
+         - Adjusted stylebox for pickups to match theme
+         - Adjusted enemy spawn and bullet movements"
 
 [node name="to_main" parent="." unique_id=1101285918 instance=ExtResource("2_44psg")]
 visible = false
