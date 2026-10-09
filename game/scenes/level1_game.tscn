@@ -28,6 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://c58qk7iqpwwjd" path="res://assets/art/AmmoPickupSpriteSheet.png" id="24_45510"]
 [ext_resource type="Texture2D" uid="uid://c3vggk2vbg3w7" path="res://assets/art/sign.png" id="25_hnhta"]
 [ext_resource type="AudioStream" uid="uid://cglgfmr888iy1" path="res://assets/music/Rootin N Tootin.mp3" id="28_wlr6q"]
+[ext_resource type="PackedScene" uid="uid://1f8drgwy1ddx" path="res://scenes/exclamation.tscn" id="29_5r013"]
+[ext_resource type="PackedScene" uid="uid://m45m36qb2btp" path="res://scenes/actionable.tscn" id="30_6vnq0"]
+[ext_resource type="Resource" uid="uid://dqakwyked2sjp" path="res://addons/dialogue_manager/dialogues/lore_exclamation.dialogue" id="31_j2677"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vq7yb"]
 texture = ExtResource("2_3iph8")
@@ -297,6 +300,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_763yj"]
 size = Vector2(2962, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mq32"]
+size = Vector2(60, 96)
 
 [node name="Game" type="Node2D" unique_id=1823023380]
 y_sort_enabled = true
@@ -575,6 +581,36 @@ texture = ExtResource("25_hnhta")
 stream = ExtResource("28_wlr6q")
 volume_db = -8.0
 autoplay = true
+
+[node name="exclamation" parent="." unique_id=1586818968 instance=ExtResource("29_5r013")]
+position = Vector2(969, 6873)
+
+[node name="Label" type="Label" parent="exclamation" unique_id=372829296]
+offset_left = 3.0
+offset_top = -73.0
+offset_right = 43.0
+offset_bottom = -24.0
+theme_override_colors/font_color = Color(0.28463948, 0.1048959, 0.003642415, 1)
+text = "E
+"
+
+[node name="Actionable" parent="exclamation" unique_id=1478647119 instance=ExtResource("30_6vnq0")]
+dialogue_resource = ExtResource("31_j2677")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exclamation/Actionable" unique_id=1138781016]
+position = Vector2(6, 0)
+shape = SubResource("RectangleShape2D_6mq32")
+
+[node name="exclamation2" parent="." unique_id=2066371019 instance=ExtResource("29_5r013")]
+position = Vector2(618, 1665)
+
+[node name="Actionable" parent="exclamation2" unique_id=1024254918 instance=ExtResource("30_6vnq0")]
+dialogue_resource = ExtResource("31_j2677")
+dialogue_start = "audio2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exclamation2/Actionable" unique_id=869548775]
+position = Vector2(6, 0)
+shape = SubResource("RectangleShape2D_6mq32")
 
 [connection signal="body_entered" from="WaveTrigger1" to="WaveTrigger1" method="_on_body_entered"]
 [connection signal="body_entered" from="WaveTrigger2" to="WaveTrigger2" method="_on_body_entered"]

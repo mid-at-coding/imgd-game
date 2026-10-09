@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dqakwyked2sjp"
+path="res://.godot/imported/lore_exclamation.dialogue-2765a15f6569b4a0c760e30a2152b792.tres"
+
+[deps]
+
+source_file="res://addons/dialogue_manager/dialogues/lore_exclamation.dialogue"
+dest_files=["res://.godot/imported/lore_exclamation.dialogue-2765a15f6569b4a0c760e30a2152b792.tres"]
+
+[params]
+
+defaults=true

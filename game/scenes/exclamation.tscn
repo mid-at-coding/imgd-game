@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://1f8drgwy1ddx"]
+
+[ext_resource type="Texture2D" uid="uid://wirv3sjfuxle" path="res://assets/art/exclamationPickupSpriteSheet.png" id="1_kcteb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmeeo"]
+atlas = ExtResource("1_kcteb")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al7cw"]
+atlas = ExtResource("1_kcteb")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sly6b"]
+atlas = ExtResource("1_kcteb")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uihg"]
+atlas = ExtResource("1_kcteb")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snimu"]
+atlas = ExtResource("1_kcteb")
+region = Rect2(0, 200, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ebrl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmeeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al7cw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sly6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uihg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snimu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="exclamation" type="StaticBody2D" unique_id=1586818968]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=471095229]
+sprite_frames = SubResource("SpriteFrames_5ebrl")
+autoplay = "default"
+frame_progress = 0.18747179
