@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bmwvjn5gahy8f" path="res://assets/art/graveyardSpriteSheet.png" id="5_ge3xn"]
 [ext_resource type="PackedScene" uid="uid://b8447letixese" path="res://scenes/door.tscn" id="6_0125h"]
 [ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://scenes/player.tscn" id="8_c5fh3"]
+[ext_resource type="Script" uid="uid://cj8o0cwe30dl4" path="res://scripts/wave_manager.gd" id="8_dtnsx"]
+[ext_resource type="Script" uid="uid://b8pqsvvo5pfbj" path="res://scripts/spawner.gd" id="9_013bv"]
+[ext_resource type="PackedScene" uid="uid://k75uqxb5ubvo" path="res://scenes/graveyard_spawned.tscn" id="10_ge3xn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jcdpu"]
 texture = ExtResource("2_3dbpr")
@@ -259,5 +262,27 @@ position = Vector2(108, 1893)
 [node name="Player" parent="." unique_id=1546396198 instance=ExtResource("8_c5fh3")]
 unique_name_in_owner = true
 position = Vector2(1142, 2041)
+
+[node name="WaveManager" type="Node2D" parent="." unique_id=1467687147 node_paths=PackedStringArray("Spawners")]
+position = Vector2(1170, 1375)
+script = ExtResource("8_dtnsx")
+Spawners = [NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3")]
+Delay = 2.0
+metadata/_custom_type_script = "uid://cj8o0cwe30dl4"
+
+[node name="Spawner" type="Node2D" parent="WaveManager" unique_id=1615079527]
+script = ExtResource("9_013bv")
+Creatures = ExtResource("10_ge3xn")
+metadata/_custom_type_script = "uid://b8pqsvvo5pfbj"
+
+[node name="Spawner2" type="Node2D" parent="WaveManager" unique_id=602099093]
+script = ExtResource("9_013bv")
+Creatures = ExtResource("10_ge3xn")
+metadata/_custom_type_script = "uid://b8pqsvvo5pfbj"
+
+[node name="Spawner3" type="Node2D" parent="WaveManager" unique_id=377817959]
+script = ExtResource("9_013bv")
+Creatures = ExtResource("10_ge3xn")
+metadata/_custom_type_script = "uid://b8pqsvvo5pfbj"
 
 [editable path="Doors/Door_Entrance"]

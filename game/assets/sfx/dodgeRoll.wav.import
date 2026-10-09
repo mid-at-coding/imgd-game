@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://sauavo2mdkcm"
-path="res://.godot/imported/dodgeRoll.wav-b32ee5bf1bc3660ed7fa0d92a4c73659.sample"
+path="res://.godot/imported/dodgeRoll.wav-0baa31a92043d9b78c6cea1befddeadc.sample"
 
 [deps]
 
-source_file="res://assets/SFX/dodgeRoll.wav"
-dest_files=["res://.godot/imported/dodgeRoll.wav-b32ee5bf1bc3660ed7fa0d92a4c73659.sample"]
+source_file="res://assets/sfx/dodgeRoll.wav"
+dest_files=["res://.godot/imported/dodgeRoll.wav-0baa31a92043d9b78c6cea1befddeadc.sample"]
 
 [params]
 
