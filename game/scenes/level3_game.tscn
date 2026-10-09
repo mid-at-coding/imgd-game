@@ -78,6 +78,16 @@ position = Vector2(1, -21.999998)
 [node name="Spawn" parent="Doors/Door_Graveyard" index="1" unique_id=1116256810]
 position = Vector2(0, 54)
 
+[node name="Door_level3Bottom" parent="Doors" unique_id=1623350358 instance=ExtResource("5_skf2p")]
+position = Vector2(918, 8050.0005)
+scale = Vector2(10.382672, 0.47236893)
+destination_level_tag = "level2_game"
+destination_door_tag = "tempLevel3"
+locked = false
+
+[node name="Spawn" parent="Doors/Door_level3Bottom" index="1" unique_id=1116256810]
+position = Vector2(-0.96314317, -1431.0859)
+
 [node name="graveyard" parent="." unique_id=510068488 instance=ExtResource("5_pepa0")]
 position = Vector2(1002, -329)
 
@@ -187,3 +197,4 @@ position = Vector2(473, 872)
 texture = ExtResource("14_5igyi")
 
 [editable path="Doors/Door_Graveyard"]
+[editable path="Doors/Door_level3Bottom"]
