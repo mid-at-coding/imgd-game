@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://k75uqxb5ubvo"]
+
+[ext_resource type="PackedScene" uid="uid://4a4h5aa2xyig" path="res://scenes/mob.tscn" id="1_vk3qd"]
+[ext_resource type="PackedScene" uid="uid://g7ur3wyb104j" path="res://scenes/mob_parameter_gun.tscn" id="2_3jlt7"]
+[ext_resource type="Script" uid="uid://d1746gglsvtso" path="res://scripts/creature_data.gd" id="2_hkipm"]
+[ext_resource type="Script" uid="uid://bx7gx2juhxy5s" path="res://scripts/bullet_data.gd" id="3_hkipm"]
+[ext_resource type="PackedScene" uid="uid://kc82j385l7yt" path="res://scenes/mob_bullet_2d.tscn" id="4_e7pak"]
+[ext_resource type="Script" uid="uid://2hlvq8ucffqs" path="res://scripts/gun_data.gd" id="5_8t8ja"]
+
+[sub_resource type="Resource" id="Resource_e7pak"]
+script = ExtResource("2_hkipm")
+follow_distance = 100
+shoot = 1
+speed = 150
+maxhealth = 10.0
+ownerMask = 1
+metadata/_custom_type_script = "uid://d1746gglsvtso"
+
+[sub_resource type="Resource" id="Resource_upxj5"]
+script = ExtResource("3_hkipm")
+speed = 100
+owner = 1
+metadata/_custom_type_script = "uid://bx7gx2juhxy5s"
+
+[sub_resource type="Resource" id="Resource_uge5j"]
+script = ExtResource("5_8t8ja")
+bullets = 1
+bullet = SubResource("Resource_upxj5")
+bullet_scene = ExtResource("4_e7pak")
+metadata/_custom_type_script = "uid://2hlvq8ucffqs"
+
+[sub_resource type="Resource" id="Resource_8t8ja"]
+script = ExtResource("2_hkipm")
+shoot = 1
+speed = 150
+maxhealth = 10.0
+ownerMask = 1
+metadata/_custom_type_script = "uid://d1746gglsvtso"
+
+[sub_resource type="Resource" id="Resource_pd84s"]
+script = ExtResource("3_hkipm")
+owner = 1
+metadata/_custom_type_script = "uid://bx7gx2juhxy5s"
+
+[sub_resource type="Resource" id="Resource_pxt36"]
+script = ExtResource("5_8t8ja")
+fire_rate = 1
+fire_rate_variance = 1.0
+spread_angle = 0.27
+bullet = SubResource("Resource_pd84s")
+bullet_scene = ExtResource("4_e7pak")
+metadata/_custom_type_script = "uid://2hlvq8ucffqs"
+
+[sub_resource type="Resource" id="Resource_wuypk"]
+script = ExtResource("2_hkipm")
+follow_distance = 10
+shoot = 1
+maxhealth = 10.0
+ownerMask = 1
+metadata/_custom_type_script = "uid://d1746gglsvtso"
+
+[sub_resource type="Resource" id="Resource_2t4g1"]
+script = ExtResource("5_8t8ja")
+fire_rate = 3
+bullets = 1
+bullet = SubResource("Resource_pd84s")
+bullet_scene = ExtResource("4_e7pak")
+metadata/_custom_type_script = "uid://2hlvq8ucffqs"
+
+[node name="Node2D" type="Node2D" unique_id=1641369408]
+
+[node name="Mob" parent="." unique_id=1706582842 node_paths=PackedStringArray("gun") instance=ExtResource("1_vk3qd")]
+position = Vector2(35, 20)
+creature_data = SubResource("Resource_e7pak")
+gun = NodePath("ParameterGun2")
+
+[node name="ParameterGun2" parent="Mob" unique_id=941152522 instance=ExtResource("2_3jlt7")]
+gun_data = SubResource("Resource_uge5j")
+
+[node name="Mob2" parent="." unique_id=895535146 node_paths=PackedStringArray("gun") instance=ExtResource("1_vk3qd")]
+position = Vector2(191, 134)
+creature_data = SubResource("Resource_8t8ja")
+gun = NodePath("ParameterGun2")
+
+[node name="ParameterGun2" parent="Mob2" unique_id=387866543 instance=ExtResource("2_3jlt7")]
+gun_data = SubResource("Resource_pxt36")
+
+[node name="Mob3" parent="." unique_id=591108017 node_paths=PackedStringArray("gun") instance=ExtResource("1_vk3qd")]
+position = Vector2(-141, 141)
+creature_data = SubResource("Resource_wuypk")
+gun = NodePath("ParameterGun2")
+
+[node name="ParameterGun2" parent="Mob3" unique_id=1367972250 instance=ExtResource("2_3jlt7")]
+gun_data = SubResource("Resource_2t4g1")
