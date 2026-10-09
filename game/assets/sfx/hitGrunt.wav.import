@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://up0f0p68wkvt"
-path="res://.godot/imported/hitGrunt.wav-53f2e652c4b46d8eaffb56caac7065b2.sample"
+path="res://.godot/imported/hitGrunt.wav-d5d759d118c5172e7c94b920fef5fee2.sample"
 
 [deps]
 
-source_file="res://assets/sfx/hitGrunt.wav"
-dest_files=["res://.godot/imported/hitGrunt.wav-53f2e652c4b46d8eaffb56caac7065b2.sample"]
+source_file="res://assets/SFX/hitGrunt.wav"
+dest_files=["res://.godot/imported/hitGrunt.wav-d5d759d118c5172e7c94b920fef5fee2.sample"]
 
 [params]
 

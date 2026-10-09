@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://djhxevvr2jco4" path="res://scenes/doubleHouse.gd" id="12_g6nb4"]
 [ext_resource type="PackedScene" uid="uid://cwpvkvedavhge" path="res://scenes/house4.tscn" id="13_ef26a"]
 [ext_resource type="Texture2D" uid="uid://c3vggk2vbg3w7" path="res://assets/art/sign.png" id="14_f88h8"]
+[ext_resource type="Script" uid="uid://b3xdimrv31vkm" path="res://scenes/level1_game_wave_trigger.gd" id="15_bqj1t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o4i6y"]
 texture = ExtResource("1_6ci5j")
@@ -42,6 +43,15 @@ texture_region_size = Vector2i(75, 75)
 tile_size = Vector2i(75, 75)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_o4i6y")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tvlv"]
+size = Vector2(2962, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqj1t"]
+size = Vector2(2962, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlv5j"]
+size = Vector2(2962, 52)
 
 [node name="Game" type="Node2D" unique_id=1645519768]
 y_sort_enabled = true
@@ -207,6 +217,35 @@ ghost_scene = ExtResource("8_7tvlv")
 [node name="Sign" type="Sprite2D" parent="." unique_id=1329989612]
 position = Vector2(307, -369)
 texture = ExtResource("14_f88h8")
+
+[node name="WaveTrigger1" type="Area2D" parent="." unique_id=455844393 node_paths=PackedStringArray("connected_houses")]
+script = ExtResource("15_bqj1t")
+connected_houses = [NodePath("../singleHouse1"), NodePath("../singleHouse2"), NodePath("../barnHouse1"), NodePath("../doubleHouse1")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaveTrigger1" unique_id=1153335330]
+position = Vector2(920, 6229)
+shape = SubResource("RectangleShape2D_7tvlv")
+
+[node name="WaveTrigger2" type="Area2D" parent="." unique_id=237846565 node_paths=PackedStringArray("connected_houses")]
+script = ExtResource("15_bqj1t")
+connected_houses = [NodePath("../singleHouse3"), NodePath("../doubleHouse2"), NodePath("../barnHouse2"), NodePath("../singleHouse4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaveTrigger2" unique_id=1633659717]
+position = Vector2(924, 3953)
+shape = SubResource("RectangleShape2D_bqj1t")
+
+[node name="WaveTrigger3" type="Area2D" parent="." unique_id=1594241246 node_paths=PackedStringArray("connected_houses")]
+position = Vector2(924, 3953)
+script = ExtResource("15_bqj1t")
+connected_houses = [NodePath("../doubleHouse3"), NodePath("../singleHouse5"), NodePath("../barnHouse3"), NodePath("../singleHouse6"), NodePath("../singleHouse7"), NodePath("../doubleHouse4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaveTrigger3" unique_id=1610642501]
+position = Vector2(1, -2654)
+shape = SubResource("RectangleShape2D_hlv5j")
+
+[connection signal="body_entered" from="WaveTrigger1" to="WaveTrigger1" method="_on_body_entered"]
+[connection signal="body_entered" from="WaveTrigger2" to="WaveTrigger2" method="_on_body_entered"]
+[connection signal="body_entered" from="WaveTrigger3" to="WaveTrigger3" method="_on_body_entered"]
 
 [editable path="Doors/Door_Sheriff"]
 [editable path="Doors/Door_level2Bottom"]
