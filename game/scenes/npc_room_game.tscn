@@ -125,7 +125,6 @@ script = ExtResource("12_dxhkw")
 fire_rate = 3
 bullets = 5
 bullet = SubResource("Resource_kbsvw")
-ammo_consumption = 1
 metadata/_custom_type_script = "uid://2hlvq8ucffqs"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wqd7"]
