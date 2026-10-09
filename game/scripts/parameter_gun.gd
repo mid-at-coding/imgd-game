@@ -32,6 +32,10 @@ func _ready() -> void:
 	# Acquire player if necessary
 	if target == TargetMode.PLAYER:
 		player = get_tree().current_scene.get_node("%Player")
+		# Stagger initial firing so ghosts don't all blast on spawn frame
+		if gun_data and gun_data.fire_rate > 0:
+			var base_delay: float = 1.0 / float(gun_data.fire_rate)
+			$Timer.start(randf_range(0.1, base_delay))
 
 # Aim gun
 func _get_look(_delta: float) -> Vector2:
@@ -45,7 +49,6 @@ func _get_look(_delta: float) -> Vector2:
 func _physics_process(delta: float) -> void:
 	look_at(_get_look(delta))
 	
-	# If the mouse is to the left of the gun, flip vertically
 	var mouse_pos = get_global_mouse_position()
 	if mouse_pos.x < global_position.x:
 		$WeaponPivot/WeaponBasic.flip_v = true
@@ -63,17 +66,28 @@ static func get_consumption(gun_data : GunData) -> int:
 
 # Try to fire
 func fire() -> bool:
-	# Don't fire if we're cooling down
 	if !$Timer.is_stopped():
 		return false
-	# Don't fire if we don't have ammo
 	if (ammo - get_consumption(gun_data) < 0):
 		return false
+		
 	ammo -= get_consumption(gun_data)
 	shoot()
-	$Timer.set_wait_time(1.0/gun_data.fire_rate)
+	
+	var base_delay: float = 1.0 / float(gun_data.fire_rate)
+	
+	# Only apply timing jitter to enemy guns (TargetMode.PLAYER)
+	if target == TargetMode.PLAYER and gun_data.fire_rate_variance > 0.0:
+		var jitter: float = base_delay * gun_data.fire_rate_variance
+		var randomized_cooldown: float = randf_range(base_delay - jitter, base_delay + jitter)
+		$Timer.set_wait_time(max(0.05, randomized_cooldown))
+	else:
+		# Player gun always maintains strict, fixed timing
+		$Timer.set_wait_time(base_delay)
+		
 	$Timer.start()
 	return true
+	
 
 # Unconditionally spawn bullets from gun
 func shoot() -> void:
@@ -85,7 +99,6 @@ func shoot() -> void:
 		.with_parameters(gun_data.bullet)
 		
 		new_bullet.global_position = %ShootingPoint.global_position
-		
 		new_bullet.global_rotation = %ShootingPoint.global_rotation + gun_data.spread_angle * mag * dir
 		
 		get_tree().root.add_child(new_bullet)

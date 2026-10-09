@@ -2,6 +2,8 @@
 class_name GunData extends Resource
 ## How many times the gun fires per second
 @export var fire_rate : int = 5
+## Timing randomness factor between 0.0 (fixed) and 1.0 (heavy variance)
+@export_range(0.0, 1.0) var fire_rate_variance : float = 0.35
 ## How many bullets the gun fires per shot
 @export var bullets : int = 3
 ## The angle between each of the shot bullets

@@ -29,6 +29,14 @@ func _physics_process(delta):
 
 # Apply damage when possible
 func _on_body_entered(body: Node2D):
+	# Ignore creatures on the same team (do not consume or despawn the bullet)
+	if body is Creature and body.creature_data != null and body.creature_data.ownerMask == bullet_data.owner:
+		return
+
+	# Apply damage to opposing targets
+	if body.has_method("take_damage") and body.get("creature_data") != null:
+		if body.creature_data.ownerMask != bullet_data.owner:
+			body.take_damage(bullet_data)
+	
+	# Only destroy the bullet when hitting opposing targets or solid world geometry
 	queue_free()
-	if body.has_method("take_damage") and body.get("creature_data").ownerMask != bullet_data.owner:
-		body.take_damage(bullet_data)
