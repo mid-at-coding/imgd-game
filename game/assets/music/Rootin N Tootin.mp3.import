@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cglgfmr888iy1"
+path="res://.godot/imported/Rootin N Tootin.mp3-e5bf443958ef1c79797cce719742fca3.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Rootin N Tootin.mp3"
+dest_files=["res://.godot/imported/Rootin N Tootin.mp3-e5bf443958ef1c79797cce719742fca3.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=5.0
+bpm=0
+beat_count=0
+bar_beats=4

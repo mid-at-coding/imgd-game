@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://jgy4md51hjmr" path="res://assets/art/HealthRecoveryPickupSpriteSheet.png" id="23_hnhta"]
 [ext_resource type="Texture2D" uid="uid://c58qk7iqpwwjd" path="res://assets/art/AmmoPickupSpriteSheet.png" id="24_45510"]
 [ext_resource type="Texture2D" uid="uid://c3vggk2vbg3w7" path="res://assets/art/sign.png" id="25_hnhta"]
+[ext_resource type="AudioStream" uid="uid://cglgfmr888iy1" path="res://assets/music/Rootin N Tootin.mp3" id="28_wlr6q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vq7yb"]
 texture = ExtResource("2_3iph8")
@@ -556,6 +557,11 @@ shape = SubResource("RectangleShape2D_763yj")
 [node name="Sign" type="Sprite2D" parent="." unique_id=921985768]
 position = Vector2(1425, 2447)
 texture = ExtResource("25_hnhta")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1849674810]
+stream = ExtResource("28_wlr6q")
+volume_db = -8.0
+autoplay = true
 
 [connection signal="body_entered" from="WaveTrigger1" to="WaveTrigger1" method="_on_body_entered"]
 [connection signal="body_entered" from="WaveTrigger2" to="WaveTrigger2" method="_on_body_entered"]
