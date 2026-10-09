@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://djhxevvr2jco4" path="res://scenes/doubleHouse.gd" id="12_3opkl"]
 [ext_resource type="PackedScene" uid="uid://cwpvkvedavhge" path="res://scenes/house4.tscn" id="13_aabgj"]
 [ext_resource type="Texture2D" uid="uid://c3vggk2vbg3w7" path="res://assets/art/sign.png" id="14_5igyi"]
+[ext_resource type="Script" uid="uid://b3xdimrv31vkm" path="res://scenes/level1_game_wave_trigger.gd" id="15_lc2se"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o4i6y"]
 texture = ExtResource("2_lc2se")
@@ -42,6 +43,9 @@ texture_region_size = Vector2i(75, 75)
 tile_size = Vector2i(75, 75)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_o4i6y")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njkai"]
+size = Vector2(2962, 52)
 
 [node name="Game" type="Node2D" unique_id=1645519768]
 y_sort_enabled = true
@@ -195,6 +199,16 @@ ghost_scene = ExtResource("8_tmog3")
 [node name="Sign" type="Sprite2D" parent="." unique_id=1329989612]
 position = Vector2(473, 872)
 texture = ExtResource("14_5igyi")
+
+[node name="WaveTrigger1" type="Area2D" parent="." unique_id=1884020891 node_paths=PackedStringArray("connected_houses")]
+script = ExtResource("15_lc2se")
+connected_houses = [NodePath("../singleHouse1"), NodePath("../singleHouse2"), NodePath("../singleHouse3"), NodePath("../barnHouse1"), NodePath("../doubleHouse1"), NodePath("../barnHouse2"), NodePath("../doubleHouse2"), NodePath("../singleHouse4"), NodePath("../singleHouse5"), NodePath("../doubleHouse3"), NodePath("../barnHouse3"), NodePath("../singleHouse6"), NodePath("../singleHouse7"), NodePath("../doubleHouse4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaveTrigger1" unique_id=41588539]
+position = Vector2(920, 6229)
+shape = SubResource("RectangleShape2D_njkai")
+
+[connection signal="body_entered" from="WaveTrigger1" to="WaveTrigger1" method="_on_body_entered"]
 
 [editable path="Doors/Door_Graveyard"]
 [editable path="Doors/Door_level3Bottom"]
