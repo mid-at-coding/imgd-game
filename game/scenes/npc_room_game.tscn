@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://dewsj4q2q0c5c" path="res://assets/art/coreBulletOne.png" id="13_bxhcl"]
 [ext_resource type="Script" uid="uid://c6i4d2u6eqgrw" path="res://scripts/level1_game_pickup_sprite.gd" id="14_6etju"]
 [ext_resource type="Texture2D" uid="uid://bsxfb6u7w16gb" path="res://assets/art/coreGlow.png" id="15_64a7u"]
+[ext_resource type="PackedScene" uid="uid://1f8drgwy1ddx" path="res://scenes/exclamation.tscn" id="16_jbbio"]
+[ext_resource type="Resource" uid="uid://dqakwyked2sjp" path="res://addons/dialogue_manager/dialogues/lore_exclamation.dialogue" id="17_dxhkw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pva8e"]
 texture = ExtResource("2_jg768")
@@ -128,6 +130,9 @@ metadata/_custom_type_script = "uid://2hlvq8ucffqs"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wqd7"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxhcl"]
+size = Vector2(60, 96)
+
 [node name="Game" type="Node2D" unique_id=89498618]
 script = ExtResource("1_0wpnm")
 
@@ -194,5 +199,16 @@ texture = ExtResource("15_64a7u")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Pickup/Sprite" unique_id=1674225689]
 texture = ExtResource("13_bxhcl")
+
+[node name="exclamation2" parent="." unique_id=1586818968 instance=ExtResource("16_jbbio")]
+position = Vector2(618, 320)
+
+[node name="Actionable" parent="exclamation2" unique_id=1447449145 instance=ExtResource("7_56lpp")]
+dialogue_resource = ExtResource("17_dxhkw")
+dialogue_start = "ezraLife"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exclamation2/Actionable" unique_id=416017790]
+position = Vector2(6, 0)
+shape = SubResource("RectangleShape2D_bxhcl")
 
 [editable path="Doors/Door_npcIn"]
