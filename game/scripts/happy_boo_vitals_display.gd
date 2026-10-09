@@ -28,8 +28,14 @@ func _display_charges(creature : Creature) -> void:
 		screenwipe_2.show()
 		screenwipe_3.show()
 	elif creature.sprite.wipe_charges == 2:
+		screenwipe.show()
+		screenwipe_2.show()
 		screenwipe_3.hide()
 	elif creature.sprite.wipe_charges == 1:
+		screenwipe.show()
+		screenwipe_2.hide()
 		screenwipe_2.hide()
 	else:
 		screenwipe.hide()
+		screenwipe_2.hide()
+		screenwipe_3.hide()
